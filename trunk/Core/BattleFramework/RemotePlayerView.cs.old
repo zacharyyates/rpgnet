@@ -1,0 +1,46 @@
+﻿/* Zachary Yates
+ * Copyright © 2008 YatesMorrison Software, LLC.
+ * 02.01.2008
+ */
+
+using System.ServiceModel;
+
+namespace YatesMorrison.RolePlay.BattleFramework
+{
+	[ServiceContract(
+		CallbackContract = typeof(IBattleObserver),
+		Name = "RemotePlayerView",
+		SessionMode=SessionMode.Required)]
+	public interface IRemotePlayerView
+	{
+		[OperationContract(IsInitiating = true)]
+		void Connect();
+
+		[OperationContract(IsTerminating = true)]
+		void Disconnect();
+	}
+
+	[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+	public class ServerRemotePlayerView : 
+		IRemotePlayerView, 
+		IView, 
+		IBattleObserver
+	{
+		IBattleObserver m_Callback;
+
+		public void Connect()
+		{
+			m_Callback = OperationContext.Current.GetCallbackChannel<IBattleObserver>();
+		}
+
+		public void Disconnect()
+		{
+			m_Callback = null;
+		}
+
+		public void ActorMoved( string actorId, ObjectPosition toPosition )
+		{
+			m_Callback.ActorMoved(actorId, toPosition);
+		}
+	}
+}

@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="YMS_RPG_TREASURE" Class="TreasureDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SKRAT10K\YMS_SQLEXPRESS;Initial Catalog=YMS_RPG_TREASURE;Integrated Security=True" SettingsObjectName="YatesMorrison.RolePlay.D20.Past.Properties.Settings" SettingsPropertyName="YMS_RPG_TREASUREConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Goods_ArtObject" Member="Goods_ArtObjects">
+    <Type Name="Goods_ArtObject">
+      <Column Name="ArtObjectID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiceNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiceRange" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Multiplier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Goods_ArtObject_Goods_ArtObjectText" Member="Goods_ArtObjectTexts" OtherKey="ArtObjectFK" Type="Goods_ArtObjectText" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Goods_ArtObjectText" Member="Goods_ArtObjectTexts">
+    <Type Name="Goods_ArtObjectText">
+      <Column Name="ArtObjectFK" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ArtObjectText" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Goods_ArtObject_Goods_ArtObjectText" Member="Goods_ArtObject" ThisKey="ArtObjectFK" Type="Goods_ArtObject" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Goods_Gem" Member="Goods_Gems">
+    <Type Name="Goods_Gem">
+      <Column Name="GemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiceNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiceRange" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Multiplier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Goods_Gem_Goods_GemText" Member="Goods_GemTexts" OtherKey="GemFK" Type="Goods_GemText" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Goods_GemText" Member="Goods_GemTexts">
+    <Type Name="Goods_GemText">
+      <Column Name="GemFK" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Goods_Gem_Goods_GemText" Member="Goods_Gem" ThisKey="GemFK" Type="Goods_Gem" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Goods_ByEncounterLevel" Member="Goods_ByEncounterLevels">
+    <Type Name="Goods_ByEncounterLevel">
+      <Column Name="EncounterLevel" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GoodsType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiceNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiceRange" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Multiplier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Items_ByEncounterLevel" Member="Items_ByEncounterLevels">
+    <Type Name="Items_ByEncounterLevel">
+      <Column Name="EncounterLevel" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemsType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiceNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiceRange" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Multiplier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Coins_ByEncounterLevel" Member="Coins_ByEncounterLevels">
+    <Type Name="Coins_ByEncounterLevel">
+      <Column Name="EncounterLevel" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CoinType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="High" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DiceNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiceRange" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Multiplier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mundane_Item" Member="Mundane_Items">
+    <Type Name="Mundane_Item">
+      <Column Name="MundaneItemType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mundane_ItemAlchemical" Member="Mundane_ItemAlchemicals">
+    <Type Name="Mundane_ItemAlchemical">
+      <Column Name="AlchemicalItemType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DiceNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiceRange" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MarketPrice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mundane_ItemArmor" Member="Mundane_ItemArmors">
+    <Type Name="Mundane_ItemArmor">
+      <Column Name="ArmorType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MarketPrice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mundane_ItemToolGear" Member="Mundane_ItemToolGears">
+    <Type Name="Mundane_ItemToolGear">
+      <Column Name="ToolGearType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MarketPrice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mundane_ItemWeaponType" Member="Mundane_ItemWeaponTypes">
+    <Type Name="Mundane_ItemWeaponType">
+      <Column Name="WeaponType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mundane_ItemArmorDarkwood" Member="Mundane_ItemArmorDarkwoods">
+    <Type Name="Mundane_ItemArmorDarkwood">
+      <Column Name="DarkwoodType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MarketPrice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mundane_ItemArmorMasterworkShield" Member="Mundane_ItemArmorMasterworkShields">
+    <Type Name="Mundane_ItemArmorMasterworkShield">
+      <Column Name="MasterworkShieldType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MarketPrice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Magic_CommonMeleeWeapon" Member="Magic_CommonMeleeWeapons">
+    <Type Name="Magic_CommonMeleeWeapon">
+      <Column Name="MagicCommonMeleeWeaponType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WeaponCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Magic_CommonRangedWeapon" Member="Magic_CommonRangedWeapons">
+    <Type Name="Magic_CommonRangedWeapon">
+      <Column Name="MagicCommonRangedWeaponType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WeaponCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Magic_UncommonWeapon" Member="Magic_UncommonWeapons">
+    <Type Name="Magic_UncommonWeapon">
+      <Column Name="MagicUncommonWeaponType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WeaponCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Magic_Item" Member="Magic_Items">
+    <Type Name="Magic_Item">
+      <Column Name="MagicItemType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MinorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Magic_ArmorSpecialAbility" Member="Magic_ArmorSpecialAbilities">
+    <Type Name="Magic_ArmorSpecialAbility">
+      <Column Name="MagicArmorSpecialAbilityType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MinorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AddCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AddModifier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Magic_ArmorType" Member="Magic_ArmorTypes">
+    <Type Name="Magic_ArmorType">
+      <Column Name="MagicArmorType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ArmorCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Magic_ShieldSpecialAbility" Member="Magic_ShieldSpecialAbilities">
+    <Type Name="Magic_ShieldSpecialAbility">
+      <Column Name="MagicShieldSpecialAbilityType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MinorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BaseCostModifier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BasePriceModifier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Magic_SpecifcArmor" Member="Magic_SpecifcArmors">
+    <Type Name="Magic_SpecifcArmor">
+      <Column Name="SpecificMagicArmorType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MinorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MarketPrice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Magic_SpecificShield" Member="Magic_SpecificShields">
+    <Type Name="Magic_SpecificShield">
+      <Column Name="SpecificMagicShieldType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MinorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MarketPrice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Magic_ArmorShield" Member="Magic_ArmorShields">
+    <Type Name="Magic_ArmorShield">
+      <Column Name="MagicArmorShieldType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MinorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediumHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorLow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MajorHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BasePrice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EnhancementBonus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ArmorOrShield" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Magic_ShieldType" Member="Magic_ShieldTypes">
+    <Type Name="Magic_ShieldType">
+      <Column Name="MagicShieldType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Low" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="High" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ShieldCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
