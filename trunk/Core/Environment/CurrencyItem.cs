@@ -13,9 +13,9 @@ namespace YatesMorrison.RolePlay
 			m_Value = value;
 		}
 
-		public override string GetDebugString()
+		public override string ToString()
 		{
-			return Value.GetDebugString();
+			return Value.ToString();
 		}
 	}
 }

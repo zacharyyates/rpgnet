@@ -1,6 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
+/* Zachary Yates
+ * Copyright © 2008 YatesMorrison Software, LLC.
+ * 6/24/2008
+ */
 
 namespace YatesMorrison.RolePlay
 {
@@ -13,9 +14,9 @@ namespace YatesMorrison.RolePlay
 		}
 		protected MonetaryValue m_Value;
 
-		public override string GetDebugString()
+		public override string ToString()
 		{
-			return Name + " (" + Value.GetDebugString() + ")";
+			return Name + " (" + Value.ToString() + ")";
 		}
 	}
 }

@@ -3,8 +3,6 @@
  * 11/4/2007
  */
 
-using System;
-
 namespace YatesMorrison.RolePlay
 {
 	public enum SizeCategory

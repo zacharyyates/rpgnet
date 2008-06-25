@@ -3,26 +3,12 @@
  * 11/3/2007
  */
 
-using System;
-using YatesMorrison.RolePlay.BattleFramework;
-
 namespace YatesMorrison.RolePlay
 {
 	public class Actor
 	{
-		public string Name
-		{
-			get { return m_Name; }
-			set { m_Name = value; }
-		}
-		string m_Name = string.Empty;
-
-		public string Description
-		{
-			get { return m_Description; }
-			set { m_Description = value; }
-		}
-		string m_Description = string.Empty;
+		public string Name { get; set; }
+		public string Description { get; set; }
 
 		public virtual double Weight
 		{
@@ -38,7 +24,7 @@ namespace YatesMorrison.RolePlay
 		}
 		protected SizeCategory m_SizeCategory;
 
-		public virtual string GetDebugString()
+		public override string ToString()
 		{
 			return Name;
 		}

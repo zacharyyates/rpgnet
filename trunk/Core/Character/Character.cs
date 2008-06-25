@@ -17,6 +17,7 @@ namespace YatesMorrison.RolePlay
 		// However, that would be out of scope for this project, so I leave it up to myself at a later date, 
 		// or someone else all together...
 		// Or maybe I'll just do it...
+		// [ZLY 6.24.200] I obviously did it already.
 
 		#endregion
 

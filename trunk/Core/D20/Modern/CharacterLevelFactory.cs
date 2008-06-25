@@ -3,39 +3,51 @@
  * 11/10/2007
  */
 
-using System;
-using System.Xml.Serialization;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace YatesMorrison.RolePlay.D20.Modern
 {
 	public class CharacterLevelFactory : ICharacterLevelFactory
 	{
+		CharacterLevelFactoryConfiguration m_Configuration = null;
+
+		// Derived classes override these properties to provide different progressions
+		public string ClassName { get; set; }
+		public DieType HitDie { get; set; }
+		public double SkillPointsPerLevel { get; set; }
+		public Progression FortitudeSave { get; set; }
+		public Progression ReflexSave { get; set; }
+		public Progression WillSave { get; set; }
+		public Progression AttackBonus { get; set; }
+		public Progression DefenseBonus { get; set; }
+		public Progression ReputationBonus { get; set; }
+		
 		public CharacterLevelFactory() { }
-		public CharacterLevelFactory(CharacterLevelFactoryConfiguration configuration)
+		public CharacterLevelFactory( CharacterLevelFactoryConfiguration configuration )
 		{
 			Initialize(configuration);
 		}
-		public CharacterLevelFactory(string configPath)
+		public CharacterLevelFactory( string configPath )
 		{
 			CharacterLevelFactoryConfiguration config = null;
 
-			if (File.Exists(configPath))
+			if( File.Exists(configPath) )
 			{
-				using (FileStream fs = new FileStream(configPath, FileMode.Open))
+				using( FileStream fs = new FileStream(configPath, FileMode.Open) )
 				{
 					XmlSerializer serializer = new XmlSerializer(typeof(CharacterLevelFactoryConfiguration));
 					config = serializer.Deserialize(fs) as CharacterLevelFactoryConfiguration;
 				}
 			}
 
-			if (config != null)
+			if( config != null )
 			{
 				Initialize(config);
 			}
 		}
 
-		protected virtual void Initialize(CharacterLevelFactoryConfiguration configuration)
+		protected virtual void Initialize( CharacterLevelFactoryConfiguration configuration )
 		{
 			m_Configuration = configuration;
 
@@ -49,8 +61,6 @@ namespace YatesMorrison.RolePlay.D20.Modern
 			DefenseBonus = configuration.DefenseBonus;
 			ReputationBonus = configuration.ReputationBonus;
 		}
-
-		CharacterLevelFactoryConfiguration m_Configuration = null;
 
 		public CharacterLevel AddLevelTo( Character character )
 		{
@@ -66,6 +76,7 @@ namespace YatesMorrison.RolePlay.D20.Modern
 			return level;
 		}
 
+		#region Attributes
 		protected virtual void DoAddAttributes( BaseCharacterLevel level )
 		{
 			DoAddAttackBonus(level);
@@ -82,12 +93,12 @@ namespace YatesMorrison.RolePlay.D20.Modern
 			DoAddWealthBonus(level);
 		}
 
-		protected virtual void DoAddAttackBonus(BaseCharacterLevel level)
+		protected virtual void DoAddAttackBonus( BaseCharacterLevel level )
 		{
 			AttackBonus.BuildAttributeFor<CharacterAttribute>(
 				level, new CharacterAttribute(level.Character, Strings.BASE_ATTACK_BONUS, 0));
 		}
-		protected virtual void DoAddSavingThrow(BaseCharacterLevel level)
+		protected virtual void DoAddSavingThrow( BaseCharacterLevel level )
 		{
 			FortitudeSave.BuildAttributeFor<DependentCharacterAttribute>(
 				level, new DependentCharacterAttribute(level.Character, Strings.FORTITUDE_SAVE, 0, Strings.CON_MOD));
@@ -98,17 +109,17 @@ namespace YatesMorrison.RolePlay.D20.Modern
 			WillSave.BuildAttributeFor<DependentCharacterAttribute>(
 				level, new DependentCharacterAttribute(level.Character, Strings.WILL_SAVE, 0, Strings.WIS_MOD));
 		}
-		protected virtual void DoAddDefenseBonus(BaseCharacterLevel level)
+		protected virtual void DoAddDefenseBonus( BaseCharacterLevel level )
 		{
 			DefenseBonus.BuildAttributeFor<DefenseBonus>(
 				level, new DefenseBonus(level.Character));
 		}
-		protected virtual void DoAddReputationBonus(BaseCharacterLevel level)
+		protected virtual void DoAddReputationBonus( BaseCharacterLevel level )
 		{
 			ReputationBonus.BuildAttributeFor<CharacterAttribute>(
 				level, new CharacterAttribute(level.Character, Strings.REPUTATION, 0));
 		}
-		protected virtual void DoAddAbilityScore( BaseCharacterLevel level ) 
+		protected virtual void DoAddAbilityScore( BaseCharacterLevel level )
 		{
 			if( IsOnCharacterLevel(level, 4) )
 			{
@@ -118,15 +129,15 @@ namespace YatesMorrison.RolePlay.D20.Modern
 		protected virtual void DoAddHitPoints( BaseCharacterLevel level )
 		{
 			level.AddAttribute(new DependentCharacterAttribute(level.Character,
-					Strings.HP, RollHelper.Roll(HitDie), Strings.CON_MOD));
+					Strings.HP, Dice.Roll(HitDie), Strings.CON_MOD));
 		}
-		protected virtual void DoAddSkillPoints(BaseCharacterLevel level)
+		protected virtual void DoAddSkillPoints( BaseCharacterLevel level )
 		{
 			level.SkillPoints = SkillPointsPerLevel + level.Character.GetEffectedScoreFor(Strings.INT_MOD);
 		}
-		protected virtual void DoAddFeats( BaseCharacterLevel level ) 
+		protected virtual void DoAddFeats( BaseCharacterLevel level )
 		{
-			if( IsOnCharacterLevel(level, 3))
+			if( IsOnCharacterLevel(level, 3) )
 			{
 				level.Feats = 1;
 			}
@@ -145,14 +156,14 @@ namespace YatesMorrison.RolePlay.D20.Modern
 				level.Talents = 1;
 			}
 		}
-		protected virtual void DoAddActionPoints( BaseCharacterLevel level ) 
+		protected virtual void DoAddActionPoints( BaseCharacterLevel level )
 		{
 			// Action Points = 5 + 1/2 Character Level, rounded down.
 			level.AddAttribute(
-				new CharacterAttribute(level.Character, "Action Points", 
+				new CharacterAttribute(level.Character, "Action Points",
 				5 + System.Math.Floor((double)level.Character.CharacterLevel / 2)));
 		}
-		protected virtual void DoAddWealthBonus( BaseCharacterLevel level ) 
+		protected virtual void DoAddWealthBonus( BaseCharacterLevel level )
 		{
 			double currentWealthBonus = level.Character.GetEffectedScoreFor("Wealth Bonus");
 			double currentProfessionSkill = level.Character.GetEffectedScoreFor("Profession");
@@ -166,71 +177,9 @@ namespace YatesMorrison.RolePlay.D20.Modern
 
 			level.AddAttribute(new CharacterAttribute(level.Character, "Wealth Bonus", totalBonus));
 		}
+		#endregion
 
-		// Derived classes override these properties to provide different progressions
-		public string ClassName
-		{
-			get { return m_ClassName; }
-			set { m_ClassName = value; }
-		}
-		string m_ClassName = "Base";
-		 
-		public string HitDie
-		{
-			get { return m_HitDie; }
-			set { m_HitDie = value; }
-		}
-		string m_HitDie = "Dice.Roll(1, 6)";
-
-		public double SkillPointsPerLevel
-		{
-			get { return m_SkillPointsPerLevel; }
-			set { m_SkillPointsPerLevel = value; }
-		}
-		double m_SkillPointsPerLevel = 0;
-
-		public Progression FortitudeSave
-		{
-			get { return m_FortitudeSave; }
-			set { m_FortitudeSave = value; }
-		}
-		Progression m_FortitudeSave = null;
-
-		public Progression ReflexSave
-		{
-			get { return m_ReflexSave; }
-			set { m_ReflexSave = value; }
-		}
-		Progression m_ReflexSave = null;
-
-		public Progression WillSave
-		{
-			get { return m_WillSave; }
-			set { m_WillSave = value; }
-		}
-		Progression m_WillSave = null;
-
-		public Progression AttackBonus
-		{
-			get { return m_AttackBonus; }
-			set { m_AttackBonus = value; }
-		}
-		Progression m_AttackBonus = null;
-
-		public Progression DefenseBonus
-		{
-			get { return m_DefenseBonus; }
-			set { m_DefenseBonus = value; }
-		}
-		Progression m_DefenseBonus = null;
-
-		public Progression ReputationBonus
-		{
-			get { return m_ReputationBonus; }
-			set { m_ReputationBonus = value; }
-		}
-		Progression m_ReputationBonus = null;
-
+		#region Level Checks
 		protected static bool IsOnLevel( int level, int every, int offset )
 		{
 			return ( System.Math.IEEERemainder(level + offset, every) == 0 );
@@ -253,5 +202,6 @@ namespace YatesMorrison.RolePlay.D20.Modern
 			int levels = level.Character.CharacterLevel;
 			return IsOnLevel(levels, every, offset);
 		}
+		#endregion
 	}
 }

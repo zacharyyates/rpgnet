@@ -20,12 +20,7 @@ namespace YatesMorrison.RolePlay
 			SimpleScore = simpleScore;
 		}
 
-		public string Name
-		{
-			get { return m_Name; }
-			set { m_Name = value; }
-		}
-		string m_Name = string.Empty;
+		public string Name { get; set; }
 		
 		protected double EffectModifierTotal
 		{
@@ -57,12 +52,7 @@ namespace YatesMorrison.RolePlay
 			KeyAttribute = keyAttribute;
 		}
 
-		public string KeyAttribute
-		{
-			get { return m_KeyAttribute; }
-			set { m_KeyAttribute = value; }
-		}
-		string m_KeyAttribute = string.Empty;
+		public string KeyAttribute { get; set; }
 
 		protected double KeyAttributeValue
 		{

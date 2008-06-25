@@ -9,12 +9,7 @@ namespace YatesMorrison.RolePlay
 {
 	public class CharacterEnhancement
 	{
-		public string Name
-		{
-			get { return m_Name; }
-			set { m_Name = value; }
-		}
-		string m_Name = string.Empty;
+		public string Name { get; set; }
 		
 		public List<Modifier> Modifiers
 		{

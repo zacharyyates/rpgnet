@@ -9,7 +9,7 @@ namespace YatesMorrison.RolePlay.D20
 	{
 		public static double Check( double difficultyClass, double totalModifier )
 		{
-			return RollHelper.Roll("1d20+" + totalModifier) - difficultyClass;
+			return Dice.Roll(DieType.D20) + totalModifier - difficultyClass;
 		}
 		public static double Check( double difficultyClass, Character character, string attribute )
 		{

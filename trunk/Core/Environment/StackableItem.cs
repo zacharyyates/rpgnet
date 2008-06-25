@@ -3,27 +3,21 @@
  * 1/22/2008
  */
 
-
 namespace YatesMorrison.RolePlay
 {
 	public class StackableItem : Item
 	{
-		public int Quantity
-		{
-			get { return m_Quantity; }
-			set { m_Quantity = value; }
-		}
-		int m_Quantity;
+		public int Quantity { get; set; }
 
 		public override double Weight
 		{
-			get { return m_Weight * m_Quantity; }
+			get { return m_Weight * Quantity; }
 			set { m_Weight = value; }
 		}
 
-		public override string GetDebugString()
+		public override string ToString()
 		{
-			return Quantity + " " + base.GetDebugString();
+			return Quantity + " " + base.ToString();
 		}
 	}
 }

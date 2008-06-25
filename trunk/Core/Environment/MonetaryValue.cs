@@ -20,7 +20,7 @@ namespace YatesMorrison.RolePlay
 		}
 		protected double m_Value;
 
-		public virtual string GetDebugString()
+		public override string ToString()
 		{
 			return Value.ToString();
 		}

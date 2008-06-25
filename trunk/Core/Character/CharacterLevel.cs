@@ -11,36 +11,13 @@ namespace YatesMorrison.RolePlay
 	{
 		public CharacterLevel( Character character )
 		{
-			m_Character = character;
+			Character = character;
 		}
 
-		public string ClassName
-		{
-			get { return m_ClassName; }
-			set { m_ClassName = value; }
-		}
-		string m_ClassName = string.Empty;
-
-		public int LevelIndex
-		{
-			get { return m_LevelIndex; }
-			set { m_LevelIndex = value; }
-		}
-		int m_LevelIndex = 0;
-
-		public Character Character
-		{
-			get { return m_Character; }
-			set { m_Character = value; }
-		}
-		Character m_Character = null;
-
-		public bool IsActive
-		{
-			get { return m_IsActive; }
-			set { m_IsActive = value; }
-		}
-		bool m_IsActive = true;
+		public string ClassName { get; set; }
+		public int LevelIndex { get; set; }
+		public Character Character { get; set; }
+		public bool IsActive { get; set; }
 
 		public void AddAttribute( CharacterAttribute attribute )
 		{
