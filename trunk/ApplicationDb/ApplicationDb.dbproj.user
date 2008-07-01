@@ -1,0 +1,18 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <DefaultDataPath>C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA\</DefaultDataPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <FileGroupsFileNames>
+      <FileGroupFileNameList Version="1" xmlns="">
+  <AllFileNames>
+    <FileGroupFileName>
+      <FileGroupName>PRIMARY</FileGroupName>
+      <FileGroupFileName>9d6b7c47-e6f8-4c8f-a6eb-0495710cab4b</FileGroupFileName>
+    </FileGroupFileName>
+  </AllFileNames>
+</FileGroupFileNameList>
+    </FileGroupsFileNames>
+    <DesignDBName>ApplicationDb_DB_73858cec-7625-4ed9-82ee-5f4db51193d0</DesignDBName>
+  </PropertyGroup>
+</Project>

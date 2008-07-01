@@ -3,7 +3,6 @@
  * 11/4/2007
  */
 
-using System;
 using System.Collections.Generic;
 
 namespace YatesMorrison.RolePlay
@@ -17,16 +16,11 @@ namespace YatesMorrison.RolePlay
 		// However, that would be out of scope for this project, so I leave it up to myself at a later date, 
 		// or someone else all together...
 		// Or maybe I'll just do it...
-		// [ZLY 6.24.200] I obviously did it already.
+		// [ZLY 6.24.2008] I obviously did it already.
 
 		#endregion
 
-		public Inventory Inventory
-		{
-			get { return m_Inventory; }
-			set { m_Inventory = value; }
-		}
-		Inventory m_Inventory = null;
+		public Inventory Inventory { get; set; }
 
 		public List<CharacterLevel> Levels
 		{

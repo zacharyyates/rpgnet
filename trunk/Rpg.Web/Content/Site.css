@@ -1,0 +1,74 @@
+﻿body
+{
+	font-family: Georgia, Serif;
+	font-size: 1em;
+	color: #333;
+	margin: 0px;
+	padding: 0px;
+}
+
+div#page
+{
+	width: 75%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#main
+{
+	float: left;
+}
+
+div#page > div#right
+{
+	float: right;
+	background-color: #ccc;
+}
+
+div#footer
+{
+	clear: both;
+	background-color: #ccc;
+}
+
+img#logo
+{
+	margin: 75px 20px 20px 20px;
+	border: 0px;
+	float: left;
+}
+
+ul#menu
+{
+	padding: 0px;
+}
+
+ul#menu li
+{
+	padding-right: 5px;
+	list-style: none;
+	display: inline;
+}
+
+h1, h2, h3, h4, h5, h6, h7
+{
+	font-family: Tahoma, Verdana;
+	font-size: 2em;
+}
+
+h1
+{
+	font-size: 3em;
+}
+
+a
+{
+	color: #44aa00;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #333;
+}

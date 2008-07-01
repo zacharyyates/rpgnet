@@ -1,0 +1,4 @@
+﻿ALTER TABLE [dbo].[ActorPower] ADD
+CONSTRAINT [FK_ActorPower_Actor] FOREIGN KEY ([ActorIdFk]) REFERENCES [dbo].[Actor] ([Id]) ON DELETE CASCADE ON UPDATE CASCADE
+
+
