@@ -66,6 +66,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CharacterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -74,12 +75,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Actor.cs" />
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\CharacterAttribute.cs" />
+    <Compile Include="Models\CharacterEnhancement.cs" />
+    <Compile Include="Models\CharacterLevel.cs" />
     <Compile Include="Models\Dice.cs" />
+    <Compile Include="Models\Effect.cs" />
+    <Compile Include="Models\ICharacterLevelFactory.cs" />
+    <Compile Include="Models\Modifier.cs" />
+    <Compile Include="Models\Progression.cs" />
+    <Compile Include="Models\Requisite.cs" />
     <Compile Include="Models\RpgNetModel.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RpgNetModel.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\SizeCategory.cs" />
     <Compile Include="Models\Tokenizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Home\About.aspx.cs">

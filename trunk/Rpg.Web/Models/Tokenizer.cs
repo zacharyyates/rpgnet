@@ -15,7 +15,7 @@ namespace YatesMorrison.Rpg
 		public void Tokenize(string function)
 		{
 			string[] tokens = CleanUp(function).Split(' ');
-			m_log.Append("CleanUp(" + function + "): " + CleanUp(function) + Environment.NewLine);
+			m_Log.Append("CleanUp(" + function + "): " + CleanUp(function) + Environment.NewLine);
 
 			foreach (string token in tokens)
 			{
@@ -83,9 +83,9 @@ namespace YatesMorrison.Rpg
 
 		public string Log
 		{
-			get { return m_log.ToString(); }
+			get { return m_Log.ToString(); }
 		}
-		StringBuilder m_log = new StringBuilder();
+		StringBuilder m_Log = new StringBuilder();
 
 		public double Evaluate()
 		{
@@ -94,13 +94,13 @@ namespace YatesMorrison.Rpg
 			{
 				if (m_tokens[i] is TokenOperator)
 				{
-					m_log.Append("Token[" + i + "]: val = " + val + " " + ((TokenOperator)m_tokens[i]).Type.ToString() + " " + ((Token)m_tokens[i + 1]).Value + Environment.NewLine);
+					m_Log.Append("Token[" + i + "]: val = " + val + " " + ((TokenOperator)m_tokens[i]).Type.ToString() + " " + ((Token)m_tokens[i + 1]).Value + Environment.NewLine);
 					val = ((TokenOperator)m_tokens[i]).Evaluate(val, ((Token)m_tokens[i + 1]).Value); // i + 1 is already evaluated, move on
 					i += 1;
 				}
 				else
 				{
-					m_log.Append("Token[" + i + "]: val = " + ((Token)m_tokens[i]).Value + Environment.NewLine);
+					m_Log.Append("Token[" + i + "]: val = " + ((Token)m_tokens[i]).Value + Environment.NewLine);
 					val = ((Token)m_tokens[i]).Value;
 				}
 			}
