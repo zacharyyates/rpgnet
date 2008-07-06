@@ -1,54 +1,65 @@
 /* Zachary Yates
- * 2007 © YatesMorrison Software Company
+ * Copyright © 2007 YatesMorrison Software Company
  * 7/6/2008
  */
 
-using System;
 using System.Collections.Generic;
 
 namespace YatesMorrison.Rpg
 {
 	public class Character : Actor
 	{
-		public int ExperiencePoints { get; set; }
-		public int CharacterLevel { get; set; }
-		public int ExperienceLevel
-		{
-			get
-			{
-				int? level = m_ExperienceProgression.GetIndex(ExperiencePoints);
-				if (level.HasValue)
-					return level.Value;
-				else
-					return 0;
-			}
-		}
+		//public Inventory Inventory { get; set; }
 
-		// 4th Ed experience progression
-		Progression m_ExperienceProgression = new Progression(
-			0, 1000, 2250, 3750, 5500, 7500, 10000, 13000, 16500, 20500,
-			26000, 32000, 39000, 47000, 57000, 69000, 83000, 99000, 119000, 143000,
-			175000, 210000, 255000, 310000, 375000, 450000, 550000, 675000, 825000, 1000000);
+		public List<CharacterLevel> Levels
+		{
+			get { return m_Levels; }
+		}
+		List<CharacterLevel> m_Levels = new List<CharacterLevel>();
 
 		#region Effects
 
-		public EffectCollection Effects
+		public List<Effect> Effects
 		{
 			get { return m_Effects; }
 		}
-		EffectCollection m_Effects = new EffectCollection();
+		List<Effect> m_Effects = new List<Effect>();
 
-		public double GetEffectModifierTotalFor(string attribute)
+		public List<Effect> GetEffectsFor( string attribute )
+		{
+			List<Effect> effectList = new List<Effect>();
+
+			foreach( Effect effect in m_Effects )
+			{
+				bool addToList = false;
+				foreach( KeyValuePair<string, Modifier> modifier in effect.Modifiers )
+				{
+					if( modifier.Value.TargetAttribute == attribute )
+					{
+						addToList = true;
+					}
+				}
+
+				if( addToList )
+				{
+					effectList.Add(effect);
+				}
+			}
+
+			return effectList;
+		}
+
+		public double GetEffectModifierTotalFor( string attribute )
 		{
 			double total = 0;
 
-			foreach (Effect effect in Effects)
+			foreach( Effect effect in m_Effects )
 			{
-				if (effect.Modifiers.ContainsKey(attribute))
+				if( effect.Modifiers.ContainsKey(attribute) )
 				{
 					Modifier modifier = effect.Modifiers[attribute];
 
-					if (modifier != null)
+					if( modifier != null )
 					{
 						total += modifier.GetBonus(this);
 					}
@@ -58,7 +69,7 @@ namespace YatesMorrison.Rpg
 			return total;
 		}
 
-		public double GetEffectedScoreFor(string attribute)
+		public double GetEffectedScoreFor( string attribute )
 		{
 			double score = GetCalculatedScoreFor(attribute);
 			double modifier = GetEffectModifierTotalFor(attribute);
@@ -69,19 +80,34 @@ namespace YatesMorrison.Rpg
 
 		#region Character Attributes
 
-		public Dictionary<string, CharacterAttribute> Attributes
+		public double GetSimpleScoreFor( string attribute )
 		{
-			get { return m_Attributes; }
-		}
-		Dictionary<string, CharacterAttribute> m_Attributes = new Dictionary<string, CharacterAttribute>();
+			double simpleScore = 0;
 
-		public double GetCalculatedScoreFor(string attribute)
-		{
-			if (Attributes.ContainsKey(attribute))
+			foreach( CharacterLevel level in m_Levels )
 			{
-				return Attributes[attribute].CalculatedScore;
+				if( level.Attributes.ContainsKey(attribute) && level.IsActive )
+				{
+					simpleScore += level.Attributes[attribute].SimpleScore;
+				}
 			}
-			throw new InvalidOperationException(attribute + " is not an attribute on " + this.Name);
+
+			return simpleScore;
+		}
+
+		public double GetCalculatedScoreFor( string attribute )
+		{
+			double simpleScore = GetSimpleScoreFor(attribute);
+			if( m_Levels.Count > 1 )
+			{
+				if( m_Levels[0].IsActive )
+				{
+					return m_Levels[0].Attributes[attribute].GetCalculatedScore(simpleScore);
+				}
+			}
+			
+			// There should always be a level 1, but in case there isn't, send back the simpleScore
+			return simpleScore;
 		}
 
 		public List<string> AttributeNames
@@ -89,33 +115,50 @@ namespace YatesMorrison.Rpg
 			get
 			{
 				List<string> names = new List<string>();
-				foreach (KeyValuePair<string, CharacterAttribute> attribute in Attributes)
+				foreach( CharacterLevel level in m_Levels )
 				{
-					names.Add(attribute.Key);
+					foreach( KeyValuePair<string, CharacterAttribute> attribute in level.Attributes )
+					{
+						names.Add(attribute.Key);
+					}
 				}
+
 				return names;
 			}
 		}
 
-		public bool HasAttribute(string name)
+		public bool HasAttribute( string name )
 		{
-			if (Attributes.ContainsKey(name))
+			foreach( CharacterLevel level in m_Levels )
 			{
-				return true;
+				if( level.Attributes.ContainsKey(name) )
+				{
+					return true;
+				}
 			}
 			return false;
 		}
-
+		
 		#endregion
 
-		#region Enhancements
-
-		public Dictionary<string, CharacterEnhancement> Enhancements
+		public int GetLevelsFor( string className )
 		{
-			get { return m_Enhancements; }
-		}
-		Dictionary<string, CharacterEnhancement> m_Enhancements = new Dictionary<string, CharacterEnhancement>();
+			int levels = 0;
 
-		#endregion
+			foreach( CharacterLevel level in m_Levels )
+			{
+				if( level.ClassName == className )
+				{
+					levels++;
+				}
+			}
+
+			return levels;
+		}
+
+		public int CharacterLevel
+		{
+			get { return m_Levels.Count; }
+		}
 	}
 }

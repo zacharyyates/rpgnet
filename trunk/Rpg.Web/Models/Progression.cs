@@ -38,27 +38,12 @@ namespace YatesMorrison.Rpg
 			double total = 0;
 			for (int step = 0; step < index; step++)
 			{
+				//if (m_SumFormat[step] != null)
+				//{
 				total += m_SumFormat[step];
+				//}
 			}
 			return total;
-		}
-
-		/// <summary>
-		/// Gets the advancement of the progression from the specified total
-		/// </summary>
-		/// <returns>Null if the total is not in the progression</returns>
-		public int? GetIndex(double total)
-		{
-			double currentTotal = 0;
-			for (int index = 0; index < m_SumFormat.Count; index++)
-			{
-				currentTotal += m_SumFormat[index];
-				if (currentTotal <= total)
-				{
-					return index;
-				}
-			}
-			return null;
 		}
 
 		void CheckIndex(int index)
@@ -105,10 +90,17 @@ namespace YatesMorrison.Rpg
 			double previousStep = 0;
 			for (int step = 0; step < readableFormat.Length; step++)
 			{
+				//if (readableFormat[step] != null)
+				//{
 				double currentStep = readableFormat[step];
 				double difference = currentStep - previousStep;
 				sumFormat[step] = difference;
 				previousStep = currentStep;
+				//}
+				//else
+				//{
+				//    sumFormat[step] = null;
+				//}
 			}
 			return sumFormat;
 		}
@@ -118,8 +110,15 @@ namespace YatesMorrison.Rpg
 			double runningTotal = 0;
 			for (int step = 0; step < sumFormat.Length; step++)
 			{
+				//if (sumFormat[step] != null)
+				//{
 				runningTotal += sumFormat[step];
 				readableFormat[step] = runningTotal;
+				//}
+				//else
+				//{
+				//    readableFormat[step] = null;
+				//}
 			}
 			return readableFormat;
 		}
