@@ -80,20 +80,34 @@
     <Compile Include="Models\CharacterAttribute.cs" />
     <Compile Include="Models\CharacterEnhancement.cs" />
     <Compile Include="Models\CharacterLevel.cs" />
+    <Compile Include="Models\CharacterMocker.cs" />
     <Compile Include="Models\Dice.cs" />
+    <Compile Include="Models\Dnd4\AbilityModifier.cs" />
+    <Compile Include="Models\Dnd4\AbilityModifierPlusHalfLevel.cs" />
+    <Compile Include="Models\Dnd4\Dnd4Character.cs" />
     <Compile Include="Models\Effect.cs" />
     <Compile Include="Models\ICharacterLevelFactory.cs" />
     <Compile Include="Models\Modifier.cs" />
     <Compile Include="Models\Progression.cs" />
     <Compile Include="Models\Requisite.cs" />
-    <Compile Include="Models\RpgNetModel.designer.cs">
+    <Compile Include="Models\RpgModel.cs">
+      <DependentUpon>RpgModel.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RpgModel.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RpgNetModel.dbml</DependentUpon>
+      <DependentUpon>RpgModel.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\SizeCategory.cs" />
     <Compile Include="Models\Tokenizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Character\Full.aspx.cs">
+      <DependentUpon>Full.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Character\Full.aspx.designer.cs">
+      <DependentUpon>Full.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -119,9 +133,20 @@
   <ItemGroup>
     <Content Include="Content\Images\DorkTools.png" />
     <Content Include="Content\Images\DorkTools72.png" />
+    <Content Include="Content\Images\GreenCircle1.png" />
+    <Content Include="Content\Images\GreenCircle10.png" />
+    <Content Include="Content\Images\GreenCircle2.png" />
+    <Content Include="Content\Images\GreenCircle3.png" />
+    <Content Include="Content\Images\GreenCircle4.png" />
+    <Content Include="Content\Images\GreenCircle5.png" />
+    <Content Include="Content\Images\GreenCircle6.png" />
+    <Content Include="Content\Images\GreenCircle7.png" />
+    <Content Include="Content\Images\GreenCircle8.png" />
+    <Content Include="Content\Images\GreenCircle9.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Character\Full.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Index.aspx" />
@@ -129,18 +154,18 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Models\RpgNetModel.dbml">
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\RpgModel.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>RpgNetModel.designer.cs</LastGenOutput>
+      <LastGenOutput>RpgModel.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Models\RpgNetModel.dbml.layout">
-      <DependentUpon>RpgNetModel.dbml</DependentUpon>
+    <None Include="Models\RpgModel.dbml.layout">
+      <DependentUpon>RpgModel.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

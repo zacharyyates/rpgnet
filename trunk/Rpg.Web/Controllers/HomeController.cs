@@ -12,7 +12,7 @@ namespace Rpg.Web.Controllers
         public ActionResult Index()
         {
             ViewData["Title"] = "Home Page";
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
+            ViewData["Message"] = "Welcome to Dork Tools!";
 
             return View();
         }

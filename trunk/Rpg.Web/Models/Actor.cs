@@ -7,7 +7,13 @@ namespace YatesMorrison.Rpg
 {
 	public class Actor
 	{
-		public string Name { get; set; }
+		public virtual string Name
+		{
+			get { return m_Name; }
+			set { m_Name = value; }
+		}
+		string m_Name;
+
 		public string Description { get; set; }
 
 		public virtual double Weight

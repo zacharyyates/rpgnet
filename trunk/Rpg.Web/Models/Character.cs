@@ -9,6 +9,15 @@ namespace YatesMorrison.Rpg
 {
 	public class Character : Actor
 	{
+		public string GivenName { get; set; }
+		public string Surname { get; set; }
+		public string CharacterClass { get; set; }
+
+		public override string Name
+		{
+			get { return GivenName + " " + Surname; }
+			set { base.Name = value; }
+		}
 		//public Inventory Inventory { get; set; }
 
 		public List<CharacterLevel> Levels
@@ -79,6 +88,35 @@ namespace YatesMorrison.Rpg
 		#endregion
 
 		#region Character Attributes
+
+		#region DnD 4
+
+		//public double Strength
+		//{
+		//    get { return GetSimpleScoreFor("Str"); }
+		//}
+		//public double Constitution
+		//{
+		//    get { return GetSimpleScoreFor("Con"); }
+		//}
+		//public double Dexterity
+		//{
+		//    get { return GetSimpleScoreFor("Dex"); }
+		//}
+		//public double Intelligence
+		//{
+		//    get { return GetSimpleScoreFor("Int"); }
+		//}
+		//public double Wisdom
+		//{
+		//    get { return GetSimpleScoreFor("Wis"); }
+		//}
+		//public double Charisma
+		//{
+		//    get { return GetSimpleScoreFor("Cha"); }
+		//}
+
+		#endregion
 
 		public double GetSimpleScoreFor( string attribute )
 		{

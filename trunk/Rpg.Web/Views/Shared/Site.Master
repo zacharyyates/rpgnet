@@ -5,27 +5,29 @@
 <head runat="server">
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<title>Dork Tools!</title>
-	<link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+	<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div id="page">
-		<img src="../../Content/Images/DorkTools72.png" alt="Dork Tools!" id="logo" />
+		<div id="logo">
+			<img src="../../Content/Images/DorkTools72.png" alt="Dork Tools!" />		
+		</div>
 		<div id="main">
-			<div id="header">
+			<div class="header">
 				<ul id="menu">
-					<li><%= Html.ActionLink("Home", "Index") %></li>
-					<li><%= Html.ActionLink("About", "About") %></li>
+					<li><%= Html.ActionLink("Home", "Index", "Home") %></li>
+					<li><%= Html.ActionLink("About", "About", "Home") %></li>
 				</ul>
 			</div>
-			<div id="content">
+			<div class="content">
 				<asp:ContentPlaceHolder ID="MainContent" runat="server" />
 			</div>
-			<div id="footer">
+			<div class="footer">
 				Dork Tools! &copy; Copyright 2008
 			</div>
 		</div>
 		<div id="right">
-			<div id="content">
+			<div class="content">
 				<asp:ContentPlaceHolder ID="RightContent" runat="server" />
 			</div>
 		</div>

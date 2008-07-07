@@ -1,42 +1,54 @@
-﻿body
+﻿html, body
 {
 	font-family: Georgia, Serif;
 	font-size: 1em;
 	color: #333;
 	margin: 0px;
 	padding: 0px;
+	background: #efefef;
+	height: 100%;
 }
 
 div#page
 {
-	width: 75%;
-	display: block;
+	position: relative;
+	width: 85%;
+	min-height: 100%;
+	min-width: 600px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-div#main
+div#page > div#logo
+{
+	margin: 0px 20px 20px 20px;
+	border: 0px;
+	float: left;
+}
+
+div#page > div#main
 {
 	float: left;
+	width: 75%;
+}
+
+div#page > div#main > div.content
+{
+	width: 100%;
+	border-top: solid 1px #44aa00;
+}
+
+div#page > div#main > div.footer
+{
+	clear: both;
+	position: absolute;
+	bottom: 0px;
 }
 
 div#page > div#right
 {
 	float: right;
 	background-color: #ccc;
-}
-
-div#footer
-{
-	clear: both;
-	background-color: #ccc;
-}
-
-img#logo
-{
-	margin: 75px 20px 20px 20px;
-	border: 0px;
-	float: left;
 }
 
 ul#menu
@@ -71,4 +83,36 @@ a
 a:hover
 {
 	color: #333;
+}
+
+table
+{
+	border: solid 0px #efefef;
+	border-collapse: collapse;
+}
+
+td
+{
+	vertical-align: middle;
+}
+
+table.abilities td
+{
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+table.abilities td.text
+{
+	width: 26%;
+	background-color: #333333; 
+	color: #ffffff; 
+	border: 1px solid #cccccc;
+	font-family: Verdana;
+}
+table.abilities td.value
+{
+	width: 21%;
+	font-size: 1.5em;
+	border: 1px solid #cccccc;
+	text-align: center;
 }

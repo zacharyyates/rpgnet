@@ -55,10 +55,6 @@
       <Project>{DDCF1C5C-FF81-4A68-A2E7-8475256E7C13}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Treasure\D20.Past.csproj">
-      <Project>{4DF3AA1E-E573-4E2D-AED6-96CEC9CB0CCC}</Project>
-      <Name>D20.Past</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

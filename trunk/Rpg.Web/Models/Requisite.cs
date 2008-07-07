@@ -45,7 +45,7 @@ namespace YatesMorrison.Rpg
 			catch( Exception exception )
 			{
 				throw new InvalidOperationException(string.Format(
-						"The attribute \"{0}\" was not found on the character \"{1}\".", AttributeName, character.Name), exception);
+						"The attribute \"{0}\" was not found on the character \"{1}\".", AttributeName, character.GivenName), exception);
 			}
 		}
 	}
