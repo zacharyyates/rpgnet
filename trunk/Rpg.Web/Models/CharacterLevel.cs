@@ -21,13 +21,24 @@ namespace YatesMorrison.Rpg
 
 		public void AddAttribute( CharacterAttribute attribute )
 		{
-			if (Attributes.ContainsKey(attribute.Name))
+			// TODO: Will this work for hit points?
+			if (attribute is DependentCharacterAttribute)
 			{
-				Attributes[attribute.Name].SimpleScore += attribute.SimpleScore;
+				if (!Character.HasAttribute(attribute.Name))
+				{
+					Attributes.Add(attribute.Name, attribute);
+				}
 			}
 			else
 			{
-				Attributes.Add(attribute.Name, attribute);
+				if (Attributes.ContainsKey(attribute.Name))
+				{
+					Attributes[attribute.Name].SimpleScore += attribute.SimpleScore;
+				}
+				else
+				{
+					Attributes.Add(attribute.Name, attribute);
+				}
 			}
 		}
 

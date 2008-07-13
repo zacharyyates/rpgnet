@@ -4,6 +4,7 @@
  */
 
 using System.Collections.Generic;
+
 namespace YatesMorrison.Rpg.Dnd4
 {
 	public class Dnd4Character : Character
@@ -30,6 +31,19 @@ namespace YatesMorrison.Rpg.Dnd4
 				return new List<string> { "Acrobatics", "Arcana", "Athletics", "Bluff", "Diplomacy", "Dungeoneering", 
 					"Endurance", "Heal", "History", "Insight", "Intimidate", "Nature", "Perception", "Religion", "Stealth",
 					"Streetwise", "Thievery" };
+			}
+		}
+
+		public double AverageAbilityScore
+		{
+			get
+			{
+				double total = 0;
+				foreach (string abbrv in AbilityScoreNames.Keys)
+				{
+					total += GetCalculatedScoreFor(abbrv);
+				}
+				return total / 6;
 			}
 		}
 	}

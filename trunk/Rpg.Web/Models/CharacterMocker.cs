@@ -16,20 +16,13 @@ namespace Rpg.Web.Models
 					CharacterClass = "Ranger"
 				}
 			};
-			CharacterLevel lvl1 = new CharacterLevel(dto.Character);
+			Dnd4CharacterLevel lvl1 = new Dnd4CharacterLevel(dto.Character);
 			lvl1.IsActive = true;
-			
-			lvl1.AddAttribute(new CharacterAttribute(dto.Character, "Str", 15));
-			lvl1.AddAttribute(new AbilityModifier(dto.Character, "Str"));
-			lvl1.AddAttribute(new AbilityModifierPlusHalfLevel(dto.Character, "Str"));
 
-			lvl1.AddAttribute(new CharacterAttribute(dto.Character, "Con", 14));
-			lvl1.AddAttribute(new AbilityModifier(dto.Character, "Con"));
-			lvl1.AddAttribute(new AbilityModifierPlusHalfLevel(dto.Character, "Con"));
-
-			lvl1.AddAttribute(new CharacterAttribute(dto.Character, "Dex", 20));
-			lvl1.AddAttribute(new AbilityModifier(dto.Character, "Dex"));
-			lvl1.AddAttribute(new AbilityModifierPlusHalfLevel(dto.Character, "Dex"));
+			foreach (string abbrv in dto.Character.AbilityScoreNames.Keys)
+			{
+				lvl1.AddAbility(new Ability(dto.Character, abbrv, Dice.Roll(4, DieType.D6, DieRollOptions.DropLowestOne)));
+			}
 
 			dto.Character.Levels.Add(lvl1);
 			

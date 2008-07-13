@@ -82,9 +82,11 @@
     <Compile Include="Models\CharacterLevel.cs" />
     <Compile Include="Models\CharacterMocker.cs" />
     <Compile Include="Models\Dice.cs" />
+    <Compile Include="Models\Dnd4\Ability.cs" />
     <Compile Include="Models\Dnd4\AbilityModifier.cs" />
     <Compile Include="Models\Dnd4\AbilityModifierPlusHalfLevel.cs" />
     <Compile Include="Models\Dnd4\Dnd4Character.cs" />
+    <Compile Include="Models\Dnd4\Dnd4CharacterLevel.cs" />
     <Compile Include="Models\Effect.cs" />
     <Compile Include="Models\ICharacterLevelFactory.cs" />
     <Compile Include="Models\Modifier.cs" />
