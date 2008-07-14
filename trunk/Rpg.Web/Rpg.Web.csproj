@@ -91,6 +91,7 @@
     <Compile Include="Models\ICharacterLevelFactory.cs" />
     <Compile Include="Models\Modifier.cs" />
     <Compile Include="Models\Progression.cs" />
+    <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\Requisite.cs" />
     <Compile Include="Models\RpgModel.cs">
       <DependentUpon>RpgModel.dbml</DependentUpon>
