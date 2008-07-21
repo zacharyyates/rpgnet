@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Rpg.AppDb" Class="WikiModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=Rpg.AppDb;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Rpg_AppDbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tag" Member="Tags">
+    <Type Name="Tag">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Tag_TopicTag" Member="TopicTags" OtherKey="TagId" Type="TopicTag" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Topic" Member="Topics">
+    <Type Name="Topic">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Content" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Topic_TopicTag" Member="TopicTags" OtherKey="TopicId" Type="TopicTag" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TopicTag" Member="TopicTags">
+    <Type Name="TopicTag">
+      <Column Name="TopicId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TagId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Tag_TopicTag" Member="Tag" ThisKey="TagId" Type="Tag" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Topic_TopicTag" Member="Topic" ThisKey="TopicId" Type="Topic" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

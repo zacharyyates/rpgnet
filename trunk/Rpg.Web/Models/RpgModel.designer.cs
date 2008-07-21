@@ -372,7 +372,7 @@ namespace Rpg.Web.Models
 			}
 		}
 		
-		[Association(Name="Account_Character", Storage="_CharacterDtos", OtherKey="AccountIdFk")]
+		[Association(Name="Account_CharacterDto", Storage="_CharacterDtos", OtherKey="AccountIdFk")]
 		public EntitySet<CharacterDto> CharacterDtos
 		{
 			get
@@ -529,7 +529,7 @@ namespace Rpg.Web.Models
 			}
 		}
 		
-		[Association(Name="Group_Character", Storage="_CharacterDtos", OtherKey="GroupIdFk")]
+		[Association(Name="Group_CharacterDto", Storage="_CharacterDtos", OtherKey="GroupIdFk")]
 		public EntitySet<CharacterDto> CharacterDtos
 		{
 			get
@@ -1048,7 +1048,7 @@ namespace Rpg.Web.Models
 			}
 		}
 		
-		[Association(Name="Account_Character", Storage="_Account", ThisKey="AccountIdFk", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[Association(Name="Account_CharacterDto", Storage="_Account", ThisKey="AccountIdFk", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Account Account
 		{
 			get
@@ -1082,7 +1082,7 @@ namespace Rpg.Web.Models
 			}
 		}
 		
-		[Association(Name="Group_Character", Storage="_Group", ThisKey="GroupIdFk", IsForeignKey=true)]
+		[Association(Name="Group_CharacterDto", Storage="_Group", ThisKey="GroupIdFk", IsForeignKey=true)]
 		public Group Group
 		{
 			get

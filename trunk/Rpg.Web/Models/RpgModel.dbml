@@ -14,7 +14,7 @@
       <Column Name="Country" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="IsSpammable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Account_Group" Member="Groups" OtherKey="AccountIdFk" Type="Group" />
-      <Association Name="Account_Character" Member="CharacterDtos" OtherKey="AccountIdFk" Type="CharacterDto" />
+      <Association Name="Account_CharacterDto" Member="CharacterDtos" OtherKey="AccountIdFk" Type="CharacterDto" />
     </Type>
   </Table>
   <Table Name="dbo.[Group]" Member="Groups">
@@ -22,7 +22,7 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="AccountIdFk" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Group_Character" Member="CharacterDtos" OtherKey="GroupIdFk" Type="CharacterDto" />
+      <Association Name="Group_CharacterDto" Member="CharacterDtos" OtherKey="GroupIdFk" Type="CharacterDto" />
       <Association Name="Account_Group" Member="Account" ThisKey="AccountIdFk" Type="Account" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
@@ -45,8 +45,8 @@
       <Column Name="Gender" Type="System.Char" DbType="NChar(1)" CanBeNull="true" />
       <Column Name="Height" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Weight" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Account_Character" Member="Account" ThisKey="AccountIdFk" Type="Account" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Group_Character" Member="Group" ThisKey="GroupIdFk" Type="Group" IsForeignKey="true" />
+      <Association Name="Account_CharacterDto" Member="Account" ThisKey="AccountIdFk" Type="Account" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Group_CharacterDto" Member="Group" ThisKey="GroupIdFk" Type="Group" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

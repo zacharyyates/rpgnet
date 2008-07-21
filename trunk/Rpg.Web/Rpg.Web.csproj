@@ -104,6 +104,13 @@
     </Compile>
     <Compile Include="Models\SizeCategory.cs" />
     <Compile Include="Models\Tokenizer.cs" />
+    <Compile Include="Models\WikiFormatter.cs" />
+    <Compile Include="Models\WikiModel.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WikiModel.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WikiRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Character\Full.aspx.cs">
       <DependentUpon>Full.aspx</DependentUpon>
@@ -133,6 +140,13 @@
     <Compile Include="Views\Shared\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Views\Wiki\TopicView.aspx.cs">
+      <DependentUpon>TopicView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Wiki\TopicView.aspx.designer.cs">
+      <DependentUpon>TopicView.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\DorkTools.png" />
@@ -151,6 +165,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Views\Character\Full.aspx" />
+    <Content Include="Views\Wiki\TopicView.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Index.aspx" />
@@ -170,6 +185,16 @@
   <ItemGroup>
     <None Include="Models\RpgModel.dbml.layout">
       <DependentUpon>RpgModel.dbml</DependentUpon>
+    </None>
+    <None Include="Models\WikiModel.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>WikiModel.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\WikiModel.dbml.layout">
+      <DependentUpon>WikiModel.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

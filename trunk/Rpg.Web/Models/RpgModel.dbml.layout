@@ -14,7 +14,7 @@
         <elementListCompartment Id="80f24f93-89fa-4471-94f0-2c1775db8753" absoluteBounds="8.515, 2.96, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.5 : 1.59375); (9.5 : 1.59375); (9.5 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.5 : 1.59375); (9.5 : 1.59375); (9.5 : 2.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/RpgModelDataContext/Account/Account_Group" />
       <nodes>
         <classShapeMoniker Id="560dd298-64b1-4fb8-8681-98b9dd6726c5" />
@@ -28,14 +28,14 @@
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(3.5 : 2.83046590169271); (5.125 : 2.83046590169271)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/RpgModelDataContext/Account/Account_Character" />
+      <AssociationMoniker Name="/RpgModelDataContext/Account/Account_CharacterDto" />
       <nodes>
         <classShapeMoniker Id="560dd298-64b1-4fb8-8681-98b9dd6726c5" />
         <classShapeMoniker Id="81ee2538-cc14-4225-9fa3-4a94aa77808a" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.5 : 3.13025024414063); (7.125 : 3.13025024414063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/RpgModelDataContext/Group/Group_Character" />
+      <AssociationMoniker Name="/RpgModelDataContext/Group/Group_CharacterDto" />
       <nodes>
         <classShapeMoniker Id="587e0d8f-0dc1-437e-968e-d2d8cc18c34c" />
         <classShapeMoniker Id="81ee2538-cc14-4225-9fa3-4a94aa77808a" />
