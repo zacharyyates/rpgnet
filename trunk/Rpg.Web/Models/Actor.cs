@@ -23,12 +23,16 @@ namespace YatesMorrison.Rpg
 		}
 		protected double m_Weight = 0;
 
+		public double Height { get; set; }
+
 		public virtual SizeCategory SizeCategory
 		{
 			get { return m_SizeCategory; }
 			set { m_SizeCategory = value; }
 		}
 		protected SizeCategory m_SizeCategory;
+
+		public string Alignment { get; set; }
 
 		public override string ToString()
 		{

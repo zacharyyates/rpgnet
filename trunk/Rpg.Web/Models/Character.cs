@@ -4,6 +4,7 @@
  */
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace YatesMorrison.Rpg
 {
@@ -12,6 +13,10 @@ namespace YatesMorrison.Rpg
 		public string GivenName { get; set; }
 		public string Surname { get; set; }
 		public string CharacterClass { get; set; }
+		public int Experience { get; set; }
+		public string Race { get; set; }
+		public int Age { get; set; }
+		public string Gender { get; set; }
 
 		public override string Name
 		{
@@ -135,17 +140,24 @@ namespace YatesMorrison.Rpg
 
 		public double GetCalculatedScoreFor( string attribute )
 		{
-			double simpleScore = GetSimpleScoreFor(attribute);
-			if( m_Levels.Count > 1 )
+			if (HasAttribute(attribute))
 			{
-				if( m_Levels[0].IsActive )
+				double simpleScore = GetSimpleScoreFor(attribute);
+				if (m_Levels.Count > 0)
 				{
-					return m_Levels[0].Attributes[attribute].GetCalculatedScore(simpleScore);
+					if (m_Levels[0].IsActive)
+					{
+						return m_Levels[0].Attributes[attribute].GetCalculatedScore(simpleScore);
+					}
 				}
+
+				// There should always be a level 1, but in case there isn't, send back the simpleScore
+				return simpleScore;
 			}
-			
-			// There should always be a level 1, but in case there isn't, send back the simpleScore
-			return simpleScore;
+			else
+			{
+				return 0; // TODO: Should we return an error code here?
+			}
 		}
 
 		public List<string> AttributeNames
@@ -196,7 +208,7 @@ namespace YatesMorrison.Rpg
 
 		public int CharacterLevel
 		{
-			get { return m_Levels.Count; }
+			get { return m_Levels.Count(l => l.IsActive); }
 		}
 	}
 }

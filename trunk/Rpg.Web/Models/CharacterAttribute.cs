@@ -39,7 +39,7 @@ namespace YatesMorrison.Rpg
 			return simpleScore;
 		}
 
-		public virtual double CalculatedScore
+		public double CalculatedScore
 		{
 			get { return GetCalculatedScore(SimpleScore); }
 		}
@@ -57,7 +57,7 @@ namespace YatesMorrison.Rpg
 			KeyAttribute = keyAttribute;
 		}
 
-		public string KeyAttribute { get; set; }
+		public virtual string KeyAttribute { get; set; }
 
 		protected double KeyAttributeValue
 		{

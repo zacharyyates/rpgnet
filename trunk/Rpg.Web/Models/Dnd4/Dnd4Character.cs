@@ -24,6 +24,19 @@ namespace YatesMorrison.Rpg.Dnd4
 			}
 		}
 
+		public Dictionary<string, string> Defenses
+		{
+			get
+			{
+				return new Dictionary<string, string> {
+					{"AC", "Armor Class"},
+					{"Fort", "Fortitude"},
+					{"Ref", "Reflex"},
+					{"Will", "Will"}
+				};
+			}
+		}
+
 		public List<string> SkillNames
 		{
 			get

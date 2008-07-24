@@ -24,7 +24,7 @@ BEGIN
     IF ((SELECT CAST(value AS nvarchar(128))
 	    FROM 
 		    [$(DatabaseName)]..fn_listextendedproperty('microsoft_database_tools_deploystamp', null, null, null, null, null, null )) 
-	    = CAST(N'13c810b8-1af1-40f3-9fb5-f19ddd9dcc6c' AS nvarchar(128)))
+	    = CAST(N'a4b3f346-8194-4058-a095-e15e05b53f46' AS nvarchar(128)))
     BEGIN
 	    RAISERROR(N'Deployment has been skipped because the script has already been deployed to the target server.', 16 ,100) WITH NOWAIT
 	    RETURN
@@ -178,52 +178,6 @@ GO
 
 :on error resume
 GO
-PRINT N'Creating [dbo].[Account]'
-GO
-CREATE TABLE [dbo].[Account]
-(
-[Id] [int] NOT NULL IDENTITY(1, 1),
-[Login] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[Password] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[DisplayName] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[FirstName] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[LastName] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[Birthdate] [datetime] NULL,
-[PostalCode] [nvarchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[Country] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[IsSpammable] [bit] NULL
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-PRINT N'Creating primary key [PK_Account] on [dbo].[Account]'
-GO
-ALTER TABLE [dbo].[Account] ADD CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
-GO
-PRINT N'Creating [dbo].[Character]'
-GO
-CREATE TABLE [dbo].[Character]
-(
-[Id] [int] NOT NULL IDENTITY(1, 1),
-[AccountIdFk] [int] NOT NULL,
-[Name] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[Level] [int] NULL,
-[Class] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[Race] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[Alignment] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[Created] [datetime] NULL,
-[Modified] [datetime] NULL,
-[Deleted] [datetime] NULL,
-[CharacterObject] [varbinary] (max) NULL
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-PRINT N'Creating primary key [PK_Character] on [dbo].[Character]'
-GO
-ALTER TABLE [dbo].[Character] ADD CONSTRAINT [PK_Character] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
-GO
-PRINT N'Adding foreign keys to [dbo].[Character]'
-GO
-ALTER TABLE [dbo].[Character] ADD
-CONSTRAINT [FK_Character_Account] FOREIGN KEY ([AccountIdFk]) REFERENCES [dbo].[Account] ([Id]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
 
 GO
 /*
@@ -255,6 +209,6 @@ IF ((SELECT COUNT(*)
 BEGIN
 	EXEC [dbo].sp_dropextendedproperty 'microsoft_database_tools_deploystamp'
 END
-EXEC [dbo].sp_addextendedproperty 'microsoft_database_tools_deploystamp', N'13c810b8-1af1-40f3-9fb5-f19ddd9dcc6c'
+EXEC [dbo].sp_addextendedproperty 'microsoft_database_tools_deploystamp', N'a4b3f346-8194-4058-a095-e15e05b53f46'
 GO
 

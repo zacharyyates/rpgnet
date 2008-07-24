@@ -25,7 +25,7 @@ namespace Rpg.Web.Controllers
 		{
 			// Retrieve the character
 			CharacterDto dto = CharacterMocker.Create();
-			return View("Full", new CharacterControllerViewData { CharacterDto = dto });
+			return View("Dnd4Classic", new CharacterControllerViewData { CharacterDto = dto });
 		}
 
 		public ActionResult New()

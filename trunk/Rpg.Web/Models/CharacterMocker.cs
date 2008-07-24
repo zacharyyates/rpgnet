@@ -16,7 +16,11 @@ namespace Rpg.Web.Models
 					CharacterClass = "Ranger"
 				}
 			};
-			Dnd4CharacterLevel lvl1 = new Dnd4CharacterLevel(dto.Character);
+
+			dto.Character.SizeCategory = SizeCategory.Medium;
+
+			var lvl1 = new Dnd4CharacterLevel(dto.Character);
+			dto.Character.Levels.Add(lvl1);
 			lvl1.IsActive = true;
 
 			foreach (string abbrv in dto.Character.AbilityScoreNames.Keys)
@@ -24,11 +28,22 @@ namespace Rpg.Web.Models
 				lvl1.AddAbility(new Ability(dto.Character, abbrv, Dice.Roll(4, DieType.D6, DieRollOptions.DropLowestOne)));
 			}
 
-			dto.Character.Levels.Add(lvl1);
+			// HP, Defenses
+			lvl1.AddAttribute(new HitPoints(dto.Character, 20 + dto.Character.GetSimpleScoreFor("Con")));
+			lvl1.AddAttribute(new BloodiedValue(dto.Character));
+			lvl1.AddAttribute(new SurgeValue(dto.Character));
+
+			lvl1.AddAttribute(new ArmorClassDefense(dto.Character));
+			lvl1.AddAttribute(new FortitudeDefense(dto.Character));
+			lvl1.AddAttribute(new ReflexDefense(dto.Character));
+			lvl1.AddAttribute(new WillDefense(dto.Character));
 			
 			for (int i = 0; i < 8; i++) // i = extra levels
 			{
-				dto.Character.Levels.Add(new CharacterLevel(dto.Character));
+				var level = new Dnd4CharacterLevel(dto.Character);
+				dto.Character.Levels.Add(level);
+				level.IsActive = true;
+				level.AddAttribute(new HitPoints(dto.Character, 5));
 			}
 
 			return dto;

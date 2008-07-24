@@ -1,0 +1,74 @@
+﻿div.column
+{
+	width: 100%;
+	float: left;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+}
+
+div.section
+{
+	width: 100%;
+}
+
+div.section h1
+{
+	font-size: 1.1em;
+	font-weight: bold;
+	background-color: #000;
+	color: #fff;
+	text-transform: capitalize;
+	text-align: center;
+	width: 100%;
+}
+
+table.stats
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+table.stats th
+{
+	font-size: 0.75em;
+	text-align: center;
+	font-family: Tahoma;
+	font-weight: normal;
+	vertical-align: bottom;
+}
+table.stats.td
+{
+	vertical-align: middle;
+}
+table.stats th.text
+{
+	text-align: left;
+}
+table.stats td.value
+{
+	text-align: center;
+}
+table.stats tr.odd
+{
+	background-color: #ccc;
+}
+
+table.abilities td
+{
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+table.abilities td.text
+{
+	width: 26%;
+	background-color: #333333; 
+	color: #ffffff; 
+	border: 1px solid #cccccc;
+	font-family: Verdana;
+}
+table.abilities td.value
+{
+	width: 21%;
+	font-size: 1.5em;
+	border: 1px solid #cccccc;
+	text-align: center;
+}

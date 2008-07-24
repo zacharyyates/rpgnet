@@ -51,35 +51,35 @@
     <RootNamespace>Rpg.AppDb</RootNamespace>
     <FileGroups>
       <FileGroupDefinitionCollection Version="1" xmlns="">
-  <FileGroups>
-    <FileGroupDefinition Name="PRIMARY" UpdatabilityOption="ReadWrite" IsDefault="True" CreationSucceed="False">
-      <Files>
-        <DatabaseFileDefinition LogicalName="PrimaryFileName" FileType="Primary">
-          <PhysicalName>%24(PrimaryFilePhysicalName)</PhysicalName>
-          <Size Number="3" SizeType="MB" />
-          <MaxSize Number="3" SizeType="MB" />
-          <FileGrowth Number="1" SizeType="MB" />
-          <EnableAutoGrowth>True</EnableAutoGrowth>
-          <UseDefaultMinSizeOnServer>True</UseDefaultMinSizeOnServer>
-          <UseDefaultAutoGrowthOnServer>True</UseDefaultAutoGrowthOnServer>
-          <Offline>False</Offline>
-        </DatabaseFileDefinition>
-      </Files>
-    </FileGroupDefinition>
-  </FileGroups>
-  <LogFiles>
-    <DatabaseFileDefinition LogicalName="PrimaryLogFileName" FileType="PrimaryLog">
-      <PhysicalName>%24(PrimaryLogFilePhysicalName)</PhysicalName>
-      <Size Number="3" SizeType="MB" />
-      <MaxSize Number="3" SizeType="MB" />
-      <FileGrowth Number="1" SizeType="MB" />
-      <EnableAutoGrowth>True</EnableAutoGrowth>
-      <UseDefaultMinSizeOnServer>True</UseDefaultMinSizeOnServer>
-      <UseDefaultAutoGrowthOnServer>True</UseDefaultAutoGrowthOnServer>
-      <Offline>False</Offline>
-    </DatabaseFileDefinition>
-  </LogFiles>
-</FileGroupDefinitionCollection>
+        <FileGroups>
+          <FileGroupDefinition Name="PRIMARY" UpdatabilityOption="ReadWrite" IsDefault="True" CreationSucceed="False">
+            <Files>
+              <DatabaseFileDefinition LogicalName="PrimaryFileName" FileType="Primary">
+                <PhysicalName>%24(PrimaryFilePhysicalName)</PhysicalName>
+                <Size Number="3" SizeType="MB" />
+                <MaxSize Number="3" SizeType="MB" />
+                <FileGrowth Number="1" SizeType="MB" />
+                <EnableAutoGrowth>True</EnableAutoGrowth>
+                <UseDefaultMinSizeOnServer>True</UseDefaultMinSizeOnServer>
+                <UseDefaultAutoGrowthOnServer>True</UseDefaultAutoGrowthOnServer>
+                <Offline>False</Offline>
+              </DatabaseFileDefinition>
+            </Files>
+          </FileGroupDefinition>
+        </FileGroups>
+        <LogFiles>
+          <DatabaseFileDefinition LogicalName="PrimaryLogFileName" FileType="PrimaryLog">
+            <PhysicalName>%24(PrimaryLogFilePhysicalName)</PhysicalName>
+            <Size Number="3" SizeType="MB" />
+            <MaxSize Number="3" SizeType="MB" />
+            <FileGrowth Number="1" SizeType="MB" />
+            <EnableAutoGrowth>True</EnableAutoGrowth>
+            <UseDefaultMinSizeOnServer>True</UseDefaultMinSizeOnServer>
+            <UseDefaultAutoGrowthOnServer>True</UseDefaultAutoGrowthOnServer>
+            <Offline>False</Offline>
+          </DatabaseFileDefinition>
+        </LogFiles>
+      </FileGroupDefinitionCollection>
     </FileGroups>
     <PreviousProjectVersion>2</PreviousProjectVersion>
   </PropertyGroup>
@@ -201,6 +201,15 @@
     <Build Include="Schema Objects\Tables\dbo.Character.table.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Tables\dbo.Tag.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\dbo.Topic.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\dbo.TopicTag.table.sql">
+      <SubType>Code</SubType>
+    </Build>
     <Build Include="Schema Objects\Tables\Keys\dbo.Account.PK_Account.pkey.sql">
       <SubType>Code</SubType>
     </Build>
@@ -208,6 +217,21 @@
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\dbo.Character.PK_Character.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.Tag.PK_Tag.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.Topic.PK_Wiki.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.TopicTag.FK_WikiTag_Tag.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.TopicTag.FK_WikiTag_Wiki.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.TopicTag.PK_WikiTag.pkey.sql">
       <SubType>Code</SubType>
     </Build>
   </ItemGroup>

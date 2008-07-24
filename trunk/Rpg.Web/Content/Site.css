@@ -38,11 +38,13 @@ div#page > div#main > div.content
 	border-top: solid 1px #44aa00;
 }
 
-div#page > div#main > div.footer
+div#page > div.footer
 {
 	clear: both;
-	position: absolute;
+	position: fixed;
 	bottom: 0px;
+	left: 0px;
+	display: none;
 }
 
 div#page > div#right
@@ -94,25 +96,4 @@ table
 td
 {
 	vertical-align: middle;
-}
-
-table.abilities td
-{
-	padding-top: 1px;
-	padding-bottom: 1px;
-}
-table.abilities td.text
-{
-	width: 26%;
-	background-color: #333333; 
-	color: #ffffff; 
-	border: 1px solid #cccccc;
-	font-family: Verdana;
-}
-table.abilities td.value
-{
-	width: 21%;
-	font-size: 1.5em;
-	border: 1px solid #cccccc;
-	text-align: center;
 }

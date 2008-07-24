@@ -12,7 +12,7 @@
 				<%= Character.CharacterClass %>
 			</td>
 			<td style="font-size: 3.25em; text-align: right;" rowspan="2">
-				<img src="/Content/Images/GreenCircle<%= Character.CharacterLevel %>.png" alt="<%= Character.CharacterLevel %>" />
+				<%= Character.CharacterLevel %>
 			</td>
 		</tr>
 		<tr>
@@ -47,12 +47,11 @@
 		</tr>
 	<% } %>
 	</table>
-	<div>
-		Average Score: <%= Math.Round(Character.AverageAbilityScore, 2) %>
-	</div>
-	<div>
-		Total Average: <%= Math.Round(TotalOfAverages / AverageCount, 2) %> over <%= AverageCount %> generations.
-	</div>
+	<table>
+		<tr>
+			
+		</tr>
+	</table>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="RightContent" runat="server">
 </asp:Content>
