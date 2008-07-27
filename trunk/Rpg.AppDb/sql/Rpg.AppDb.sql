@@ -2,8 +2,8 @@ SET  ARITHABORT, CONCAT_NULL_YIELDS_NULL, ANSI_NULLS, ANSI_PADDING, ANSI_WARNING
 SET  NUMERIC_ROUNDABORT OFF
 GO
 :setvar DatabaseName "Rpg.AppDb"
-:setvar PrimaryFilePhysicalName "C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA\Rpg.AppDb.mdf"
-:setvar PrimaryLogFilePhysicalName "C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA\Rpg.AppDb_log.ldf"
+:setvar PrimaryFilePhysicalName "c:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA\Rpg.AppDb.mdf"
+:setvar PrimaryLogFilePhysicalName "c:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA\Rpg.AppDb_log.ldf"
 
 USE [master]
 
@@ -24,7 +24,7 @@ BEGIN
     IF ((SELECT CAST(value AS nvarchar(128))
 	    FROM 
 		    [$(DatabaseName)]..fn_listextendedproperty('microsoft_database_tools_deploystamp', null, null, null, null, null, null )) 
-	    = CAST(N'a4b3f346-8194-4058-a095-e15e05b53f46' AS nvarchar(128)))
+	    = CAST(N'f2c7817b-664a-43c4-bb0a-72ba1a54a308' AS nvarchar(128)))
     BEGIN
 	    RAISERROR(N'Deployment has been skipped because the script has already been deployed to the target server.', 16 ,100) WITH NOWAIT
 	    RETURN
@@ -92,11 +92,6 @@ GO
 
 :on error resume
      
-ALTER DATABASE [$(DatabaseName)] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-ALTER DATABASE [$(DatabaseName)] COLLATE SQL_Latin1_General_CP1_CS_AS;
-
-GO
-
 IF EXISTS (SELECT 1 FROM [sys].[databases] WHERE [name] = N'$(DatabaseName)') 
     ALTER DATABASE [$(DatabaseName)] SET  
 	ALLOW_SNAPSHOT_ISOLATION OFF
@@ -209,6 +204,6 @@ IF ((SELECT COUNT(*)
 BEGIN
 	EXEC [dbo].sp_dropextendedproperty 'microsoft_database_tools_deploystamp'
 END
-EXEC [dbo].sp_addextendedproperty 'microsoft_database_tools_deploystamp', N'a4b3f346-8194-4058-a095-e15e05b53f46'
+EXEC [dbo].sp_addextendedproperty 'microsoft_database_tools_deploystamp', N'f2c7817b-664a-43c4-bb0a-72ba1a54a308'
 GO
 

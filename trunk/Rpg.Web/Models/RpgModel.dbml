@@ -41,10 +41,6 @@
       <Column Name="Modified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Deleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="CharacterObject" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Gender" Type="System.Char" DbType="NChar(1)" CanBeNull="true" />
-      <Column Name="Height" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Weight" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Account_CharacterDto" Member="Account" ThisKey="AccountIdFk" Type="Account" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Group_CharacterDto" Member="Group" ThisKey="GroupIdFk" Type="Group" IsForeignKey="true" />
     </Type>

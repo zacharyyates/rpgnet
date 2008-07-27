@@ -65,7 +65,7 @@
 			<div class="section">
 				<h1>Ability Scores</h1>
 				<table cellspacing="0" class="stats abilities" style="width: 100%;">
-					<tr style="font-size: .75em;">
+					<tr>
 						<th>Score</th>
 						<th>Ability</th>
 						<th>Abil Mod</th>
@@ -140,7 +140,7 @@
 			<!-- Defenses -->
 			<div class="section">
 				<h1>Defenses</h1>
-				<table class="stats">
+				<table class="stats abilities">
 					<tr>
 						<th class="value">Score</th>
 						<th></th>

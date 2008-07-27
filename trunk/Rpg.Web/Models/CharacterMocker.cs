@@ -37,6 +37,7 @@ namespace Rpg.Web.Models
 			lvl1.AddAttribute(new FortitudeDefense(dto.Character));
 			lvl1.AddAttribute(new ReflexDefense(dto.Character));
 			lvl1.AddAttribute(new WillDefense(dto.Character));
+			lvl1.AddAttribute(new CharacterAttribute(dto.Character, "HS", 5));
 			
 			for (int i = 0; i < 8; i++) // i = extra levels
 			{

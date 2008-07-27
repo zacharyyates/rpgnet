@@ -14,17 +14,17 @@
         <elementListCompartment Id="80f24f93-89fa-4471-94f0-2c1775db8753" absoluteBounds="8.515, 2.96, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.5 : 1.59375); (9.5 : 1.59375); (9.5 : 2.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(3.5 : 1.59375); (9.5 : 1.59375); (9.5 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/RpgModelDataContext/Account/Account_Group" />
       <nodes>
         <classShapeMoniker Id="560dd298-64b1-4fb8-8681-98b9dd6726c5" />
         <classShapeMoniker Id="587e0d8f-0dc1-437e-968e-d2d8cc18c34c" />
       </nodes>
     </associationConnector>
-    <classShape Id="81ee2538-cc14-4225-9fa3-4a94aa77808a" absoluteBounds="5.125, 2, 2, 3.5613631184895826">
+    <classShape Id="81ee2538-cc14-4225-9fa3-4a94aa77808a" absoluteBounds="5.125, 2, 2, 2.9039737955729166">
       <DataClassMoniker Name="/RpgModelDataContext/CharacterDto" />
       <nestedChildShapes>
-        <elementListCompartment Id="a79a7f96-a779-4bbd-a3f3-d3d67cc2d959" absoluteBounds="5.14, 2.46, 1.9700000000000002, 3.001363118489583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a79a7f96-a779-4bbd-a3f3-d3d67cc2d959" absoluteBounds="5.14, 2.46, 1.9700000000000002, 2.3439737955729165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(3.5 : 2.83046590169271); (5.125 : 2.83046590169271)]" fixedFrom="Algorithm" fixedTo="Algorithm">

@@ -641,14 +641,6 @@ namespace Rpg.Web.Models
 		
 		private System.Data.Linq.Binary _CharacterObject;
 		
-		private System.Nullable<int> _Age;
-		
-		private System.Nullable<char> _Gender;
-		
-		private System.Nullable<int> _Height;
-		
-		private System.Nullable<int> _Weight;
-		
 		private EntityRef<Account> _Account;
 		
 		private EntityRef<Group> _Group;
@@ -683,14 +675,6 @@ namespace Rpg.Web.Models
     partial void OnDeletedChanged();
     partial void OnCharacterObjectChanging(System.Data.Linq.Binary value);
     partial void OnCharacterObjectChanged();
-    partial void OnAgeChanging(System.Nullable<int> value);
-    partial void OnAgeChanged();
-    partial void OnGenderChanging(System.Nullable<char> value);
-    partial void OnGenderChanged();
-    partial void OnHeightChanging(System.Nullable<int> value);
-    partial void OnHeightChanged();
-    partial void OnWeightChanging(System.Nullable<int> value);
-    partial void OnWeightChanged();
     #endregion
 		
 		public CharacterDto()
@@ -964,86 +948,6 @@ namespace Rpg.Web.Models
 					this._CharacterObject = value;
 					this.SendPropertyChanged("CharacterObject");
 					this.OnCharacterObjectChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Age", DbType="Int")]
-		public System.Nullable<int> Age
-		{
-			get
-			{
-				return this._Age;
-			}
-			set
-			{
-				if ((this._Age != value))
-				{
-					this.OnAgeChanging(value);
-					this.SendPropertyChanging();
-					this._Age = value;
-					this.SendPropertyChanged("Age");
-					this.OnAgeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Gender", DbType="NChar(1)")]
-		public System.Nullable<char> Gender
-		{
-			get
-			{
-				return this._Gender;
-			}
-			set
-			{
-				if ((this._Gender != value))
-				{
-					this.OnGenderChanging(value);
-					this.SendPropertyChanging();
-					this._Gender = value;
-					this.SendPropertyChanged("Gender");
-					this.OnGenderChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Height", DbType="Int")]
-		public System.Nullable<int> Height
-		{
-			get
-			{
-				return this._Height;
-			}
-			set
-			{
-				if ((this._Height != value))
-				{
-					this.OnHeightChanging(value);
-					this.SendPropertyChanging();
-					this._Height = value;
-					this.SendPropertyChanged("Height");
-					this.OnHeightChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Weight", DbType="Int")]
-		public System.Nullable<int> Weight
-		{
-			get
-			{
-				return this._Weight;
-			}
-			set
-			{
-				if ((this._Weight != value))
-				{
-					this.OnWeightChanging(value);
-					this.SendPropertyChanging();
-					this._Weight = value;
-					this.SendPropertyChanged("Weight");
-					this.OnWeightChanged();
 				}
 			}
 		}
