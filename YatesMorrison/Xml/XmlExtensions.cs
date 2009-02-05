@@ -83,7 +83,7 @@ namespace YatesMorrison.Xml
             }
         }
 
-		// TODO: Figure out how to make this work
+		// todo: Figure out how to make this work
 		//public static XElement ToXml(object value)
 		//{
 		//    XElement x = null;

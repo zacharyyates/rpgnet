@@ -5,13 +5,12 @@
 namespace YatesMorrison.RolePlay
 {
 	using System;
-	using System.Linq;
-	using System.Xml.Serialization;
 	using System.Collections.Generic;
 	using System.Collections.ObjectModel;
+	using System.Linq;
 
 	[Serializable]
-	public class Actor
+	public class Actor : IParentOf<Aspect>, IParentOf<Advance>, IParentOf<IEffect>, IParentOf<Equipment>
 	{
 		public Game Game { get; set; }
 		public Point Location { get; set; }
@@ -29,24 +28,28 @@ namespace YatesMorrison.RolePlay
 		public Inventory Inventory { get; set; }
 		public Armor Armor { get; set; }
 
+		#region Aspects
+
 		public ReadOnlyCollection<Aspect> Aspects
 		{
 			get { return new ReadOnlyCollection<Aspect>(m_Aspects); }
 		}
 		List<Aspect> m_Aspects = new List<Aspect>();
 
-		public virtual void Add(Aspect aspect)
+		public virtual void Add(Aspect child)
 		{
-			m_Aspects.Add(aspect);
-			aspect.Actor = this;
-
-			var derived = aspect as DerivedAttribute;
-			if (derived != null)
-			{
-				var attrib = GetAspectByName(derived.ParentAttributeName) as Attribute;
-				attrib.Add(derived);
-			}
+			m_Aspects.Add(child);
+			child.AddTo(this);
 		}
+		public virtual void Remove(Aspect child)
+		{
+			child.RemoveFrom(this);
+			m_Aspects.Remove(child);
+		}
+
+		#endregion
+
+		#region Advances
 
 		public ReadOnlyCollection<Advance> Advances
 		{
@@ -54,12 +57,20 @@ namespace YatesMorrison.RolePlay
 		}
 		List<Advance> m_Advances = new List<Advance>();
 
-		public virtual void Add(Advance advance)
+		public virtual void Add(Advance child)
 		{
-			var attrib = GetAspectByName(advance.AttributeName) as Attribute;
-			attrib.Add(advance);
-			m_Advances.Add(advance);
+			m_Advances.Add(child);
+			child.AddTo(this);
 		}
+		public virtual void Remove(Advance child)
+		{
+			child.RemoveFrom(this);
+			m_Advances.Remove(child);
+		}
+
+		#endregion
+
+		#region Effects
 
 		public ReadOnlyCollection<IEffect> Effects
 		{
@@ -67,27 +78,48 @@ namespace YatesMorrison.RolePlay
 		}
 		List<IEffect> m_Effects = new List<IEffect>();
 
-		public virtual void Add(IEffect effect)
+		public virtual void Add(IEffect child)
 		{
-			if (Meets(effect.Requisites))
+			if (Meets(child.Requisites))
 			{
-				foreach (var modifier in effect.Modifiers)
-				{
-					var attrib = GetAspectByName(modifier.AspectName);
-					attrib.Add(modifier);
-				}
-				m_Effects.Add(effect);
+				m_Effects.Add(child);
+				child.AddTo(this);
 			}
 		}
-		public virtual void Remove(IEffect effect)
+		public virtual void Remove(IEffect child)
 		{
-			foreach (var modifier in effect.Modifiers)
-			{
-				var attrib = GetAspectByName(modifier.AspectName);
-				attrib.Remove(modifier);
-			}
-			m_Effects.Remove(effect);
+			child.RemoveFrom(this);
+			m_Effects.Remove(child);
 		}
+
+		#endregion
+
+		#region Equipment
+
+		public ReadOnlyCollection<Equipment> Equipment
+		{
+			get { return new ReadOnlyCollection<Equipment>(m_Equipment); }
+		}
+		List<Equipment> m_Equipment = new List<Equipment>();
+
+		public void Add(Equipment child)
+		{
+			if (Meets(child.Requisites))
+			{
+				m_Equipment.Add(child);
+				Add(child as IEffect);
+				child.AddTo(this);
+			}
+			// todo: add a message or something when equip fails
+		}
+		public void Remove(Equipment child)
+		{
+			m_Equipment.Remove(child);
+			Remove(child as IEffect);
+			child.RemoveFrom(this);
+		}
+
+		#endregion
 
 		public bool Meets(Requisite requisite)
 		{
@@ -124,29 +156,6 @@ namespace YatesMorrison.RolePlay
 			{
 				throw new ApplicationException(string.Format("Could not find '{0}'.", abbreviation), exception);
 			}
-		}
-
-		public ReadOnlyCollection<Equipment> Equipment
-		{
-			get { return new ReadOnlyCollection<Equipment>(m_Equipment); }
-		}
-		List<Equipment> m_Equipment = new List<Equipment>();
-
-		public void Equip(Equipment equipment)
-		{
-			if (Meets(equipment.Requisites))
-			{
-				m_Equipment.Add(equipment);
-				Add(equipment);  // todo: make this a little more elegant?
-				equipment.EquipedTo = this;
-			}
-			// todo: add a message or something when equip fails
-		}
-		public void Unequip(Equipment equipment)
-		{
-			m_Equipment.Remove(equipment);
-			Remove(equipment);
-			equipment.EquipedTo = null;
 		}
 
 		public void Take(IDamage damage)

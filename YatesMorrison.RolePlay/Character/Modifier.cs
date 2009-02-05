@@ -7,7 +7,7 @@ namespace YatesMorrison.RolePlay
 	using System;
 
 	[Serializable]
-	public class Modifier
+	public class Modifier : IChildOf<Aspect>
 	{
 		public string AspectName { get; set; }
 		public Aspect Aspect { get; set; }
@@ -35,6 +35,15 @@ namespace YatesMorrison.RolePlay
 				// this property only returns the bonus, not the final score
 				return value - originalValue;
 			}
+		}
+
+		public void AddTo(Aspect parent)
+		{
+			Aspect = parent;
+		}
+		public void RemoveFrom(Aspect parent)
+		{
+			Aspect = null;
 		}
 	}
 

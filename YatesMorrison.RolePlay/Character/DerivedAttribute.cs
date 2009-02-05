@@ -7,7 +7,7 @@ namespace YatesMorrison.RolePlay
 	using System;
 
 	[Serializable]
-	public class DerivedAttribute : Attribute
+	public class DerivedAttribute : Attribute, IChildOf<Attribute>
 	{
 		public DerivedAttribute() { }
 		public DerivedAttribute(string name, string abbreviation, string description, string parentAttributeName, double initial)
@@ -17,11 +17,33 @@ namespace YatesMorrison.RolePlay
 		}
 
 		public string ParentAttributeName { get; set; }
-		public Attribute Parent { get; set; }
+		public Attribute Attribute { get; set; }
 
 		public override double Base
 		{
-			get { return Parent.Total; }
+			get { return Attribute.Total; }
+		}
+
+		public override void AddTo(Actor actor)
+		{
+			var attrib = actor.GetAspectByName(ParentAttributeName) as Attribute;
+			attrib.Add(this);
+			base.AddTo(actor);
+		}
+		public override void RemoveFrom(Actor actor)
+		{
+			var attrib = actor.GetAspectByName(ParentAttributeName) as Attribute;
+			attrib.Remove(this); // todo: implement
+			base.RemoveFrom(actor);
+		}
+
+		public void AddTo(Attribute parent)
+		{
+			Attribute = parent;
+		}
+		public void RemoveFrom(Attribute parent)
+		{
+			Attribute = parent;
 		}
 	}
 }

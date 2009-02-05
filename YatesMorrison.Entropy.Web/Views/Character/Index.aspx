@@ -108,11 +108,11 @@
 					<td class="Score Total"><%= ka.Total %></td>
 				</tr>
 				
-					<% foreach (var skill in ka.Children) { %>
+					<% foreach (var skill in ka.Derived) { %>
 					
 					<tr style="background-color:#efefef;">
 						<td class="Attribute"><%= skill.Name %></td>
-						<td class="Score"><%= skill.Parent.Total %></td>
+						<td class="Score"><%= skill.Attribute.Total %></td>
 						<td class="Score"><%= skill.Base %></td>
 						<td class="Score"><%= skill.AdvanceTotal %></td>
 						<td class="Score Total"><%= skill.Total %></td>

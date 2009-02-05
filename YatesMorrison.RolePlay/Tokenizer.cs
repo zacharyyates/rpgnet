@@ -69,7 +69,7 @@ namespace YatesMorrison.RolePlay
 				}
 			}
 
-			// TODO: Upgrade this code to use .Net30/35 conventions
+			// todo: Upgrade this code to use .Net30/35 conventions
 			StringBuilder output = new StringBuilder();
 			foreach (char c in chars)
 				output.Append(c);
@@ -108,7 +108,7 @@ namespace YatesMorrison.RolePlay
 		}
 
 		/// <summary>
-		/// TODO: Refactor this entire class setup to support RollHelper and dropping a particular set of dice out of a roll
+		/// todo: Refactor this entire class setup to support RollHelper and dropping a particular set of dice out of a roll
 		/// </summary>
 		public int Evaluate(string function)
 		{

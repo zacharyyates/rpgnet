@@ -18,7 +18,7 @@
           <PublishCopyAppData>False</PublishCopyAppData>
           <ExternalProgram>
           </ExternalProgram>
-          <StartExternalURL>http://localhost:1380/Combat/Test</StartExternalURL>
+          <StartExternalURL>http://localhost:1380/Character/Create</StartExternalURL>
           <StartCmdLineArguments>
           </StartCmdLineArguments>
           <StartWorkingDirectory>
