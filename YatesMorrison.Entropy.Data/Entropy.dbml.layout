@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Entropy">
+  <DataContextMoniker Name="/EntropyDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b261ee35-ce2f-471e-b4c1-396d1fea4279" absoluteBounds="0.75, 2.125, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/EntropyDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ecdcf33-c837-4110-a91c-e7f9249c9fda" absoluteBounds="0.765, 2.585, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="38127149-024a-43c1-b06e-9549e859504f" absoluteBounds="2.25, 4.625, 2, 1.2605004882812505">
+      <DataClassMoniker Name="/EntropyDataContext/GameData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09ab27f2-2e34-442b-83ea-95f180ff26a6" absoluteBounds="2.265, 5.085, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 3.54984781901042); (2.5 : 4.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EntropyDataContext/User/User_GameData" />
+      <nodes>
+        <classShapeMoniker Id="b261ee35-ce2f-471e-b4c1-396d1fea4279" />
+        <classShapeMoniker Id="38127149-024a-43c1-b06e-9549e859504f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f34f9429-0c60-4cfd-9d65-6005bed44e6d" absoluteBounds="3.625, 2.125, 2, 1.5891951497395831">
+      <DataClassMoniker Name="/EntropyDataContext/CharacterData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f6759e3-f9a0-45f2-92ca-76da0471b852" absoluteBounds="3.64, 2.585, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.9375 : 4.625); (3.9375 : 3.71419514973958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EntropyDataContext/GameData/GameData_CharacterData" />
+      <nodes>
+        <classShapeMoniker Id="38127149-024a-43c1-b06e-9549e859504f" />
+        <classShapeMoniker Id="f34f9429-0c60-4cfd-9d65-6005bed44e6d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.83742390950521); (3.625 : 2.83742390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EntropyDataContext/User/User_CharacterData" />
+      <nodes>
+        <classShapeMoniker Id="b261ee35-ce2f-471e-b4c1-396d1fea4279" />
+        <classShapeMoniker Id="f34f9429-0c60-4cfd-9d65-6005bed44e6d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

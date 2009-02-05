@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="YatesMorrison.Entropy.Db" Class="EntropyDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=YatesMorrison.Entropy.Db;Integrated Security=True" SettingsObjectName="YatesMorrison.Entropy.Data.Properties.Settings" SettingsPropertyName="YatesMorrison_Entropy_DbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="User_GameData" Member="GameDatas" ThisKey="Id" OtherKey="MasterId" Type="GameData" />
+      <Association Name="User_CharacterData" Member="CharacterDatas" ThisKey="Id" OtherKey="UserId" Type="CharacterData" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GameData" Member="GameDatas">
+    <Type Name="GameData">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MasterId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="GameData_CharacterData" Member="CharacterDatas" ThisKey="Id" OtherKey="GameId" Type="CharacterData" />
+      <Association Name="User_GameData" Member="User" ThisKey="MasterId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CharacterData" Member="CharacterDatas">
+    <Type Name="CharacterData">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GameId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="GameData_CharacterData" Member="GameData" ThisKey="GameId" OtherKey="Id" Type="GameData" IsForeignKey="true" />
+      <Association Name="User_CharacterData" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

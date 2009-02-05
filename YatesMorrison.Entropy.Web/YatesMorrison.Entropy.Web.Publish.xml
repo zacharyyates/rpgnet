@@ -1,0 +1,39 @@
+<publishData>
+  <publishTarget publishUrl="ftp://64.34.161.59/">
+    <file relUrl="Views/Account/Register.aspx" publishTime="01/13/2009 21:28:34" />
+    <file relUrl="Scripts/jquery-1.2.6.js" publishTime="01/13/2009 21:28:33" />
+    <file relUrl="bin/YatesMorrison.Entropy.Data.dll" publishTime="02/03/2009 14:25:58" />
+    <file relUrl="bin/YatesMorrison.pdb" publishTime="02/03/2009 14:25:57" />
+    <file relUrl="Scripts/jquery-1.2.6.min.js" publishTime="01/13/2009 21:28:33" />
+    <file relUrl="bin/YatesMorrison.Entropy.pdb" publishTime="02/03/2009 15:40:23" />
+    <file relUrl="Views/Character/Index.aspx" publishTime="02/02/2009 14:30:34" />
+    <file relUrl="bin/YatesMorrison.Entropy.Web.pdb" publishTime="02/03/2009 15:41:44" />
+    <file relUrl="bin/YatesMorrison.dll" publishTime="02/03/2009 14:25:57" />
+    <file relUrl="Scripts/MicrosoftMvcAjax.js" publishTime="01/13/2009 21:28:33" />
+    <file relUrl="Views/Account/ChangePassword.aspx" publishTime="01/13/2009 21:28:33" />
+    <file relUrl="Views/Web.config" publishTime="02/02/2009 14:14:09" />
+    <file relUrl="Views/Account/Login.aspx" publishTime="01/13/2009 21:28:34" />
+    <file relUrl="Scripts/MicrosoftAjax.debug.js" publishTime="01/13/2009 21:28:33" />
+    <file relUrl="Views/Character/Edit.aspx" publishTime="02/02/2009 21:26:40" />
+    <file relUrl="Scripts/MicrosoftMvcAjax.debug.js" publishTime="01/13/2009 21:28:33" />
+    <file relUrl="bin/YatesMorrison.Entropy.Web.dll" publishTime="02/03/2009 15:41:44" />
+    <file relUrl="Views/Shared/LoginUserControl.ascx" publishTime="01/13/2009 21:28:34" />
+    <file relUrl="Web.config" publishTime="01/30/2009 15:24:10" />
+    <file relUrl="Views/Combat/Test.aspx" publishTime="02/03/2009 15:24:31" />
+    <file relUrl="bin/YatesMorrison.RolePlay.dll" publishTime="02/03/2009 15:40:23" />
+    <file relUrl="Scripts/MicrosoftAjax.js" publishTime="01/13/2009 21:28:33" />
+    <file relUrl="Views/Shared/Error.aspx" publishTime="01/13/2009 21:28:34" />
+    <file relUrl="Views/Home/Index.aspx" publishTime="01/29/2009 17:11:01" />
+    <file relUrl="Views/Account/ChangePasswordSuccess.aspx" publishTime="01/13/2009 21:28:34" />
+    <file relUrl="bin/YatesMorrison.RolePlay.pdb" publishTime="02/03/2009 15:40:23" />
+    <file relUrl="bin/YatesMorrison.Entropy.Data.pdb" publishTime="02/03/2009 14:25:58" />
+    <file relUrl="bin/Microsoft.Web.Mvc.dll" publishTime="02/02/2009 14:08:08" />
+    <file relUrl="Content/Site.css" publishTime="01/13/2009 21:28:33" />
+    <file relUrl="Views/Home/About.aspx" publishTime="01/13/2009 21:28:34" />
+    <file relUrl="bin/YatesMorrison.Entropy.dll" publishTime="02/03/2009 15:40:23" />
+    <file relUrl="Views/Shared/Site.Master" publishTime="02/01/2009 21:10:04" />
+    <file relUrl="bin/Microsoft.Web.Mvc.pdb" publishTime="02/02/2009 14:08:08" />
+    <file relUrl="Global.asax" publishTime="01/13/2009 21:28:34" />
+    <file relUrl="Default.aspx" publishTime="01/13/2009 21:28:34" />
+  </publishTarget>
+</publishData>
