@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 16.75, 15.75" name="Treasure">
+  <DataContextMoniker Name="/TreasureDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d05a4b8c-9c79-4739-95a1-9d8382813073" absoluteBounds="3.75, 3.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/TreasureDataContext/Goods_ArtObject" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41be6641-82a9-4cc1-b427-ec0bc03d0667" absoluteBounds="3.7649999999999997, 3.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fda6b579-c955-4518-a628-9f7485cd7ef9" absoluteBounds="6.375, 3.125, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/TreasureDataContext/Goods_ArtObjectText" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98e74a59-f269-4b03-8133-e960f4425bb1" absoluteBounds="6.3900000000000006, 3.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.75 : 3.72199625651042); (6.375 : 3.72199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TreasureDataContext/Goods_ArtObject/Goods_ArtObject_Goods_ArtObjectText" />
+      <nodes>
+        <classShapeMoniker Id="d05a4b8c-9c79-4739-95a1-9d8382813073" />
+        <classShapeMoniker Id="fda6b579-c955-4518-a628-9f7485cd7ef9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bef99dfe-2a34-4d2d-a92a-e2135d4d973f" absoluteBounds="3.75, 5.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/TreasureDataContext/Goods_Gem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="37fc3449-068d-438c-bcaf-88c26e3192ac" absoluteBounds="3.7649999999999997, 5.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a742ae05-a1d9-44c9-9645-869902721abf" absoluteBounds="6.375, 5.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/TreasureDataContext/Goods_GemText" />
+      <nestedChildShapes>
+        <elementListCompartment Id="48ebb4b9-99b8-42e9-b824-2a377efbc95e" absoluteBounds="6.3900000000000006, 5.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.75 : 6.09699625651042); (6.375 : 6.09699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TreasureDataContext/Goods_Gem/Goods_Gem_Goods_GemText" />
+      <nodes>
+        <classShapeMoniker Id="bef99dfe-2a34-4d2d-a92a-e2135d4d973f" />
+        <classShapeMoniker Id="a742ae05-a1d9-44c9-9645-869902721abf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="02b5d4c4-1c86-43d8-8eae-a972ff3fec2e" absoluteBounds="3.75, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/TreasureDataContext/Goods_ByEncounterLevel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="27858dc0-ab58-428a-a48e-b736c1930c41" absoluteBounds="3.7649999999999997, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a20382eb-0709-47b2-8d97-db724c8b9383" absoluteBounds="9.125, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/TreasureDataContext/Items_ByEncounterLevel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa65d586-8eab-4ccf-8e04-9a5e8f26136d" absoluteBounds="9.14, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9e80dd1-4056-420b-b955-302a17cbed0b" absoluteBounds="0.5, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/TreasureDataContext/Coins_ByEncounterLevel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fdd0f0c9-ccdc-468f-b790-2b76fece1a9f" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="29c545bc-79c3-4b8a-98bd-349b63e4976a" absoluteBounds="9.125, 3, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TreasureDataContext/Mundane_Item" />
+      <nestedChildShapes>
+        <elementListCompartment Id="647fd3e0-7ec0-43be-ad0f-4b27ea1c08d0" absoluteBounds="9.14, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7ada4e61-19e0-4064-b699-3ff24d0f2dfd" absoluteBounds="12.125, 3, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/TreasureDataContext/Mundane_ItemAlchemical" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c45ae4ae-eafe-43de-9a28-758d62a25711" absoluteBounds="12.14, 3.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4bcc9a72-3ba1-4440-8155-8353e8fc8536" absoluteBounds="12.125, 5.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/TreasureDataContext/Mundane_ItemArmor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="74e46e40-1310-4cdd-b5e2-fd84a6f174dc" absoluteBounds="12.14, 5.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f4185e8a-7b1f-4030-8cdb-e64101a5a1a9" absoluteBounds="12.125, 7.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/TreasureDataContext/Mundane_ItemToolGear" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b498b7d2-7e54-43b5-bfb0-a977ef8d19c4" absoluteBounds="12.14, 8.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d45d5069-181c-4da7-b19d-ea0112009663" absoluteBounds="14.5, 3, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TreasureDataContext/Mundane_ItemWeaponType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="16767905-af15-4073-812c-0d55bfaf14ab" absoluteBounds="14.515, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b5fd7045-f72b-4633-a71e-cfc1f3372e2e" absoluteBounds="14.5, 5.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/TreasureDataContext/Mundane_ItemArmorDarkwood" />
+      <nestedChildShapes>
+        <elementListCompartment Id="828852c2-cea7-448b-b529-c45189af92e0" absoluteBounds="14.515, 5.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="478e3f35-ddca-42f4-a26e-21bed1bc32cd" absoluteBounds="14.5, 7.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/TreasureDataContext/Mundane_ItemArmorMasterworkShield" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36574516-a4df-4099-91e1-1c2b6cbe094b" absoluteBounds="14.515, 8.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d67b5a48-018f-4a9c-9db9-1297d908a9d4" absoluteBounds="12.125, 9.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/TreasureDataContext/Magic_CommonMeleeWeapon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5735d69b-2431-4768-8942-84e6d454c784" absoluteBounds="12.14, 10.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ae53fe37-ff5d-49d2-8a8f-b729fe39e276" absoluteBounds="14.5, 9.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/TreasureDataContext/Magic_CommonRangedWeapon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="282962f1-2573-4037-9d0b-3dac8dcb5442" absoluteBounds="14.515, 10.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fea11346-9b79-4f65-8a85-4dddfd881d88" absoluteBounds="12.125, 11.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/TreasureDataContext/Magic_UncommonWeapon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e87dff01-6368-4148-8af0-9974c6d0d721" absoluteBounds="12.14, 12.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f24f7aa5-5b35-435b-a346-b5e23f2a9019" absoluteBounds="0.5, 9, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/TreasureDataContext/Magic_Item" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f1bedac9-69b0-4488-a0af-9ab619960ac2" absoluteBounds="0.51500000000000012, 9.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="746954de-7e63-4aa7-af8f-c7c0fba5c47c" absoluteBounds="6, 9, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/TreasureDataContext/Magic_ArmorSpecialAbility" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a6c53f0-a441-4280-abd1-4d6e859dd566" absoluteBounds="6.015, 9.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d57cd673-c178-45f6-b7bd-87bb0e3ede84" absoluteBounds="3.75, 11.75, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/TreasureDataContext/Magic_ArmorType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a4b5e2e8-5343-475c-a3a7-9bc28d476be6" absoluteBounds="3.7650000000000006, 12.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0be909b9-1eef-47af-845a-3737b603ebab" absoluteBounds="6, 12, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/TreasureDataContext/Magic_ShieldSpecialAbility" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c61eb3e0-830e-4e23-abc7-39ed77eb63ba" absoluteBounds="6.015, 12.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="de89d10e-23b7-4a4b-8d74-046c16a64691" absoluteBounds="8.25, 9, 2, 2.5401025390625">
+      <DataClassMoniker Name="/TreasureDataContext/Magic_SpecifcArmor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="172c1e54-7afb-465b-9111-e7698939a1da" absoluteBounds="8.265, 9.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f5f6117f-afcd-42fe-98dc-4eba93a16aa1" absoluteBounds="8.25, 11.75, 2, 2.5401025390625">
+      <DataClassMoniker Name="/TreasureDataContext/Magic_SpecificShield" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7bfe5d53-5fe2-4767-864c-6ede6d33cf50" absoluteBounds="8.265, 12.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="76ab7d7c-4680-4dca-be30-a32af130c7b4" absoluteBounds="3.75, 8.75, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/TreasureDataContext/Magic_ArmorShield" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d43d599e-29a8-4b14-a2cc-ad391cd060f5" absoluteBounds="3.765, 9.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="853da1c5-4a14-4a74-9acd-85c1c437fec7" absoluteBounds="3.75, 13.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/TreasureDataContext/Magic_ShieldType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d877fd7f-c732-46d1-a24f-48fa3ca8c90c" absoluteBounds="3.7649999999999997, 14.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

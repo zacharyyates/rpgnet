@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="RpgModel">
+  <DataContextMoniker Name="/RpgModelDataContext" />
+  <nestedChildShapes>
+    <classShape Id="560dd298-64b1-4fb8-8681-98b9dd6726c5" absoluteBounds="1.5, 1.25, 2, 2.4109318033854166">
+      <DataClassMoniker Name="/RpgModelDataContext/Account" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c96d574-cefe-45ae-9f8f-c399e1e93f2e" absoluteBounds="1.5149999999999997, 1.71, 1.9700000000000002, 1.8509318033854165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="587e0d8f-0dc1-437e-968e-d2d8cc18c34c" absoluteBounds="8.5, 2.5, 2, 1.26050048828125">
+      <DataClassMoniker Name="/RpgModelDataContext/Group" />
+      <nestedChildShapes>
+        <elementListCompartment Id="80f24f93-89fa-4471-94f0-2c1775db8753" absoluteBounds="8.515, 2.96, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.5 : 1.59375); (9.5 : 1.59375); (9.5 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RpgModelDataContext/Account/Account_Group" />
+      <nodes>
+        <classShapeMoniker Id="560dd298-64b1-4fb8-8681-98b9dd6726c5" />
+        <classShapeMoniker Id="587e0d8f-0dc1-437e-968e-d2d8cc18c34c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="81ee2538-cc14-4225-9fa3-4a94aa77808a" absoluteBounds="5.125, 2, 2, 2.9039737955729166">
+      <DataClassMoniker Name="/RpgModelDataContext/CharacterDto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a79a7f96-a779-4bbd-a3f3-d3d67cc2d959" absoluteBounds="5.14, 2.46, 1.9700000000000002, 2.3439737955729165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.5 : 2.83046590169271); (5.125 : 2.83046590169271)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RpgModelDataContext/Account/Account_CharacterDto" />
+      <nodes>
+        <classShapeMoniker Id="560dd298-64b1-4fb8-8681-98b9dd6726c5" />
+        <classShapeMoniker Id="81ee2538-cc14-4225-9fa3-4a94aa77808a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 3.13025024414063); (7.125 : 3.13025024414063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RpgModelDataContext/Group/Group_CharacterDto" />
+      <nodes>
+        <classShapeMoniker Id="587e0d8f-0dc1-437e-968e-d2d8cc18c34c" />
+        <classShapeMoniker Id="81ee2538-cc14-4225-9fa3-4a94aa77808a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

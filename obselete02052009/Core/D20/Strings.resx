@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ACTION_POINTS" xml:space="preserve">
+    <value>Action Points</value>
+  </data>
+  <data name="ARMOR_PENALTY" xml:space="preserve">
+    <value>Armor Penalty</value>
+  </data>
+  <data name="BASE_ATTACK_BONUS" xml:space="preserve">
+    <value>Base Attack Bonus</value>
+  </data>
+  <data name="CHA" xml:space="preserve">
+    <value>Charisma</value>
+  </data>
+  <data name="CHA_MOD" xml:space="preserve">
+    <value>Charisma Modifier</value>
+  </data>
+  <data name="CLASS_BASE" xml:space="preserve">
+    <value>Base</value>
+  </data>
+  <data name="CLASS_CHARISMATIC" xml:space="preserve">
+    <value>Charismatic</value>
+  </data>
+  <data name="CLASS_DEDICATED" xml:space="preserve">
+    <value>Dedicated</value>
+  </data>
+  <data name="CLASS_FAST" xml:space="preserve">
+    <value>Fast</value>
+  </data>
+  <data name="CLASS_SMART" xml:space="preserve">
+    <value>Smart</value>
+  </data>
+  <data name="CLASS_STRONG" xml:space="preserve">
+    <value>Strong</value>
+  </data>
+  <data name="CLASS_TOUGH" xml:space="preserve">
+    <value>Tough</value>
+  </data>
+  <data name="CON" xml:space="preserve">
+    <value>Constitution</value>
+  </data>
+  <data name="CON_MOD" xml:space="preserve">
+    <value>Constitution Modifier</value>
+  </data>
+  <data name="DEFENSE_BONUS" xml:space="preserve">
+    <value>Defense Bonus</value>
+  </data>
+  <data name="DEX" xml:space="preserve">
+    <value>Dexterity</value>
+  </data>
+  <data name="DEX_MOD" xml:space="preserve">
+    <value>Dexterity Modifier</value>
+  </data>
+  <data name="EQUIP_BONUS" xml:space="preserve">
+    <value>Equipment Bonus</value>
+  </data>
+  <data name="FORTITUDE_SAVE" xml:space="preserve">
+    <value>Fortitude Save</value>
+  </data>
+  <data name="HP" xml:space="preserve">
+    <value>Hit Points</value>
+  </data>
+  <data name="INITIATIVE" xml:space="preserve">
+    <value>Initiative Modifier</value>
+  </data>
+  <data name="INT" xml:space="preserve">
+    <value>Intelligence</value>
+  </data>
+  <data name="INT_MOD" xml:space="preserve">
+    <value>Intelligence Modifier</value>
+  </data>
+  <data name="MELEE_ATTACK_BONUS" xml:space="preserve">
+    <value>Melee Attack Bonus</value>
+  </data>
+  <data name="RANGED_ATTACK_BONUS" xml:space="preserve">
+    <value>Ranged Attack Bonus</value>
+  </data>
+  <data name="REFLEX_SAVE" xml:space="preserve">
+    <value>Reflex Save</value>
+  </data>
+  <data name="REPUTATION" xml:space="preserve">
+    <value>Reputation Bonus</value>
+  </data>
+  <data name="SIZE" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="SIZE_MOD" xml:space="preserve">
+    <value>Size Modifier</value>
+  </data>
+  <data name="SKILL_BALANCE" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="SKILL_BLUFF" xml:space="preserve">
+    <value>Bluff</value>
+  </data>
+  <data name="SKILL_COMPUTER_USE" xml:space="preserve">
+    <value>Computer Use</value>
+  </data>
+  <data name="SKILL_CONCENTRATION" xml:space="preserve">
+    <value>Concentration</value>
+  </data>
+  <data name="SKILL_CRAFT_MECHANICAL" xml:space="preserve">
+    <value>Craft: Mechanical</value>
+  </data>
+  <data name="SKILL_CRAFT_PHARMECEUTICAL" xml:space="preserve">
+    <value>Craft: Pharmeceutical</value>
+  </data>
+  <data name="SKILL_DECIPHER_SCRIPT" xml:space="preserve">
+    <value>Decipher Script</value>
+  </data>
+  <data name="SKILL_DEMOLITIONS" xml:space="preserve">
+    <value>Demolitions</value>
+  </data>
+  <data name="SKILL_DIPLOMACY" xml:space="preserve">
+    <value>Diplomacy</value>
+  </data>
+  <data name="SKILL_DISABLE_DEVICE" xml:space="preserve">
+    <value>Disable Device</value>
+  </data>
+  <data name="SKILL_DISGUISE" xml:space="preserve">
+    <value>Disguise</value>
+  </data>
+  <data name="SKILL_DRIVE" xml:space="preserve">
+    <value>Drive</value>
+  </data>
+  <data name="SKILL_ESCAPE_ARTIST" xml:space="preserve">
+    <value>Escape Artist</value>
+  </data>
+  <data name="SKILL_FORGERY" xml:space="preserve">
+    <value>Forgery</value>
+  </data>
+  <data name="SKILL_GAMBLE" xml:space="preserve">
+    <value>Gamble</value>
+  </data>
+  <data name="SKILL_GATHER_INFORMATION" xml:space="preserve">
+    <value>Gather Information</value>
+  </data>
+  <data name="SKILL_HANDLE_ANIMAL" xml:space="preserve">
+    <value>Handle Animal</value>
+  </data>
+  <data name="SKILL_HIDE" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="SKILL_INTIMIDATE" xml:space="preserve">
+    <value>Intimidate</value>
+  </data>
+  <data name="SKILL_INVESTIGATE" xml:space="preserve">
+    <value>Investigate</value>
+  </data>
+  <data name="SKILL_JUMP" xml:space="preserve">
+    <value>Jump</value>
+  </data>
+  <data name="SKILL_KNOWLEDGE_CURRENT_EVENTS" xml:space="preserve">
+    <value>Knowledge: Current Events</value>
+  </data>
+  <data name="SKILL_KNOWLEDGE_POPULAR_CULTURE" xml:space="preserve">
+    <value>Knowledge: Popular Culture</value>
+  </data>
+  <data name="SKILL_KNOWLEDGE_STREETWISE" xml:space="preserve">
+    <value>Knowledge: Streetwise</value>
+  </data>
+  <data name="SKILL_LISTEN" xml:space="preserve">
+    <value>Listen</value>
+  </data>
+  <data name="SKILL_MOVE_SILENTLY" xml:space="preserve">
+    <value>Move Silently</value>
+  </data>
+  <data name="SKILL_NAVIGATE" xml:space="preserve">
+    <value>Navigate</value>
+  </data>
+  <data name="SKILL_PILOT" xml:space="preserve">
+    <value>Pilot</value>
+  </data>
+  <data name="SKILL_PROFESSION" xml:space="preserve">
+    <value>Profession</value>
+  </data>
+  <data name="SKILL_REPAIR" xml:space="preserve">
+    <value>Repair</value>
+  </data>
+  <data name="SKILL_RESEARCH" xml:space="preserve">
+    <value>Research</value>
+  </data>
+  <data name="SKILL_RIDE" xml:space="preserve">
+    <value>Ride</value>
+  </data>
+  <data name="SKILL_SEARCH" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SKILL_SENSE_MOTIVE" xml:space="preserve">
+    <value>Sense Motive</value>
+  </data>
+  <data name="SKILL_SLEIGHT_OF_HAND" xml:space="preserve">
+    <value>Sleight Of Hand</value>
+  </data>
+  <data name="SKILL_SPOT" xml:space="preserve">
+    <value>Spot</value>
+  </data>
+  <data name="SKILL_SURVIVAL" xml:space="preserve">
+    <value>Survival</value>
+  </data>
+  <data name="SKILL_SWIM" xml:space="preserve">
+    <value>Swim</value>
+  </data>
+  <data name="SKILL_TREAT_INJURY" xml:space="preserve">
+    <value>Treat Injury</value>
+  </data>
+  <data name="SKILL_TUMBLE" xml:space="preserve">
+    <value>Tumble</value>
+  </data>
+  <data name="SPEED" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="STR" xml:space="preserve">
+    <value>Strength</value>
+  </data>
+  <data name="STR_MOD" xml:space="preserve">
+    <value>Strength Modifier</value>
+  </data>
+  <data name="WEALTH_BONUS" xml:space="preserve">
+    <value>Wealth Bonus</value>
+  </data>
+  <data name="WILL_SAVE" xml:space="preserve">
+    <value>Will Save</value>
+  </data>
+  <data name="WIS" xml:space="preserve">
+    <value>Wisdom</value>
+  </data>
+  <data name="WIS_MOD" xml:space="preserve">
+    <value>Wisdom Modifier</value>
+  </data>
+</root>
