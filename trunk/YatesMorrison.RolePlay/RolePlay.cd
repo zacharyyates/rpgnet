@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="YatesMorrison.RolePlay.Actor" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAgAAAFAAAAAAQAACAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Environment\Actor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.Character">
+    <Position X="4" Y="2" Width="1.5" />
+    <AssociationLine Name="Inventory" Type="YatesMorrison.RolePlay.Inventory">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.766" Y="0.091" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAABQAAAQAEAAAAAAACAABEAAAAiQIgAA=</HashCode>
+      <FileName>Character\Character.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Inventory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.Inventory" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <AssociationLine Name="Slots" Type="YatesMorrison.RolePlay.InventorySlot">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.203" Y="0.195" Height="0.182" Width="0.68" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Environment\Inventory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Slots" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.InventorySlot" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Environment\InventorySlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.SingleSlot">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Environment\SingleSlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.MultiSlot">
+    <Position X="2.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Environment\MultiSlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.CharacterLevel">
+    <Position X="4" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAEAAAEAAEAAAQQAAAAAAAAABAYAAACAA=</HashCode>
+      <FileName>Character\CharacterLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.Campaign">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Environment\Campaign.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Actors" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.CharacterEnhancement">
+    <Position X="6" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAACAAAAAAAAAgAAAAQAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Character\CharacterEnhancement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.Item">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Environment\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.Armor">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Environment\Armor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.Vehicle" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Environment\Vehicle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.Weapon">
+    <Position X="8" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Environment\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.Range">
+    <Position X="10" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Range.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.Ammunition">
+    <Position X="10" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Environment\Ammunition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YatesMorrison.RolePlay.Seat">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Environment\Seat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="YatesMorrison.RolePlay.ICharacterLevelFactory">
+    <Position X="8" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Character\ICharacterLevelFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="YatesMorrison.RolePlay.SizeCategory" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAAAAAAAAAAAAAAABgAAAAAAIAAAAAABAEAAA=</HashCode>
+      <FileName>Environment\SizeCategory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

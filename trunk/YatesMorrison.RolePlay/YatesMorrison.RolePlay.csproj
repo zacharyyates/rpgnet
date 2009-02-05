@@ -1,0 +1,101 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DDCF1C5C-FF81-4A68-A2E7-8475256E7C13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YatesMorrison.RolePlay</RootNamespace>
+    <AssemblyName>YatesMorrison.RolePlay</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character\Ability.cs" />
+    <Compile Include="Character\Advance.cs" />
+    <Compile Include="Character\DerivedAttribute.cs" />
+    <Compile Include="Character\Aspect.cs" />
+    <Compile Include="Environment\Armor.cs" />
+    <Compile Include="Environment\Damage.cs" />
+    <Compile Include="Environment\Equipment.cs" />
+    <Compile Include="Environment\Game.cs" />
+    <Compile Include="Environment\Result.cs" />
+    <Compile Include="Environment\Point.cs" />
+    <Compile Include="Environment\Map.cs" />
+    <Compile Include="Environment\Range.cs" />
+    <Compile Include="Extensions\AttributeInstance.cs" />
+    <Compile Include="Extensions\CharacterTemplate.cs" />
+    <Compile Include="Extensions\AttributeTemplate.cs" />
+    <Compile Include="Environment\CurrencyItem.cs" />
+    <Compile Include="Dice.cs" />
+    <Compile Include="Character\Effect.cs" />
+    <Compile Include="Environment\Actor.cs" />
+    <Compile Include="Character\Character.cs" />
+    <Compile Include="Character\Attribute.cs" />
+    <Compile Include="Environment\Inventory.cs" />
+    <Compile Include="Environment\InventorySlot.cs" />
+    <Compile Include="Environment\Item.cs" />
+    <Compile Include="Character\Modifier.cs" />
+    <Compile Include="Environment\MonetaryValue.cs" />
+    <Compile Include="Character\Progression.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Character\Requisite.cs" />
+    <Compile Include="Environment\StackableItem.cs" />
+    <Compile Include="Tokenizer.cs" />
+    <Compile Include="Environment\Weapon.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RolePlay.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YatesMorrison\YatesMorrison.csproj">
+      <Project>{4B24B029-E580-4A68-BE21-4C43C70E9EC8}</Project>
+      <Name>YatesMorrison</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

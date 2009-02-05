@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3BF57ED-E767-4BDB-AC46-640745D3C55F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YatesMorrison.Entropy</RootNamespace>
+    <AssemblyName>YatesMorrison.Entropy</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abilities\Attack.cs" />
+    <Compile Include="CharacterFactory.cs" />
+    <Compile Include="DerivedAttributes\ActionPoints.cs" />
+    <Compile Include="DerivedAttributes\ArmorClass.cs" />
+    <Compile Include="DerivedAttributes\DamageResistence.cs" />
+    <Compile Include="DerivedAttributes\MeleeDamage.cs" />
+    <Compile Include="Environment\Armor.cs" />
+    <Compile Include="Environment\Damage.cs" />
+    <Compile Include="Environment\Weapons\Gun.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Skills\BigGuns.cs" />
+    <Compile Include="DerivedAttributes\BiologicalResistence.cs" />
+    <Compile Include="Skills\Bludgeon.cs" />
+    <Compile Include="Skills\Camp.cs" />
+    <Compile Include="DerivedAttributes\CarryWeight.cs" />
+    <Compile Include="Character.cs" />
+    <Compile Include="Skills\Chemistry.cs" />
+    <Compile Include="DerivedAttributes\CriticalChance.cs" />
+    <Compile Include="Skills\Disguise.cs" />
+    <Compile Include="Skills\EnergyWeapons.cs" />
+    <Compile Include="Skills\Forage.cs" />
+    <Compile Include="Skills\Gambling.cs" />
+    <Compile Include="Skills\HandleAnimal.cs" />
+    <Compile Include="DerivedAttributes\HealingRate.cs" />
+    <Compile Include="Skills\Hunt.cs" />
+    <Compile Include="Skills\Lockpick.cs" />
+    <Compile Include="DerivedAttributes\MaxHitPoints.cs" />
+    <Compile Include="Skills\Medic.cs" />
+    <Compile Include="Skills\Physics.cs" />
+    <Compile Include="Skills\Pierce.cs" />
+    <Compile Include="Skills\Pilot.cs" />
+    <Compile Include="Skills\Primitive.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DerivedAttributes\RadiationResistence.cs" />
+    <Compile Include="Skills\Repair.cs" />
+    <Compile Include="DerivedAttributes\Sequence.cs" />
+    <Compile Include="Skills\Slash.cs" />
+    <Compile Include="Skills\SmallGuns.cs" />
+    <Compile Include="Skills\Sneak.cs" />
+    <Compile Include="Skills\Steal.cs" />
+    <Compile Include="Skills\Strike.cs" />
+    <Compile Include="Skills\Technology.cs" />
+    <Compile Include="Skills\Throw.cs" />
+    <Compile Include="Skills\Track.cs" />
+    <Compile Include="Skills\Traps.cs" />
+    <Compile Include="Skills\Wrestle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YatesMorrison.RolePlay\YatesMorrison.RolePlay.csproj">
+      <Project>{DDCF1C5C-FF81-4A68-A2E7-8475256E7C13}</Project>
+      <Name>YatesMorrison.RolePlay</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
