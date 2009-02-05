@@ -1,3 +1,0 @@
-﻿ALTER TABLE [dbo].[Character] ADD CONSTRAINT [PK_Character] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
-
-

@@ -1,3 +1,0 @@
-﻿ALTER TABLE [dbo].[TopicTag] ADD CONSTRAINT [PK_WikiTag] PRIMARY KEY CLUSTERED  ([TopicId], [TagId]) ON [PRIMARY]
-
-
