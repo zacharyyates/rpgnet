@@ -8,7 +8,7 @@ namespace YatesMorrison.RolePlay
 	using System.Collections.Generic;
 	using System.Collections.ObjectModel;
 
-	public interface IEffect // todo: maybe break this out into IRequisite, IModifier
+	public interface IEffect : IChildOf<Actor> // todo: maybe break this out into IRequisite, IModifier
 	{
 		string Name { get; }
 		string Description { get; }
@@ -35,7 +35,7 @@ namespace YatesMorrison.RolePlay
 		{
 			m_Modifiers.Add(modifier);
 			modifier.Effect = this;
-		}
+		} // todo: implement IChild pattern
 
 		public ReadOnlyCollection<Requisite> Requisites
 		{
@@ -46,6 +46,23 @@ namespace YatesMorrison.RolePlay
 		public void Add(Requisite requisite)
 		{
 			m_Requisites.Add(requisite);
+		} // todo: implement IChild pattern
+
+		public void AddTo(Actor parent)
+		{
+			foreach (var modifier in Modifiers)
+			{
+				var aspect = parent.GetAspectByName(modifier.AspectName);
+				aspect.Add(modifier);
+			}
+		}
+		public void RemoveFrom(Actor parent)
+		{
+			foreach (var modifier in Modifiers)
+			{
+				var aspect = parent.GetAspectByName(modifier.AspectName);
+				aspect.Remove(modifier);
+			}
 		}
 	}
 

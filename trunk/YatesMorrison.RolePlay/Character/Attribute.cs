@@ -10,7 +10,7 @@ namespace YatesMorrison.RolePlay
 	using System.Linq;
 
 	[Serializable]
-	public class Attribute : Aspect
+	public class Attribute : Aspect, IParentOf<DerivedAttribute>, IParentOf<Advance>
 	{
 		public Attribute() { }
 		public Attribute(string name, string abbreviation, string description, double initial)
@@ -33,34 +33,51 @@ namespace YatesMorrison.RolePlay
 			get { return Normal + ModifierTotal; }
 		}
 
+		#region Advances
+
+		public void Add(Advance child)
+		{
+			m_Advances.Add(child);
+			child.AddTo(this);
+		}
+		public void Remove(Advance child)
+		{
+			m_Advances.Remove(child);
+			child.RemoveFrom(this);
+		}
+
 		public ReadOnlyCollection<Advance> Advances
 		{
 			get { return new ReadOnlyCollection<Advance>(m_Advances); }
 		}
 		List<Advance> m_Advances = new List<Advance>();
 
-		public void Add(Advance advance)
-		{
-			m_Advances.Add(advance);
-			advance.Attribute = this;
-			advance.IsActive = true;
-		}
-
 		public double AdvanceTotal
 		{
 			get { return Advances.Where(a => a.IsActive).Sum(a => a.Value); }
 		}
 
-		public ReadOnlyCollection<DerivedAttribute> Children
-		{
-			get { return new ReadOnlyCollection<DerivedAttribute>(m_Children); }
-		}
-		List<DerivedAttribute> m_Children = new List<DerivedAttribute>();
+		#endregion
+
+		#region Derived
 
 		public void Add(DerivedAttribute child)
 		{
-			m_Children.Add(child);
-			child.Parent = this;
+			m_Derived.Add(child);
+			child.AddTo(this);
 		}
+		public void Remove(DerivedAttribute child)
+		{
+			child.RemoveFrom(this);
+			m_Derived.Remove(child);
+		}
+
+		public ReadOnlyCollection<DerivedAttribute> Derived
+		{
+			get { return new ReadOnlyCollection<DerivedAttribute>(m_Derived); }
+		}
+		List<DerivedAttribute> m_Derived = new List<DerivedAttribute>();
+
+		#endregion
 	}
 }

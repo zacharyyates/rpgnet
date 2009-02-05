@@ -34,7 +34,7 @@ namespace YatesMorrison.Entropy.Web.Controllers
 			gun.Name = "Pewpewer";
 			gun.Range = new Range(100, 20);
 			gun.AspectName = "Small Guns";
-			zach.Equip(gun);
+			zach.Add(gun);
 
 			// Create armor for karl
 			var armor = new YatesMorrison.Entropy.Armor()
@@ -43,7 +43,7 @@ namespace YatesMorrison.Entropy.Web.Controllers
 				Threshold = 0
 			};
 			armor.Add(new Aspect("Current Hit Points", "CHP", "", 10));
-			karl.Equip(armor);
+			karl.Add(armor);
 			karl.Armor = armor;
 
 			zach.Use(gun.Abilities[0], karl);

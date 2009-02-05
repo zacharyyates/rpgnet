@@ -14,7 +14,7 @@ namespace YatesMorrison.Entropy
 
 		public override double Base
 		{
-			get { return 25 * Parent.Total + 25; }
+			get { return 25 * Attribute.Total + 25; }
 		}
 	}
 }

@@ -16,13 +16,13 @@ namespace YatesMorrison.Entropy
 		public int ExperiencePoints { get; set; }
 		public int SpentExperiencePoints { get; set; }
 
-		public override void Add(YatesMorrison.RolePlay.Aspect aspect)
+		public override void Add(Aspect child)
 		{
-			base.Add(aspect);
+			base.Add(child);
 			// sort the attributes according to type
-			if (PrimaryAttributeNames.Contains(aspect.Name)) { m_Primary.Add(aspect as YatesMorrison.RolePlay.Attribute); }
-			if (DerivedAttributeNames.Contains(aspect.Name)) { m_Derived.Add(aspect as DerivedAttribute); }
-			if (KnowledgeAreaNames.Contains(aspect.Name)) { m_KnowledgeAreas.Add(aspect as YatesMorrison.RolePlay.Attribute); }
+			if (PrimaryAttributeNames.Contains(child.Name)) { m_Primary.Add(child as YatesMorrison.RolePlay.Attribute); }
+			if (DerivedAttributeNames.Contains(child.Name)) { m_Derived.Add(child as DerivedAttribute); }
+			if (KnowledgeAreaNames.Contains(child.Name)) { m_KnowledgeAreas.Add(child as YatesMorrison.RolePlay.Attribute); }
 		}
 
 		public ReadOnlyCollection<YatesMorrison.RolePlay.Attribute> Primary

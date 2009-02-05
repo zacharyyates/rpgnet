@@ -14,7 +14,7 @@ namespace YatesMorrison.Entropy
 
 		public override double Base
 		{
-			get { return (Parent.Total - 5 > 1 ? Parent.Total - 5 : 1); }
+			get { return (this.Attribute.Total - 5 > 1 ? this.Attribute.Total - 5 : 1); }
 		}
 	}
 }

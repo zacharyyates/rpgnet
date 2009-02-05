@@ -12,7 +12,7 @@ namespace YatesMorrison.Entropy
 		{
 			Character character = new Character();
 
-			// Add the basic attributes
+			// Attach the basic attributes
 			character.Add(new Attribute("Strength", "ST", "", 5));
 			character.Add(new Attribute("Perception", "PE", "", 5));
 			character.Add(new Attribute("Endurance", "EN", "", 5));
@@ -21,7 +21,7 @@ namespace YatesMorrison.Entropy
 			character.Add(new Attribute("Agility", "AG", "", 5));
 			character.Add(new Attribute("Luck", "LK", "", 5));
 
-			// Add derived attributes
+			// Attach derived attributes
 			character.Add(new MaxHitPoints());
 			character.Add(new ArmorClass());
 			character.Add(new ActionPoints());
@@ -34,7 +34,7 @@ namespace YatesMorrison.Entropy
 			character.Add(new CriticalChance());
 			character.Add(new MeleeDamage());
 
-			// Add knowledge areas
+			// Attach knowledge areas
 			character.Add(new Attribute("Learn", "", "", 0));
 			character.Add(new Attribute("Marksman", "", "", 0));
 			character.Add(new Attribute("Melee", "", "", 0));
@@ -42,7 +42,7 @@ namespace YatesMorrison.Entropy
 			character.Add(new Attribute("Subterfuge", "", "", 0));
 			character.Add(new Attribute("Science", "", "", 0));
 
-			// Add skills
+			// Attach skills
 			character.Add(new SmallGuns());
 			character.Add(new BigGuns());
 			character.Add(new EnergyWeapons());
@@ -71,11 +71,11 @@ namespace YatesMorrison.Entropy
 			character.Add(new Chemistry());
 			character.Add(new Physics());
 
-			// add aspects
+			// Attach aspects
 			character.Add(new Aspect("Current Hit Points", "CHP", "", 30));
 			
 
-			//// test: add equipment
+			//// test: Attach equipment
 			//Equipment equipment = new Equipment()
 			//{
 			//    Name = "Gun",
@@ -83,7 +83,7 @@ namespace YatesMorrison.Entropy
 			//    Value = new MonetaryValue(5),
 			//    Weight = 10
 			//};
-			//equipment.Add(new Modifier() { AttributeName = "Strength", Operator = Operator.Add, Value = 5 });
+			//equipment.Attach(new Modifier() { AttributeName = "Strength", Operator = Operator.Attach, Value = 5 });
 			//character.Equip(equipment);
 
 			return character;

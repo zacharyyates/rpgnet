@@ -54,5 +54,14 @@ namespace YatesMorrison.RolePlay
 			get { return m_Abilities; }
 		}
 		List<Ability> m_Abilities = new List<Ability>();
+
+		public void AddTo(Actor parent)
+		{
+			EquipedTo = parent;
+		}
+		public void RemoveFrom(Actor parent)
+		{
+			EquipedTo = null;
+		}
 	}
 }
