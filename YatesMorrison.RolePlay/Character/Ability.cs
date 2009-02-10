@@ -18,6 +18,9 @@ namespace YatesMorrison.RolePlay
 		public virtual string Abbreviation { get; set; }
 		public virtual string Description { get; set; }
 
-		public abstract void Use(Actor initiator, Actor target);
+		public Actor Initiator { get; set; }
+		public Actor Target { get; set; }
+
+		public abstract void Use();
 	}
 }

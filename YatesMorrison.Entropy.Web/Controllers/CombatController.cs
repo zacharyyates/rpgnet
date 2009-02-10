@@ -4,10 +4,12 @@
  */
 namespace YatesMorrison.Entropy.Web.Controllers
 {
+	using System.Linq;
 	using System.Web.Mvc;
 	using YatesMorrison.Entropy.Environment.Weapons;
 	using YatesMorrison.Entropy.Web.Views.Combat;
 	using YatesMorrison.RolePlay;
+	using Entropy = YatesMorrison.Entropy;
 
 	public class CombatController : Controller
 	{
@@ -37,18 +39,22 @@ namespace YatesMorrison.Entropy.Web.Controllers
 			zach.Add(gun);
 
 			// Create armor for karl
-			var armor = new YatesMorrison.Entropy.Armor()
+			var armor = new Entropy.Armor()
 			{
 				Soak = 5,
-				Threshold = 0
+				Threshold = 0,
+				LegalSlots = { "Torso" }
 			};
 			armor.Add(new Aspect("Current Hit Points", "CHP", "", 10));
 			karl.Add(armor);
-			karl.Armor = armor;
+			karl.Equip(armor, "Torso");
 
-			zach.Use(gun.Abilities[0], karl);
+			var shoot = gun.Abilities.Single(a => a.Name.Equals("Targeted Attack")) as TargetedAttack;
+			shoot.BodyArea = "Head";
+			shoot.Target = karl;
+			zach.Use(shoot);
 
-			return View(new CombatResult()
+			return View(new CombatResult() // todo: add a combat log sink
 				{
 					Initiator = zach,
 					Target = karl

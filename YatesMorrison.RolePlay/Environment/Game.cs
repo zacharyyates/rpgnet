@@ -39,7 +39,7 @@ namespace YatesMorrison.RolePlay
 
 		protected virtual void HandleAction(object sender, ActionEventArgs e)
 		{
-			e.Ability.Use(e.Initiator, e.Target);
+			e.Ability.Use();
 		}
 
 		public Map Map { get; set; }

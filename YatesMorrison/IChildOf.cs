@@ -2,9 +2,7 @@
  * Copyright © 2009 YatesMorrison Software Company
  * 2.5.2009
  */
-using System.Collections.ObjectModel;
-
-namespace YatesMorrison.RolePlay
+namespace YatesMorrison
 {
 	public interface IParentOf<T>
 		where T : class

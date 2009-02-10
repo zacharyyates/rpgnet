@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abilities\Attack.cs" />
+    <Compile Include="Abilities\TargetedAttack.cs" />
     <Compile Include="CharacterFactory.cs" />
     <Compile Include="DerivedAttributes\ActionPoints.cs" />
     <Compile Include="DerivedAttributes\ArmorClass.cs" />
@@ -99,6 +100,10 @@
     <ProjectReference Include="..\YatesMorrison.RolePlay\YatesMorrison.RolePlay.csproj">
       <Project>{DDCF1C5C-FF81-4A68-A2E7-8475256E7C13}</Project>
       <Name>YatesMorrison.RolePlay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YatesMorrison\YatesMorrison.csproj">
+      <Project>{4B24B029-E580-4A68-BE21-4C43C70E9EC8}</Project>
+      <Name>YatesMorrison</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,6 @@
 ﻿/* Zachary Yates
  * Copyright 2009 YatesMorrison Software Company
- * 2/3/2009
+ * 2.3.2009
  */
 namespace YatesMorrison.RolePlay
 {
@@ -9,7 +9,7 @@ namespace YatesMorrison.RolePlay
 	using System.Collections.ObjectModel;
 
 	[Serializable]
-	public class Equipment : Item, IEffect // todo: add some sort of "slot" functionality, ie: you can't wear 2 helmets
+	public class Equipment : Item, IEffect
 	{
 		#region IEffect
 		public EffectType EffectType
@@ -27,6 +27,11 @@ namespace YatesMorrison.RolePlay
 		{
 			m_Modifiers.Add(modifier);
 			modifier.Effect = this;
+		} // todo: implement IChild pattern
+		public void Remove(Modifier modifier)
+		{
+			modifier.Effect = null;
+			m_Modifiers.Remove(modifier);
 		}
 
 		public ReadOnlyCollection<Requisite> Requisites
@@ -38,11 +43,21 @@ namespace YatesMorrison.RolePlay
 		public void Add(Requisite requisite)
 		{
 			m_Requisites.Add(requisite);
+		} // todo: implement IChild pattern
+		public void Remove(Requisite requisite)
+		{
+			m_Requisites.Remove(requisite);
 		}
 		#endregion
 
 		public Actor EquipedTo { get; set; }
 		public Actor Owner { get; set; }
+
+		public List<string> LegalSlots
+		{
+			get { return m_LegalSlots; }
+		}
+		List<string> m_LegalSlots = new List<string>();
 
 		public string AspectName { get; set; }
 		public bool RequiresLineOfSight { get; set; }
@@ -55,13 +70,18 @@ namespace YatesMorrison.RolePlay
 		}
 		List<Ability> m_Abilities = new List<Ability>();
 
-		public void AddTo(Actor parent)
+		public void EquipTo(Actor actor)
 		{
-			EquipedTo = parent;
+			EquipedTo = actor;
+			actor.Add(this as IEffect);
 		}
-		public void RemoveFrom(Actor parent)
+		public void UnequipFrom(Actor actor)
 		{
+			actor.Remove(this as IEffect);
 			EquipedTo = null;
 		}
+
+		public void AddTo(Actor parent) { }
+		public void RemoveFrom(Actor parent) { }
 	}
 }

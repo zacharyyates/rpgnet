@@ -11,45 +11,86 @@ namespace YatesMorrison.Entropy
 	public class Attack : Ability
 	{
 		public Attack() : base("Attack", "ATTK", "") { }
+		public Attack(string name, string abbreviation, string description) : base(name, abbreviation, description) { }
 
 		public Weapon Weapon { get; set; }
 
-		public override void Use(Actor initiator, Actor target)
+		/// <summary>
+		/// The Initiator's score in the ability required to use the weapon
+		/// </summary>
+		public virtual double AbilityScore
+		{
+			get { return Initiator.GetAspectByName(Weapon.AspectName).Total; }
+		}
+		public virtual bool IsInRange
+		{
+			get { return (Range <= Weapon.Range.Maximum); }
+		}
+		// todo: possibly add a range extender perk?
+		protected virtual double Range
+		{
+			get { return Initiator.Location.DistanceTo(Target.Location); }
+		}
+		protected virtual double RangePenalty
+		{
+			get { return (Range / Weapon.Range.Nominal - 1) * 100; }
+		}
+		protected virtual double TargetAC
+		{
+			get { return Target.GetAspectByName("Armor Class").Total; }
+		}
+		protected virtual double ToHit
+		{
+			get
+			{
+				// calculate to hit
+				var toHit = AbilityScore - RangePenalty - TargetAC;
+				// bound the toHit score
+				var boundedToHit = Math.Round(toHit);
+				if (toHit < 1) boundedToHit = 1;
+				if (toHit > 95) boundedToHit = 95;
+
+				return boundedToHit;
+			}
+		}
+		protected virtual bool AttackHits
+		{
+			get { return Dice.Roll(100) < ToHit; }
+		}
+		protected virtual Armor Armor
+		{
+			get { return Target.GetEquipmentBySlot("Torso") as Armor; }
+		}
+
+		public override void Use()
 		{
 			// todo: add a targeted attack ability
-			var range = initiator.Location.DistanceTo(target.Location);
-			if (range <= Weapon.Range.Maximum)
+			if( IsInRange )
 			{
-				// determine if the initiator hits the target
-				var abilScore = initiator.GetAspectByName(Weapon.AspectName).Total;
-				// calculate range penalty
-				var rangePenalty = (range / Weapon.Range.Nominal - 1) * 100;
-				// get AC for the target
-				var ac = target.GetAspectByName("Armor Class").Total;
-				// calculate to hit
-				var toHit = abilScore - rangePenalty - ac;
-				// bound the toHit score
-				var toHitPercent = toHit;
-				if (toHit < 1) toHitPercent = 1;
-				if (toHit > 95) toHitPercent = 95;
-				// determine if the attack hit
-				var roll = Dice.Roll(100);
-				if (roll < toHitPercent) // attack hits
+				if (AttackHits)
 				{
 					// determine damage
 					var maxDamage = Weapon.MaxDamage;
 
-					var dr = target.GetAspectByName("Damage Resistance").Total;
-					var dt = (target.Armor as Armor).Threshold;
-					var ds = (target.Armor as Armor).Soak;
-
+					var dr = Target.GetAspectByName("Damage Resistance").Total;
 					var drPenalty = maxDamage * (dr / 100); // percentage based
-					var totalDamage = Math.Round(maxDamage - drPenalty - dt - ds);
+					var totalDamage = maxDamage - drPenalty;
 
-					// damage the actor
-					target.Take(new Damage(totalDamage, DamageType.Kinetic));
-					// damage his armor
-					target.Armor.Take(new Damage(ds, DamageType.Kinetic)); // todo: fix this so armor doesn't take max soak every hit
+					// determine armor effectiveness
+					var armor = Armor;
+					if (armor != null)
+					{
+						var dt = armor.Threshold;
+						var ds = armor.Soak;
+
+						// damage the armor
+						armor.Take(new Damage(ds, DamageType.Kinetic)); // todo: fix this so armor doesn't take max soak every hit
+						totalDamage -= (dt + ds); // ignore and soak damage from the attack
+					}
+
+					totalDamage = Math.Round(totalDamage); // round the result
+					Target.Take(new Damage(totalDamage, DamageType.Kinetic)); // damage the target, todo: Make sure this uses the correct damage type
+					// todo: add a critical hit calculation
 				}
 			}
 		}
