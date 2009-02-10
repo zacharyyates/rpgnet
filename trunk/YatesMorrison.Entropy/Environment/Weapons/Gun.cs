@@ -4,8 +4,8 @@
  */
 namespace YatesMorrison.Entropy.Environment.Weapons
 {
-	using YatesMorrison.RolePlay;
 	using System;
+	using YatesMorrison.RolePlay;
 
 	[Serializable]
 	public class Gun : Weapon
@@ -16,6 +16,12 @@ namespace YatesMorrison.Entropy.Environment.Weapons
 			{
 				Weapon = this,
 				Description = "SHOOT SHIT@!"
+			});
+			Abilities.Add(new TargetedAttack()
+			{
+				Weapon = this,
+				BodyArea = "Torso",
+				Description = "Aim for the EYES!"
 			});
 		}
 

@@ -10,7 +10,7 @@ namespace YatesMorrison.RolePlay
 	using System.Linq;
 
 	[Serializable]
-	public class Actor : IParentOf<Aspect>, IParentOf<Advance>, IParentOf<IEffect>, IParentOf<Equipment>
+	public class Actor : IParentOf<Aspect>, IParentOf<Advance>, IParentOf<IEffect>
 	{
 		public Game Game { get; set; }
 		public Point Location { get; set; }
@@ -24,9 +24,6 @@ namespace YatesMorrison.RolePlay
 			set { m_Weight = value; }
 		}
 		protected double m_Weight = 0;
-
-		public Inventory Inventory { get; set; }
-		public Armor Armor { get; set; }
 
 		#region Aspects
 
@@ -96,28 +93,38 @@ namespace YatesMorrison.RolePlay
 
 		#region Equipment
 
-		public ReadOnlyCollection<Equipment> Equipment
+		public ReadOnlyCollection<Item> Items
 		{
-			get { return new ReadOnlyCollection<Equipment>(m_Equipment); }
+			get { return new ReadOnlyCollection<Item>(m_Items); }
 		}
-		List<Equipment> m_Equipment = new List<Equipment>();
+		List<Item> m_Items = new List<Item>();
 
-		public void Add(Equipment child)
+		public void Equip(Equipment equipment, string slot)
 		{
-			if (Meets(child.Requisites))
+			if (equipment.LegalSlots.Contains(slot) &&	// can be equiped to the slot
+				m_Equipment[slot] == null &&			// the slot is empty
+				Meets(equipment.Requisites))			// meets prereqisites
 			{
-				m_Equipment.Add(child);
-				Add(child as IEffect);
-				child.AddTo(this);
+				m_Equipment[slot] = equipment;
+				equipment.EquipTo(this);
 			}
 			// todo: add a message or something when equip fails
 		}
-		public void Remove(Equipment child)
+		public void Unequip(Equipment equipment, string slot)
 		{
-			m_Equipment.Remove(child);
-			Remove(child as IEffect);
-			child.RemoveFrom(this);
+			equipment.UnequipFrom(this);
 		}
+
+		public Equipment GetEquipmentBySlot(string slot)
+		{
+			return m_Equipment[slot];
+		}
+
+		public ReadOnlyCollection<Equipment> Equipment
+		{
+			get { return new ReadOnlyCollection<Equipment>(m_Equipment.Values.ToList()); }
+		}
+		protected Dictionary<string, Equipment> m_Equipment = new Dictionary<string, Equipment>();
 
 		#endregion
 
@@ -167,12 +174,5 @@ namespace YatesMorrison.RolePlay
 		{
 			return Name;
 		}
-	}
-
-	public class ActionEventArgs : EventArgs
-	{
-		public Actor Initiator { get; set; }
-		public Actor Target { get; set; }
-		public Ability Ability { get; set; }
 	}
 }

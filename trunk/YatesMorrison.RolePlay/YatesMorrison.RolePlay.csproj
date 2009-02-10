@@ -52,7 +52,6 @@
     <Compile Include="Character\Advance.cs" />
     <Compile Include="Character\DerivedAttribute.cs" />
     <Compile Include="Character\Aspect.cs" />
-    <Compile Include="Character\IChildOf.cs" />
     <Compile Include="Environment\Armor.cs" />
     <Compile Include="Environment\Damage.cs" />
     <Compile Include="Environment\Equipment.cs" />
@@ -70,8 +69,6 @@
     <Compile Include="Environment\Actor.cs" />
     <Compile Include="Character\Character.cs" />
     <Compile Include="Character\Attribute.cs" />
-    <Compile Include="Environment\Inventory.cs" />
-    <Compile Include="Environment\InventorySlot.cs" />
     <Compile Include="Environment\Item.cs" />
     <Compile Include="Character\Modifier.cs" />
     <Compile Include="Environment\MonetaryValue.cs" />

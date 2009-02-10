@@ -29,14 +29,15 @@ namespace YatesMorrison.RolePlay
 			if (m_Action != null) m_Action(this, e);
 		}
 
-		public void Use(Ability ability, Actor target)
+		public void Use(Ability ability)
 		{
-			OnAction(new ActionEventArgs()
-			{
-				Initiator = this,
-				Ability = ability,
-				Target = target
-			});
+			ability.Initiator = this;
+			OnAction(new ActionEventArgs() { Ability = ability });
 		}
+	}
+
+	public class ActionEventArgs : EventArgs
+	{
+		public Ability Ability { get; set; }
 	}
 }

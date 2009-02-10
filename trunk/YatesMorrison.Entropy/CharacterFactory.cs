@@ -72,8 +72,7 @@ namespace YatesMorrison.Entropy
 			character.Add(new Physics());
 
 			// Attach aspects
-			character.Add(new Aspect("Current Hit Points", "CHP", "", 30));
-			
+			character.Add(new Aspect("Current Hit Points", "CHP", "", character.GetAspectByAbbreviation("MHP").Total));			
 
 			//// test: Attach equipment
 			//Equipment equipment = new Equipment()

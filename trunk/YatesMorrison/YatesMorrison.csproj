@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IChildOf.cs" />
     <Compile Include="IO\BinarySerializationExtensions.cs" />
     <Compile Include="Code\CompilerExtensions.cs" />
     <Compile Include="IO\CompressionExtensions.cs" />

@@ -9,6 +9,7 @@
 		
 		.Score
 		{
+			font-family: Gothic821 Cn BT, Tahoma;
 			font-size:1.5em;
 			text-align:center;
 		}

@@ -13,6 +13,14 @@ namespace YatesMorrison.Entropy
 	[Serializable]
 	public class Character : YatesMorrison.RolePlay.Character
 	{
+		public Character()
+		{
+			m_Equipment.Add("Torso", null);
+			m_Equipment.Add("Head", null);
+			m_Equipment.Add("Hands", null);
+			m_Equipment.Add("Feet", null);
+		}
+
 		public int ExperiencePoints { get; set; }
 		public int SpentExperiencePoints { get; set; }
 
