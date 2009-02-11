@@ -15,7 +15,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YatesMorrison.Entropy.Data"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YatesMorrison", "YatesMorrison\YatesMorrison.csproj", "{4B24B029-E580-4A68-BE21-4C43C70E9EC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YatesMorrison.RolePlay.Tests", "YatesMorrison.RolePlay.Test\YatesMorrison.RolePlay.Tests.csproj", "{F2E938F0-848D-4F1A-A27F-FCECC173B514}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9E502322-0F38-44CF-81D4-CCA125256768}"
+	ProjectSection(SolutionItems) = preProject
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		YatesMorrison.Entropy.vsmdi = YatesMorrison.Entropy.vsmdi
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YatesMorrison.Entropy.Tests", "YatesMorrison.Entropy.Tests\YatesMorrison.Entropy.Tests.csproj", "{D279E6C5-423C-4FF0-BB4C-F678F6289501}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YatesMorrison.Tests", "YatesMorrison.Tests\YatesMorrison.Tests.csproj", "{9F4E7857-8510-4D24-B496-B24529C65631}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = YatesMorrison.Entropy.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Default|Any CPU = Default|Any CPU
@@ -65,6 +80,24 @@ Global
 		{4B24B029-E580-4A68-BE21-4C43C70E9EC8}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{4B24B029-E580-4A68-BE21-4C43C70E9EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B24B029-E580-4A68-BE21-4C43C70E9EC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2E938F0-848D-4F1A-A27F-FCECC173B514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E938F0-848D-4F1A-A27F-FCECC173B514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2E938F0-848D-4F1A-A27F-FCECC173B514}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E938F0-848D-4F1A-A27F-FCECC173B514}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{F2E938F0-848D-4F1A-A27F-FCECC173B514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2E938F0-848D-4F1A-A27F-FCECC173B514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D279E6C5-423C-4FF0-BB4C-F678F6289501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D279E6C5-423C-4FF0-BB4C-F678F6289501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D279E6C5-423C-4FF0-BB4C-F678F6289501}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{D279E6C5-423C-4FF0-BB4C-F678F6289501}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{D279E6C5-423C-4FF0-BB4C-F678F6289501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D279E6C5-423C-4FF0-BB4C-F678F6289501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F4E7857-8510-4D24-B496-B24529C65631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F4E7857-8510-4D24-B496-B24529C65631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F4E7857-8510-4D24-B496-B24529C65631}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F4E7857-8510-4D24-B496-B24529C65631}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{9F4E7857-8510-4D24-B496-B24529C65631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F4E7857-8510-4D24-B496-B24529C65631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
