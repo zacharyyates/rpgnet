@@ -58,6 +58,7 @@ namespace YatesMorrison.RolePlay
 			get { return m_LegalSlots; }
 		}
 		List<string> m_LegalSlots = new List<string>();
+		public string DefaultSlot { get; set; }
 
 		public string AspectName { get; set; }
 		public bool RequiresLineOfSight { get; set; }
