@@ -1,15 +1,20 @@
 /* Zachary Yates
  * Copyright 2009 YatesMorrison Software Company
- * 2/3/2009
+ * 2.3.2009
  */
 namespace YatesMorrison.RolePlay
 {
-	using System.Collections.Generic;
-
-	public abstract class Weapon : Equipment
+	public abstract class Weapon : Equipment<IDamage>
 	{
-		public virtual double MaxDamage { get; set; }
+		public override IDamage Use()
+		{
+			base.Use();
+			return GetDamage();
+		}
 
-		public abstract void Attack();
+		/// <summary>
+		/// When implemented in a derived class, returns an IDamage object representing possible damage
+		/// </summary>
+		protected abstract IDamage GetDamage();
 	}
 }

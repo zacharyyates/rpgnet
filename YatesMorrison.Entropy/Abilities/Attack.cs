@@ -1,6 +1,6 @@
 ﻿/* Zachary Yates
  * Copyright 2009 YatesMorrison Software Company
- * 2/3/2009
+ * 2.3.2009
  */
 namespace YatesMorrison.Entropy
 {
@@ -69,27 +69,13 @@ namespace YatesMorrison.Entropy
 			{
 				if (AttackHits)
 				{
-					// determine damage
-					var maxDamage = Weapon.MaxDamage;
-
-					var dr = Target.GetAspectByName("Damage Resistance").Total;
-					var drPenalty = maxDamage * (dr / 100); // percentage based
-					var totalDamage = maxDamage - drPenalty;
-
-					// determine armor effectiveness
-					var armor = Armor;
-					if (armor != null)
+					Damage d = Weapon.Use() as Damage;
+					if (d != null)
 					{
-						var dt = armor.Threshold;
-						var ds = armor.Soak;
+						d.Area = "Torso";
+						Target.Take(d); // damage the target
 
-						// damage the armor
-						armor.Take(new Damage(ds, DamageType.Kinetic)); // todo: fix this so armor doesn't take max soak every hit
-						totalDamage -= (dt + ds); // ignore and soak damage from the attack
 					}
-
-					totalDamage = Math.Round(totalDamage); // round the result
-					Target.Take(new Damage(totalDamage, DamageType.Kinetic)); // damage the target, todo: Make sure this uses the correct damage type
 					// todo: add a critical hit calculation
 				}
 			}

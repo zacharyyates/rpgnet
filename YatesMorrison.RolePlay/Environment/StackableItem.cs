@@ -1,10 +1,12 @@
 ﻿/* Zachary Yates
- * Copyright © 2008 YatesMorrison Software, LLC.
- * 1/22/2008
+ * Copyright © 2008 YatesMorrison Software Company
+ * 1.22.2008
  */
-
 namespace YatesMorrison.RolePlay
 {
+	using System;
+
+	[Serializable]
 	public class StackableItem : Item
 	{
 		public int Quantity { get; set; }

@@ -84,5 +84,21 @@ namespace YatesMorrison.RolePlay
 
 		public void AddTo(Actor parent) { }
 		public void RemoveFrom(Actor parent) { }
+
+		/// <summary>
+		/// When implemented in a derived class, reduces the durability of the item when it is used.
+		/// </summary>
+		protected virtual void ReduceDurability() { }
+	}
+
+	[Serializable]
+	public class Equipment<TUseResult> : Equipment
+		where TUseResult : class
+	{
+		public virtual TUseResult Use()
+		{
+			ReduceDurability();
+			return default(TUseResult);
+		}
 	}
 }
