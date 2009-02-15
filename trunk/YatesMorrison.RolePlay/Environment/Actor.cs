@@ -167,7 +167,10 @@ namespace YatesMorrison.RolePlay
 
 		public void Take(IDamage damage)
 		{
-			damage.Execute(this);
+			if (damage != null) // failed or no-effect attack
+			{
+				damage.Execute(this);
+			}
 		}
 
 		public override string ToString()

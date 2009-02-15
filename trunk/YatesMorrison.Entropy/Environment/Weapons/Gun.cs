@@ -8,7 +8,7 @@ namespace YatesMorrison.Entropy.Environment.Weapons
 	using YatesMorrison.RolePlay;
 
 	[Serializable]
-	public class Gun : Weapon
+	public class Gun : ChargedWeapon
 	{
 		public Gun()
 		{
@@ -23,15 +23,6 @@ namespace YatesMorrison.Entropy.Environment.Weapons
 				BodyArea = "Torso",
 				Description = "Aim for the EYES!"
 			});
-		}
-
-		public override double MaxDamage
-		{
-			get { return Dice.Roll(DieType.D20) + 5; }
-		}
-		public override void Attack()
-		{
-			// deplete ammunition... etc
 		}
 	}
 }

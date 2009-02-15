@@ -1,6 +1,6 @@
 /* Zachary Yates
  * Copyright © 2008 YatesMorrison Software, LLC.
- * 6/24/2008
+ * 6.24.2008
  */
 namespace YatesMorrison.RolePlay
 {

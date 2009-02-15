@@ -52,11 +52,13 @@
     <Compile Include="Character\Advance.cs" />
     <Compile Include="Character\DerivedAttribute.cs" />
     <Compile Include="Character\Aspect.cs" />
+    <Compile Include="Environment\Charge.cs" />
     <Compile Include="Environment\Armor.cs" />
     <Compile Include="Environment\Damage.cs" />
     <Compile Include="Environment\Equipment.cs" />
     <Compile Include="Environment\Game.cs" />
     <Compile Include="Environment\Log.cs" />
+    <Compile Include="Environment\ChargedWeapon.cs" />
     <Compile Include="Environment\Result.cs" />
     <Compile Include="Environment\Point.cs" />
     <Compile Include="Environment\Map.cs" />
