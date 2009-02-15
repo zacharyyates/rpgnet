@@ -54,11 +54,13 @@
     <Compile Include="Character\Aspect.cs" />
     <Compile Include="Environment\Charge.cs" />
     <Compile Include="Environment\Armor.cs" />
+    <Compile Include="Environment\Container.cs" />
     <Compile Include="Environment\Damage.cs" />
     <Compile Include="Environment\Equipment.cs" />
     <Compile Include="Environment\Game.cs" />
     <Compile Include="Environment\Log.cs" />
     <Compile Include="Environment\ChargedWeapon.cs" />
+    <Compile Include="Environment\Magizene.cs" />
     <Compile Include="Environment\Result.cs" />
     <Compile Include="Environment\Point.cs" />
     <Compile Include="Environment\Map.cs" />
@@ -66,7 +68,7 @@
     <Compile Include="Extensions\AttributeInstance.cs" />
     <Compile Include="Extensions\CharacterTemplate.cs" />
     <Compile Include="Extensions\AttributeTemplate.cs" />
-    <Compile Include="Environment\CurrencyItem.cs" />
+    <Compile Include="Environment\Currency.cs" />
     <Compile Include="Dice.cs" />
     <Compile Include="Character\Effect.cs" />
     <Compile Include="Environment\Actor.cs" />
