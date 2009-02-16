@@ -9,14 +9,15 @@ namespace YatesMorrison.RolePlay
 	using System.Collections.ObjectModel;
 	using System.Linq;
 
-	public abstract class ChargedWeapon : Weapon
+	[Serializable]
+	public class ChargedWeapon : Weapon
 	{
 		public Magizene Magizene
 		{
 			get { return m_Magizene; }
 			set
 			{
-				if (AcceptsMagizeneType.Equals(value.Type, StringComparison.InvariantCultureIgnoreCase))
+				if (AcceptsMagizeneType.EqualsIgnoreCase(value.Type))
 				{
 					m_Magizene = value;
 				}

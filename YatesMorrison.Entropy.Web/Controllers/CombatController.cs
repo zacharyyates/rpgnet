@@ -4,9 +4,7 @@
  */
 namespace YatesMorrison.Entropy.Web.Controllers
 {
-	using System.Linq;
 	using System.Web.Mvc;
-	using YatesMorrison.Entropy.Environment.Weapons;
 	using YatesMorrison.Entropy.Web.Views.Combat;
 	using YatesMorrison.RolePlay;
 	using Entropy = YatesMorrison.Entropy;

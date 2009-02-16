@@ -36,14 +36,22 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Environment\StackableItemTest.cs" />
+    <Compile Include="Environment\WeaponTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YatesMorrison.RolePlay\YatesMorrison.RolePlay.csproj">
       <Project>{DDCF1C5C-FF81-4A68-A2E7-8475256E7C13}</Project>
       <Name>YatesMorrison.RolePlay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YatesMorrison\YatesMorrison.csproj">
+      <Project>{4B24B029-E580-4A68-BE21-4C43C70E9EC8}</Project>
+      <Name>YatesMorrison</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
