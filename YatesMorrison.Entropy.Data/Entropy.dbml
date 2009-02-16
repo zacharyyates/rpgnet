@@ -1,34 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="YatesMorrison.Entropy.Db" Class="EntropyDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=YatesMorrison.Entropy.Db;Integrated Security=True" SettingsObjectName="YatesMorrison.Entropy.Data.Properties.Settings" SettingsPropertyName="YatesMorrison_Entropy_DbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CharacterInstance" Member="CharacterInstances">
+    <Type Name="CharacterInstance">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GameId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="User_CharacterInstance" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Association Name="GameInstance_CharacterInstance" Member="GameInstance" ThisKey="GameId" OtherKey="Id" Type="GameInstance" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.[User]" Member="Users">
     <Type Name="User">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="DisplayName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="User_GameData" Member="GameDatas" ThisKey="Id" OtherKey="MasterId" Type="GameData" />
-      <Association Name="User_CharacterData" Member="CharacterDatas" ThisKey="Id" OtherKey="UserId" Type="CharacterData" />
+      <Association Name="User_CharacterInstance" Member="CharacterInstances" ThisKey="Id" OtherKey="UserId" Type="CharacterInstance" />
+      <Association Name="User_GameInstance" Member="GameInstances" ThisKey="Id" OtherKey="MasterId" Type="GameInstance" />
+      <Association Name="User_ObjectTemplate" Member="ObjectTemplates" ThisKey="Id" OtherKey="OwnerId" Type="ObjectTemplate" />
     </Type>
   </Table>
-  <Table Name="dbo.GameData" Member="GameDatas">
-    <Type Name="GameData">
+  <Table Name="dbo.GameInstance" Member="GameInstances">
+    <Type Name="GameInstance">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MasterId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="GameData_CharacterData" Member="CharacterDatas" ThisKey="Id" OtherKey="GameId" Type="CharacterData" />
-      <Association Name="User_GameData" Member="User" ThisKey="MasterId" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="GameInstance_CharacterInstance" Member="CharacterInstances" ThisKey="Id" OtherKey="GameId" Type="CharacterInstance" />
+      <Association Name="User_GameInstance" Member="User" ThisKey="MasterId" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.CharacterData" Member="CharacterDatas">
-    <Type Name="CharacterData">
+  <Table Name="dbo.ObjectTemplate" Member="ObjectTemplates">
+    <Type Name="ObjectTemplate">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="GameId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="OwnerId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Data" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="GameData_CharacterData" Member="GameData" ThisKey="GameId" OtherKey="Id" Type="GameData" IsForeignKey="true" />
-      <Association Name="User_CharacterData" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Association Name="User_ObjectTemplate" Member="User" ThisKey="OwnerId" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

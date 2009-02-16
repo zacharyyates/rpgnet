@@ -10,7 +10,7 @@ namespace YatesMorrison.Entropy
 	[Serializable]
 	public class Damage : IDamage
 	{
-		public Damage(double value, DamageType type) : this(value, type, "") { }
+		public Damage(double value, DamageType type) : this(value, type, null) { }
 		public Damage(double value, DamageType type, string area)
 		{
 			Value = value;
@@ -25,28 +25,40 @@ namespace YatesMorrison.Entropy
 		public void Execute(Actor actor)
 		{
 			// determine damage
-			var dr = actor.GetAspectByName("Damage Resistance").Total;
-			var drPenalty = Value * (dr / 100); // percentage based
-			var totalDamage = Value - drPenalty;
-
-			// determine armor effectiveness
-			var armor = actor.GetEquipmentBySlot(Area) as Armor; // this should return null if the actor IS armor
-			if (armor != null)
+			double totalDamage = 0;
+			var dr = actor.GetAspectByName("Damage Resistance");
+			if (dr != null)
 			{
-				var dt = armor.Threshold;
-				var ds = armor.Soak;
-
-				// damage the armor
-				armor.Take(new Damage(ds, Type, null)); // todo: fix this so armor doesn't take max soak every hit
-				totalDamage -= (dt + ds); // ignore and soak damage from the attack
+				var drPenalty = Value * (dr.Total / 100); // percentage based
+				totalDamage = Value - drPenalty; // this actor has damage resistance, apply it
+			}
+			else
+			{
+				totalDamage = Value; // no damage resistance
 			}
 
-			totalDamage = Math.Round(totalDamage); // round the result
+			// determine armor effectiveness
+			if (!string.IsNullOrEmpty(Area)) // If no area is defined, armor is not relevant
+			{
+				var armor = actor.GetEquipmentByArea(Area) as Armor; // this should return null if the actor IS armor
+				if (armor != null)
+				{
+					var dt = armor.Threshold;
+					var ds = armor.Soak;
+
+					totalDamage -= (dt + ds); // ignore and soak damage from the attack
+					if (totalDamage < 0) ds += totalDamage; // if the attack doesn't use up all of the soak, don't damage the armor for the full soak
+					armor.Take(new Damage(Math.Round(ds), Type)); // damage is only Real numbers
+					// todo: add damageType specific resistence
+				}
+			}
+
+			totalDamage = Math.Round(totalDamage); // round the result, damage is only Real numbers
 
 			if (totalDamage > 0)
 			{
 				var hp = actor.GetAspectByName("Current Hit Points");
-				hp.Base -= Value;
+				hp.Base -= totalDamage;
 			}
 		}
 	}

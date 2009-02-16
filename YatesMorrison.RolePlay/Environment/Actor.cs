@@ -99,25 +99,25 @@ namespace YatesMorrison.RolePlay
 		}
 		List<Item> m_Items = new List<Item>();
 
-		public void Equip(Equipment equipment, string slot)
+		public void Equip(Equipment equipment, string area)
 		{
-			if (equipment.LegalSlots.Contains(slot) &&	// can be equiped to the slot
-				m_Equipment[slot] == null &&			// the slot is empty
+			if (equipment.LegalAreas.Contains(area) &&	// can be equiped to the slot
+				m_Equipment[area] == null &&			// the area is empty
 				Meets(equipment.Requisites))			// meets prereqisites
 			{
-				m_Equipment[slot] = equipment;
+				m_Equipment[area] = equipment;
 				equipment.EquipTo(this);
 			}
 			// todo: add a message or something when equip fails
 		}
-		public void Unequip(Equipment equipment, string slot)
+		public void Unequip(Equipment equipment, string area)
 		{
 			equipment.UnequipFrom(this);
 		}
 
-		public Equipment GetEquipmentBySlot(string slot)
+		public Equipment GetEquipmentByArea(string area)
 		{
-			return m_Equipment[slot];
+			return m_Equipment[area];
 		}
 
 		public ReadOnlyCollection<Equipment> Equipment
@@ -144,25 +144,11 @@ namespace YatesMorrison.RolePlay
 
 		public Aspect GetAspectByName(string name)
 		{
-			try
-			{
-				return Aspects.Single(a => a.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
-			}
-			catch (Exception exception)
-			{
-				throw new ApplicationException(string.Format("Could not find '{0}'.", name), exception);
-			}
+			return Aspects.FirstOrDefault(a => a.Name.EqualsIgnoreCase(name));
 		}
 		public Aspect GetAspectByAbbreviation(string abbreviation)
 		{
-			try
-			{
-				return Aspects.Single(a => a.Abbreviation.Equals(abbreviation, StringComparison.InvariantCultureIgnoreCase));
-			}
-			catch (Exception exception)
-			{
-				throw new ApplicationException(string.Format("Could not find '{0}'.", abbreviation), exception);
-			}
+			return Aspects.FirstOrDefault(a => a.Abbreviation.EqualsIgnoreCase(abbreviation));
 		}
 
 		public void Take(IDamage damage)
