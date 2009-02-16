@@ -57,7 +57,8 @@
     <Compile Include="DerivedAttributes\MeleeDamage.cs" />
     <Compile Include="Environment\Armor.cs" />
     <Compile Include="Environment\Damage.cs" />
-    <Compile Include="Environment\Weapons\Gun.cs" />
+    <Compile Include="Environment\Weapons\Ammunition.cs" />
+    <Compile Include="Environment\Weapons\Firearm.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Skills\BigGuns.cs" />
     <Compile Include="DerivedAttributes\BiologicalResistence.cs" />

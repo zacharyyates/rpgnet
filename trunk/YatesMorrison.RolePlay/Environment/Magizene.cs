@@ -9,6 +9,7 @@ namespace YatesMorrison.RolePlay
 	using System.Collections.ObjectModel;
 	using System.Linq;
 
+	[Serializable]
 	public class Magizene : Item
 	{
 		/// <summary>

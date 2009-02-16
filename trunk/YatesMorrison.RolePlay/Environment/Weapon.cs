@@ -6,6 +6,10 @@ namespace YatesMorrison.RolePlay
 {
 	public abstract class Weapon : Equipment<IDamage>
 	{
+		/// <summary>
+		/// Uses the <see cref="Weapon"/> and returns <see cref="IDamage"/> representing the possible weapon damage
+		/// </summary>
+		/// <returns></returns>
 		public override IDamage Use()
 		{
 			base.Use();
@@ -13,7 +17,7 @@ namespace YatesMorrison.RolePlay
 		}
 
 		/// <summary>
-		/// When implemented in a derived class, returns an IDamage object representing possible damage
+		/// When implemented in a derived class, returns an ,<see cref="IDamage"/> object representing possible damage
 		/// </summary>
 		protected abstract IDamage GetDamage();
 	}
