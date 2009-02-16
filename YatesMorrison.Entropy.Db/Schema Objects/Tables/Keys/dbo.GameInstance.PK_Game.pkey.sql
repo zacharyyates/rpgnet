@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[GameInstance] ADD CONSTRAINT [PK_Game] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
+
+

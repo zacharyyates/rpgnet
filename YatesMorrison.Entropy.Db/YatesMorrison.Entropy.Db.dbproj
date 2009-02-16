@@ -1,0 +1,123 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <Name>"DatabaseProject"</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1d428de6-6e93-4326-a9ab-150707cab4c0}</ProjectGuid>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <DBProduct>SQL Server 2005</DBProduct>
+    <RootPath>
+    </RootPath>
+    <ArithAbort>True</ArithAbort>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <AnsiNulls>True</AnsiNulls>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <DefaultSchemaForUnqualifiedObjects>dbo</DefaultSchemaForUnqualifiedObjects>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <EnableCLRIntegration>False</EnableCLRIntegration>
+    <AutoUpdateStatisticsAsynchronously>True</AutoUpdateStatisticsAsynchronously>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoClose>False</AutoClose>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DatabaseState>ONLINE</DatabaseState>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <Parameterization>SIMPLE</Parameterization>
+    <Recovery>FULL</Recovery>
+    <PageVerify>NONE</PageVerify>
+    <TornPageDetection>False</TornPageDetection>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <DefaultCollation>SQL_Latin1_General_CP1_CS_AS</DefaultCollation>
+    <DefaultFileStructure>BySchemaType</DefaultFileStructure>
+    <DatabaseChaining>False</DatabaseChaining>
+    <EnableServiceBroker>False</EnableServiceBroker>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <Trustworthy>False</Trustworthy>
+    <IncludeSchemaNameInFilename>True</IncludeSchemaNameInFilename>
+    <DoNotUseAlterAssemblyStatementsToUpdateCLRTypes>False</DoNotUseAlterAssemblyStatementsToUpdateCLRTypes>
+    <ProjectVersion>2.0</ProjectVersion>
+    <DefaultDataPath>Undefined</DefaultDataPath>
+    <DefaultSchema>dbo</DefaultSchema>
+    <BuildVersion>9.0.30729.1</BuildVersion>
+    <RootNamespace>YatesMorrison.Entropy.Db</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <OutputPath>.\sql\</OutputPath>
+    <AutoGenerateBuildScriptName>False</AutoGenerateBuildScriptName>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>
+    </TargetDatabase>
+    <DeploymentCollationPreference>ChangeTargetDBCollation</DeploymentCollationPreference>
+    <AlwaysCreateNewDatabase>false</AlwaysCreateNewDatabase>
+    <GenerateDropsIfNotInProject>False</GenerateDropsIfNotInProject>
+    <BlockIncrementalDeploymentIfDataLoss>True</BlockIncrementalDeploymentIfDataLoss>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <PerformDatabaseBackup>False</PerformDatabaseBackup>
+    <SingleUserMode>False</SingleUserMode>
+    <UseFuzzyMatchForColumns>False</UseFuzzyMatchForColumns>
+    <SuppressWarnings>
+    </SuppressWarnings>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\TeamData\Microsoft.VisualStudio.TeamSystem.Data.Tasks.targets" />
+  <PropertyGroup>
+    <FilegroupSetVariables>
+      <Variable Name="PrimaryFileName" Value="$(TargetDatabase)_mdf" />
+      <Variable Name="PrimaryLogFileName" Value="$(TargetDatabase)_ldf" />
+      <Variable Name="PrimaryFilePhysicalName" Value="$(DefaultDataPath)$(TargetDatabase).mdf" />
+      <Variable Name="PrimaryLogFilePhysicalName" Value="$(DefaultDataPath)$(TargetDatabase)_log.ldf" />
+    </FilegroupSetVariables>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql">
+      <SubType>Code</SubType>
+    </PreDeploy>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql">
+      <SubType>Code</SubType>
+    </PostDeploy>
+    <NotInBuild Include="Scripts\Post-Deployment\DatabaseObjectOptions.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\Permissions.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\RoleMemberships.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\RulesAndDefaults.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\Signatures.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Pre-Deployment\CustomErrors.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Pre-Deployment\EncryptionKeysAndCertificates.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Pre-Deployment\LinkedServers.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Pre-Deployment\Logins.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+  </ItemGroup>
+</Project>
