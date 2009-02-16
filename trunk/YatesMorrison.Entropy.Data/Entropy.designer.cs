@@ -30,15 +30,18 @@ namespace YatesMorrison.Entropy.Data
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertCharacterInstance(CharacterInstance instance);
+    partial void UpdateCharacterInstance(CharacterInstance instance);
+    partial void DeleteCharacterInstance(CharacterInstance instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
-    partial void InsertGameData(GameData instance);
-    partial void UpdateGameData(GameData instance);
-    partial void DeleteGameData(GameData instance);
-    partial void InsertCharacterData(CharacterData instance);
-    partial void UpdateCharacterData(CharacterData instance);
-    partial void DeleteCharacterData(CharacterData instance);
+    partial void InsertGameInstance(GameInstance instance);
+    partial void UpdateGameInstance(GameInstance instance);
+    partial void DeleteGameInstance(GameInstance instance);
+    partial void InsertObjectTemplate(ObjectTemplate instance);
+    partial void UpdateObjectTemplate(ObjectTemplate instance);
+    partial void DeleteObjectTemplate(ObjectTemplate instance);
     #endregion
 		
 		public EntropyDataContext() : 
@@ -71,6 +74,14 @@ namespace YatesMorrison.Entropy.Data
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<CharacterInstance> CharacterInstances
+		{
+			get
+			{
+				return this.GetTable<CharacterInstance>();
+			}
+		}
+		
 		public System.Data.Linq.Table<User> Users
 		{
 			get
@@ -79,19 +90,259 @@ namespace YatesMorrison.Entropy.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<GameData> GameDatas
+		public System.Data.Linq.Table<GameInstance> GameInstances
 		{
 			get
 			{
-				return this.GetTable<GameData>();
+				return this.GetTable<GameInstance>();
 			}
 		}
 		
-		public System.Data.Linq.Table<CharacterData> CharacterDatas
+		public System.Data.Linq.Table<ObjectTemplate> ObjectTemplates
 		{
 			get
 			{
-				return this.GetTable<CharacterData>();
+				return this.GetTable<ObjectTemplate>();
+			}
+		}
+	}
+	
+	[Table(Name="dbo.CharacterInstance")]
+	public partial class CharacterInstance : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _Id;
+		
+		private System.Nullable<System.Guid> _GameId;
+		
+		private System.Nullable<System.Guid> _UserId;
+		
+		private string _Name;
+		
+		private System.Data.Linq.Binary _Data;
+		
+		private EntityRef<User> _User;
+		
+		private EntityRef<GameInstance> _GameInstance;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(System.Guid value);
+    partial void OnIdChanged();
+    partial void OnGameIdChanging(System.Nullable<System.Guid> value);
+    partial void OnGameIdChanged();
+    partial void OnUserIdChanging(System.Nullable<System.Guid> value);
+    partial void OnUserIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnDataChanging(System.Data.Linq.Binary value);
+    partial void OnDataChanged();
+    #endregion
+		
+		public CharacterInstance()
+		{
+			this._User = default(EntityRef<User>);
+			this._GameInstance = default(EntityRef<GameInstance>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_Id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_GameId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> GameId
+		{
+			get
+			{
+				return this._GameId;
+			}
+			set
+			{
+				if ((this._GameId != value))
+				{
+					if (this._GameInstance.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGameIdChanging(value);
+					this.SendPropertyChanging();
+					this._GameId = value;
+					this.SendPropertyChanged("GameId");
+					this.OnGameIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_UserId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Name", DbType="NVarChar(MAX)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Data", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Data
+		{
+			get
+			{
+				return this._Data;
+			}
+			set
+			{
+				if ((this._Data != value))
+				{
+					this.OnDataChanging(value);
+					this.SendPropertyChanging();
+					this._Data = value;
+					this.SendPropertyChanged("Data");
+					this.OnDataChanged();
+				}
+			}
+		}
+		
+		[Association(Name="User_CharacterInstance", Storage="_User", ThisKey="UserId", OtherKey="Id", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.CharacterInstances.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.CharacterInstances.Add(this);
+						this._UserId = value.Id;
+					}
+					else
+					{
+						this._UserId = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		[Association(Name="GameInstance_CharacterInstance", Storage="_GameInstance", ThisKey="GameId", OtherKey="Id", IsForeignKey=true)]
+		public GameInstance GameInstance
+		{
+			get
+			{
+				return this._GameInstance.Entity;
+			}
+			set
+			{
+				GameInstance previousValue = this._GameInstance.Entity;
+				if (((previousValue != value) 
+							|| (this._GameInstance.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._GameInstance.Entity = null;
+						previousValue.CharacterInstances.Remove(this);
+					}
+					this._GameInstance.Entity = value;
+					if ((value != null))
+					{
+						value.CharacterInstances.Add(this);
+						this._GameId = value.Id;
+					}
+					else
+					{
+						this._GameId = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("GameInstance");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -110,9 +361,11 @@ namespace YatesMorrison.Entropy.Data
 		
 		private string _DisplayName;
 		
-		private EntitySet<GameData> _GameDatas;
+		private EntitySet<CharacterInstance> _CharacterInstances;
 		
-		private EntitySet<CharacterData> _CharacterDatas;
+		private EntitySet<GameInstance> _GameInstances;
+		
+		private EntitySet<ObjectTemplate> _ObjectTemplates;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -130,8 +383,9 @@ namespace YatesMorrison.Entropy.Data
 		
 		public User()
 		{
-			this._GameDatas = new EntitySet<GameData>(new Action<GameData>(this.attach_GameDatas), new Action<GameData>(this.detach_GameDatas));
-			this._CharacterDatas = new EntitySet<CharacterData>(new Action<CharacterData>(this.attach_CharacterDatas), new Action<CharacterData>(this.detach_CharacterDatas));
+			this._CharacterInstances = new EntitySet<CharacterInstance>(new Action<CharacterInstance>(this.attach_CharacterInstances), new Action<CharacterInstance>(this.detach_CharacterInstances));
+			this._GameInstances = new EntitySet<GameInstance>(new Action<GameInstance>(this.attach_GameInstances), new Action<GameInstance>(this.detach_GameInstances));
+			this._ObjectTemplates = new EntitySet<ObjectTemplate>(new Action<ObjectTemplate>(this.attach_ObjectTemplates), new Action<ObjectTemplate>(this.detach_ObjectTemplates));
 			OnCreated();
 		}
 		
@@ -215,29 +469,42 @@ namespace YatesMorrison.Entropy.Data
 			}
 		}
 		
-		[Association(Name="User_GameData", Storage="_GameDatas", ThisKey="Id", OtherKey="MasterId")]
-		public EntitySet<GameData> GameDatas
+		[Association(Name="User_CharacterInstance", Storage="_CharacterInstances", ThisKey="Id", OtherKey="UserId")]
+		public EntitySet<CharacterInstance> CharacterInstances
 		{
 			get
 			{
-				return this._GameDatas;
+				return this._CharacterInstances;
 			}
 			set
 			{
-				this._GameDatas.Assign(value);
+				this._CharacterInstances.Assign(value);
 			}
 		}
 		
-		[Association(Name="User_CharacterData", Storage="_CharacterDatas", ThisKey="Id", OtherKey="UserId")]
-		public EntitySet<CharacterData> CharacterDatas
+		[Association(Name="User_GameInstance", Storage="_GameInstances", ThisKey="Id", OtherKey="MasterId")]
+		public EntitySet<GameInstance> GameInstances
 		{
 			get
 			{
-				return this._CharacterDatas;
+				return this._GameInstances;
 			}
 			set
 			{
-				this._CharacterDatas.Assign(value);
+				this._GameInstances.Assign(value);
+			}
+		}
+		
+		[Association(Name="User_ObjectTemplate", Storage="_ObjectTemplates", ThisKey="Id", OtherKey="OwnerId")]
+		public EntitySet<ObjectTemplate> ObjectTemplates
+		{
+			get
+			{
+				return this._ObjectTemplates;
+			}
+			set
+			{
+				this._ObjectTemplates.Assign(value);
 			}
 		}
 		
@@ -261,33 +528,45 @@ namespace YatesMorrison.Entropy.Data
 			}
 		}
 		
-		private void attach_GameDatas(GameData entity)
+		private void attach_CharacterInstances(CharacterInstance entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = this;
 		}
 		
-		private void detach_GameDatas(GameData entity)
+		private void detach_CharacterInstances(CharacterInstance entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
 		}
 		
-		private void attach_CharacterDatas(CharacterData entity)
+		private void attach_GameInstances(GameInstance entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = this;
 		}
 		
-		private void detach_CharacterDatas(CharacterData entity)
+		private void detach_GameInstances(GameInstance entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+		
+		private void attach_ObjectTemplates(ObjectTemplate entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_ObjectTemplates(ObjectTemplate entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
 		}
 	}
 	
-	[Table(Name="dbo.GameData")]
-	public partial class GameData : INotifyPropertyChanging, INotifyPropertyChanged
+	[Table(Name="dbo.GameInstance")]
+	public partial class GameInstance : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -298,7 +577,11 @@ namespace YatesMorrison.Entropy.Data
 		
 		private string _Name;
 		
-		private EntitySet<CharacterData> _CharacterDatas;
+		private System.Nullable<bool> _IsVisible;
+		
+		private System.Data.Linq.Binary _Data;
+		
+		private EntitySet<CharacterInstance> _CharacterInstances;
 		
 		private EntityRef<User> _User;
 		
@@ -312,11 +595,15 @@ namespace YatesMorrison.Entropy.Data
     partial void OnMasterIdChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
+    partial void OnIsVisibleChanging(System.Nullable<bool> value);
+    partial void OnIsVisibleChanged();
+    partial void OnDataChanging(System.Data.Linq.Binary value);
+    partial void OnDataChanged();
     #endregion
 		
-		public GameData()
+		public GameInstance()
 		{
-			this._CharacterDatas = new EntitySet<CharacterData>(new Action<CharacterData>(this.attach_CharacterDatas), new Action<CharacterData>(this.detach_CharacterDatas));
+			this._CharacterInstances = new EntitySet<CharacterInstance>(new Action<CharacterInstance>(this.attach_CharacterInstances), new Action<CharacterInstance>(this.detach_CharacterInstances));
 			this._User = default(EntityRef<User>);
 			OnCreated();
 		}
@@ -385,20 +672,60 @@ namespace YatesMorrison.Entropy.Data
 			}
 		}
 		
-		[Association(Name="GameData_CharacterData", Storage="_CharacterDatas", ThisKey="Id", OtherKey="GameId")]
-		public EntitySet<CharacterData> CharacterDatas
+		[Column(Storage="_IsVisible", DbType="Bit")]
+		public System.Nullable<bool> IsVisible
 		{
 			get
 			{
-				return this._CharacterDatas;
+				return this._IsVisible;
 			}
 			set
 			{
-				this._CharacterDatas.Assign(value);
+				if ((this._IsVisible != value))
+				{
+					this.OnIsVisibleChanging(value);
+					this.SendPropertyChanging();
+					this._IsVisible = value;
+					this.SendPropertyChanged("IsVisible");
+					this.OnIsVisibleChanged();
+				}
 			}
 		}
 		
-		[Association(Name="User_GameData", Storage="_User", ThisKey="MasterId", OtherKey="Id", IsForeignKey=true)]
+		[Column(Storage="_Data", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Data
+		{
+			get
+			{
+				return this._Data;
+			}
+			set
+			{
+				if ((this._Data != value))
+				{
+					this.OnDataChanging(value);
+					this.SendPropertyChanging();
+					this._Data = value;
+					this.SendPropertyChanged("Data");
+					this.OnDataChanged();
+				}
+			}
+		}
+		
+		[Association(Name="GameInstance_CharacterInstance", Storage="_CharacterInstances", ThisKey="Id", OtherKey="GameId")]
+		public EntitySet<CharacterInstance> CharacterInstances
+		{
+			get
+			{
+				return this._CharacterInstances;
+			}
+			set
+			{
+				this._CharacterInstances.Assign(value);
+			}
+		}
+		
+		[Association(Name="User_GameInstance", Storage="_User", ThisKey="MasterId", OtherKey="Id", IsForeignKey=true)]
 		public User User
 		{
 			get
@@ -415,12 +742,12 @@ namespace YatesMorrison.Entropy.Data
 					if ((previousValue != null))
 					{
 						this._User.Entity = null;
-						previousValue.GameDatas.Remove(this);
+						previousValue.GameInstances.Remove(this);
 					}
 					this._User.Entity = value;
 					if ((value != null))
 					{
-						value.GameDatas.Add(this);
+						value.GameInstances.Add(this);
 						this._MasterId = value.Id;
 					}
 					else
@@ -452,36 +779,36 @@ namespace YatesMorrison.Entropy.Data
 			}
 		}
 		
-		private void attach_CharacterDatas(CharacterData entity)
+		private void attach_CharacterInstances(CharacterInstance entity)
 		{
 			this.SendPropertyChanging();
-			entity.GameData = this;
+			entity.GameInstance = this;
 		}
 		
-		private void detach_CharacterDatas(CharacterData entity)
+		private void detach_CharacterInstances(CharacterInstance entity)
 		{
 			this.SendPropertyChanging();
-			entity.GameData = null;
+			entity.GameInstance = null;
 		}
 	}
 	
-	[Table(Name="dbo.CharacterData")]
-	public partial class CharacterData : INotifyPropertyChanging, INotifyPropertyChanged
+	[Table(Name="dbo.ObjectTemplate")]
+	public partial class ObjectTemplate : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.Guid _Id;
 		
-		private System.Nullable<System.Guid> _GameId;
-		
-		private System.Nullable<System.Guid> _UserId;
+		private System.Nullable<System.Guid> _OwnerId;
 		
 		private string _Name;
 		
-		private System.Data.Linq.Binary _Data;
+		private System.Nullable<bool> _IsVisible;
 		
-		private EntityRef<GameData> _GameData;
+		private string _Type;
+		
+		private System.Data.Linq.Binary _Data;
 		
 		private EntityRef<User> _User;
 		
@@ -491,19 +818,20 @@ namespace YatesMorrison.Entropy.Data
     partial void OnCreated();
     partial void OnIdChanging(System.Guid value);
     partial void OnIdChanged();
-    partial void OnGameIdChanging(System.Nullable<System.Guid> value);
-    partial void OnGameIdChanged();
-    partial void OnUserIdChanging(System.Nullable<System.Guid> value);
-    partial void OnUserIdChanged();
+    partial void OnOwnerIdChanging(System.Nullable<System.Guid> value);
+    partial void OnOwnerIdChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
+    partial void OnIsVisibleChanging(System.Nullable<bool> value);
+    partial void OnIsVisibleChanged();
+    partial void OnTypeChanging(string value);
+    partial void OnTypeChanged();
     partial void OnDataChanging(System.Data.Linq.Binary value);
     partial void OnDataChanged();
     #endregion
 		
-		public CharacterData()
+		public ObjectTemplate()
 		{
-			this._GameData = default(EntityRef<GameData>);
 			this._User = default(EntityRef<User>);
 			OnCreated();
 		}
@@ -528,50 +856,26 @@ namespace YatesMorrison.Entropy.Data
 			}
 		}
 		
-		[Column(Storage="_GameId", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> GameId
+		[Column(Storage="_OwnerId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> OwnerId
 		{
 			get
 			{
-				return this._GameId;
+				return this._OwnerId;
 			}
 			set
 			{
-				if ((this._GameId != value))
-				{
-					if (this._GameData.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnGameIdChanging(value);
-					this.SendPropertyChanging();
-					this._GameId = value;
-					this.SendPropertyChanged("GameId");
-					this.OnGameIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_UserId", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
+				if ((this._OwnerId != value))
 				{
 					if (this._User.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnUserIdChanging(value);
+					this.OnOwnerIdChanging(value);
 					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
+					this._OwnerId = value;
+					this.SendPropertyChanged("OwnerId");
+					this.OnOwnerIdChanged();
 				}
 			}
 		}
@@ -596,6 +900,46 @@ namespace YatesMorrison.Entropy.Data
 			}
 		}
 		
+		[Column(Storage="_IsVisible", DbType="Bit")]
+		public System.Nullable<bool> IsVisible
+		{
+			get
+			{
+				return this._IsVisible;
+			}
+			set
+			{
+				if ((this._IsVisible != value))
+				{
+					this.OnIsVisibleChanging(value);
+					this.SendPropertyChanging();
+					this._IsVisible = value;
+					this.SendPropertyChanged("IsVisible");
+					this.OnIsVisibleChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Type", DbType="NVarChar(MAX)")]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
+				}
+			}
+		}
+		
 		[Column(Storage="_Data", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Data
 		{
@@ -616,41 +960,7 @@ namespace YatesMorrison.Entropy.Data
 			}
 		}
 		
-		[Association(Name="GameData_CharacterData", Storage="_GameData", ThisKey="GameId", OtherKey="Id", IsForeignKey=true)]
-		public GameData GameData
-		{
-			get
-			{
-				return this._GameData.Entity;
-			}
-			set
-			{
-				GameData previousValue = this._GameData.Entity;
-				if (((previousValue != value) 
-							|| (this._GameData.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._GameData.Entity = null;
-						previousValue.CharacterDatas.Remove(this);
-					}
-					this._GameData.Entity = value;
-					if ((value != null))
-					{
-						value.CharacterDatas.Add(this);
-						this._GameId = value.Id;
-					}
-					else
-					{
-						this._GameId = default(Nullable<System.Guid>);
-					}
-					this.SendPropertyChanged("GameData");
-				}
-			}
-		}
-		
-		[Association(Name="User_CharacterData", Storage="_User", ThisKey="UserId", OtherKey="Id", IsForeignKey=true)]
+		[Association(Name="User_ObjectTemplate", Storage="_User", ThisKey="OwnerId", OtherKey="Id", IsForeignKey=true)]
 		public User User
 		{
 			get
@@ -667,17 +977,17 @@ namespace YatesMorrison.Entropy.Data
 					if ((previousValue != null))
 					{
 						this._User.Entity = null;
-						previousValue.CharacterDatas.Remove(this);
+						previousValue.ObjectTemplates.Remove(this);
 					}
 					this._User.Entity = value;
 					if ((value != null))
 					{
-						value.CharacterDatas.Add(this);
-						this._UserId = value.Id;
+						value.ObjectTemplates.Add(this);
+						this._OwnerId = value.Id;
 					}
 					else
 					{
-						this._UserId = default(Nullable<System.Guid>);
+						this._OwnerId = default(Nullable<System.Guid>);
 					}
 					this.SendPropertyChanged("User");
 				}

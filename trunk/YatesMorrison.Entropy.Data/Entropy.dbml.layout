@@ -2,43 +2,56 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Entropy">
   <DataContextMoniker Name="/EntropyDataContext" />
   <nestedChildShapes>
-    <classShape Id="b261ee35-ce2f-471e-b4c1-396d1fea4279" absoluteBounds="0.75, 2.125, 2, 1.4248478190104166">
+    <classShape Id="0f50f5ab-3d80-484c-a20c-3c74d17b1840" absoluteBounds="5.875, 0.5, 2, 1.5891951497395827">
+      <DataClassMoniker Name="/EntropyDataContext/CharacterInstance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35b13124-880e-44ac-bb4b-ef575baad538" absoluteBounds="5.89, 0.96, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a445a7f6-69d7-4f3a-adfa-97af5b3fc32e" absoluteBounds="0.5, 0.5, 2, 1.4248478190104166">
       <DataClassMoniker Name="/EntropyDataContext/User" />
       <nestedChildShapes>
-        <elementListCompartment Id="4ecdcf33-c837-4110-a91c-e7f9249c9fda" absoluteBounds="0.765, 2.585, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="bc77498e-59a7-44cf-975c-81b50ac97537" absoluteBounds="0.515, 0.96, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="38127149-024a-43c1-b06e-9549e859504f" absoluteBounds="2.25, 4.625, 2, 1.2605004882812505">
-      <DataClassMoniker Name="/EntropyDataContext/GameData" />
+    <classShape Id="afa0a26d-0a0b-4430-8c83-3d0c76e932d6" absoluteBounds="3.25, 3, 2, 1.5891951497395827">
+      <DataClassMoniker Name="/EntropyDataContext/GameInstance" />
       <nestedChildShapes>
-        <elementListCompartment Id="09ab27f2-2e34-442b-83ea-95f180ff26a6" absoluteBounds="2.265, 5.085, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="35e00e38-78f3-47f9-8305-056e7b23ae54" absoluteBounds="3.265, 3.46, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 3.54984781901042); (2.5 : 4.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/EntropyDataContext/User/User_GameData" />
+    <classShape Id="21467724-9bba-4344-9ee3-1fffe6143960" absoluteBounds="0.5, 3, 2, 1.7535424804687505">
+      <DataClassMoniker Name="/EntropyDataContext/ObjectTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f841f49e-c48e-4a88-b744-90925daf53d7" absoluteBounds="0.51500000000000012, 3.46, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 0.96875); (5.875 : 0.96875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EntropyDataContext/User/User_CharacterInstance" />
       <nodes>
-        <classShapeMoniker Id="b261ee35-ce2f-471e-b4c1-396d1fea4279" />
-        <classShapeMoniker Id="38127149-024a-43c1-b06e-9549e859504f" />
+        <classShapeMoniker Id="a445a7f6-69d7-4f3a-adfa-97af5b3fc32e" />
+        <classShapeMoniker Id="0f50f5ab-3d80-484c-a20c-3c74d17b1840" />
       </nodes>
     </associationConnector>
-    <classShape Id="f34f9429-0c60-4cfd-9d65-6005bed44e6d" absoluteBounds="3.625, 2.125, 2, 1.5891951497395831">
-      <DataClassMoniker Name="/EntropyDataContext/CharacterData" />
-      <nestedChildShapes>
-        <elementListCompartment Id="3f6759e3-f9a0-45f2-92ca-76da0471b852" absoluteBounds="3.64, 2.585, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(3.9375 : 4.625); (3.9375 : 3.71419514973958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/EntropyDataContext/GameData/GameData_CharacterData" />
+    <associationConnector edgePoints="[(4.25 : 3); (4.25 : 1.56022507486979); (5.875 : 1.56022507486979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EntropyDataContext/GameInstance/GameInstance_CharacterInstance" />
       <nodes>
-        <classShapeMoniker Id="38127149-024a-43c1-b06e-9549e859504f" />
-        <classShapeMoniker Id="f34f9429-0c60-4cfd-9d65-6005bed44e6d" />
+        <classShapeMoniker Id="afa0a26d-0a0b-4430-8c83-3d0c76e932d6" />
+        <classShapeMoniker Id="0f50f5ab-3d80-484c-a20c-3c74d17b1840" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.83742390950521); (3.625 : 2.83742390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/EntropyDataContext/User/User_CharacterData" />
+    <associationConnector edgePoints="[(2.5 : 1.2957400374349); (3.7187475 : 1.2957400374349); (3.7187475 : 3)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EntropyDataContext/User/User_GameInstance" />
       <nodes>
-        <classShapeMoniker Id="b261ee35-ce2f-471e-b4c1-396d1fea4279" />
-        <classShapeMoniker Id="f34f9429-0c60-4cfd-9d65-6005bed44e6d" />
+        <classShapeMoniker Id="a445a7f6-69d7-4f3a-adfa-97af5b3fc32e" />
+        <classShapeMoniker Id="afa0a26d-0a0b-4430-8c83-3d0c76e932d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5 : 1.92484781901042); (1.5 : 3)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EntropyDataContext/User/User_ObjectTemplate" />
+      <nodes>
+        <classShapeMoniker Id="a445a7f6-69d7-4f3a-adfa-97af5b3fc32e" />
+        <classShapeMoniker Id="21467724-9bba-4344-9ee3-1fffe6143960" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

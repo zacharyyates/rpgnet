@@ -53,11 +53,11 @@ namespace YatesMorrison.RolePlay
 		public Actor EquipedTo { get; set; }
 		public Actor Owner { get; set; }
 
-		public List<string> LegalSlots
+		public List<string> LegalAreas
 		{
-			get { return m_LegalSlots; }
+			get { return m_LegalAreas; }
 		}
-		List<string> m_LegalSlots = new List<string>();
+		List<string> m_LegalAreas = new List<string>();
 		public string DefaultSlot { get; set; }
 
 		public string AspectName { get; set; }

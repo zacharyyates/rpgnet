@@ -17,7 +17,7 @@
     <AnsiWarnings>True</AnsiWarnings>
     <QuotedIdentifier>True</QuotedIdentifier>
     <DefaultSchemaForUnqualifiedObjects>dbo</DefaultSchemaForUnqualifiedObjects>
-    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <EnableFullTextSearch>False</EnableFullTextSearch>
     <EnableCLRIntegration>False</EnableCLRIntegration>
     <AutoUpdateStatisticsAsynchronously>True</AutoUpdateStatisticsAsynchronously>
     <AutoUpdateStatistics>True</AutoUpdateStatistics>
@@ -49,6 +49,39 @@
     <DefaultSchema>dbo</DefaultSchema>
     <BuildVersion>9.0.30729.1</BuildVersion>
     <RootNamespace>YatesMorrison.Entropy.Db</RootNamespace>
+    <FileGroups>
+      <FileGroupDefinitionCollection Version="1" xmlns="">
+  <FileGroups>
+    <FileGroupDefinition Name="PRIMARY" UpdatabilityOption="ReadWrite" IsDefault="True" CreationSucceed="False">
+      <Files>
+        <DatabaseFileDefinition LogicalName="PrimaryFileName" FileType="Primary">
+          <PhysicalName>%24(PrimaryFilePhysicalName)</PhysicalName>
+          <Size Number="3" SizeType="MB" />
+          <MaxSize Number="3" SizeType="MB" />
+          <FileGrowth Number="1" SizeType="MB" />
+          <EnableAutoGrowth>True</EnableAutoGrowth>
+          <UseDefaultMinSizeOnServer>True</UseDefaultMinSizeOnServer>
+          <UseDefaultAutoGrowthOnServer>True</UseDefaultAutoGrowthOnServer>
+          <Offline>False</Offline>
+        </DatabaseFileDefinition>
+      </Files>
+    </FileGroupDefinition>
+  </FileGroups>
+  <LogFiles>
+    <DatabaseFileDefinition LogicalName="PrimaryLogFileName" FileType="PrimaryLog">
+      <PhysicalName>%24(PrimaryLogFilePhysicalName)</PhysicalName>
+      <Size Number="3" SizeType="MB" />
+      <MaxSize Number="3" SizeType="MB" />
+      <FileGrowth Number="1" SizeType="MB" />
+      <EnableAutoGrowth>True</EnableAutoGrowth>
+      <UseDefaultMinSizeOnServer>True</UseDefaultMinSizeOnServer>
+      <UseDefaultAutoGrowthOnServer>True</UseDefaultAutoGrowthOnServer>
+      <Offline>False</Offline>
+    </DatabaseFileDefinition>
+  </LogFiles>
+</FileGroupDefinitionCollection>
+    </FileGroups>
+    <PreviousProjectVersion>2</PreviousProjectVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.\sql\</OutputPath>
@@ -80,6 +113,44 @@
     </FilegroupSetVariables>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Schema Objects" />
+    <Folder Include="Schema Objects\Assemblies" />
+    <Folder Include="Schema Objects\Database Triggers" />
+    <Folder Include="Schema Objects\Functions" />
+    <Folder Include="Schema Objects\Security" />
+    <Folder Include="Schema Objects\Security\Roles" />
+    <Folder Include="Schema Objects\Security\Roles\Application Roles" />
+    <Folder Include="Schema Objects\Security\Roles\Database Roles" />
+    <Folder Include="Schema Objects\Security\Schemas" />
+    <Folder Include="Schema Objects\Security\Users" />
+    <Folder Include="Schema Objects\Service Broker" />
+    <Folder Include="Schema Objects\Service Broker\Contracts" />
+    <Folder Include="Schema Objects\Service Broker\Event Notifications" />
+    <Folder Include="Schema Objects\Service Broker\Message Types" />
+    <Folder Include="Schema Objects\Service Broker\Queues" />
+    <Folder Include="Schema Objects\Service Broker\Remote Service Binding" />
+    <Folder Include="Schema Objects\Service Broker\Routes" />
+    <Folder Include="Schema Objects\Service Broker\Services" />
+    <Folder Include="Schema Objects\Storage" />
+    <Folder Include="Schema Objects\Storage\Full Text Catalogs" />
+    <Folder Include="Schema Objects\Storage\Partition Functions" />
+    <Folder Include="Schema Objects\Storage\Partition Schemes" />
+    <Folder Include="Schema Objects\Stored Procedures" />
+    <Folder Include="Schema Objects\Synonyms" />
+    <Folder Include="Schema Objects\Tables" />
+    <Folder Include="Schema Objects\Tables\Constraints" />
+    <Folder Include="Schema Objects\Tables\Indexes" />
+    <Folder Include="Schema Objects\Tables\Keys" />
+    <Folder Include="Schema Objects\Tables\Statistics" />
+    <Folder Include="Schema Objects\Tables\Triggers" />
+    <Folder Include="Schema Objects\Types" />
+    <Folder Include="Schema Objects\Types\User defined Data Types" />
+    <Folder Include="Schema Objects\Types\User defined Types CLR" />
+    <Folder Include="Schema Objects\Types\XML Schema Collections" />
+    <Folder Include="Schema Objects\Views" />
+    <Folder Include="Schema Objects\Views\Indexes" />
+    <Folder Include="Schema Objects\Views\Statistics" />
+    <Folder Include="Schema Objects\Views\Triggers" />
     <Folder Include="Scripts" />
     <Folder Include="Scripts\Pre-Deployment" />
     <Folder Include="Scripts\Post-Deployment" />
@@ -119,5 +190,55 @@
     <NotInBuild Include="Scripts\Pre-Deployment\Logins.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Scripts\ScriptsIgnoredOnImport.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\Tables\Constraints\dbo.CharacterInstance.DF_CharacterInstance_Id.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\dbo.GameInstance.DF_GameInstance_Id.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\dbo.ObjectTemplate.DF_ObjectTemplate_Id.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\dbo.CharacterInstance.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\dbo.GameInstance.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\dbo.ObjectTemplate.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\dbo.User.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.CharacterInstance.FK_CharacterData_User.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.CharacterInstance.FK_Character_Game.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.CharacterInstance.PK_Character.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.GameInstance.FK_GameInstance_User.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.GameInstance.PK_Game.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.ObjectTemplate.FK_ObjectTemplate_User.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.ObjectTemplate.PK_CharacterTemplate.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.User.PK_User.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
   </ItemGroup>
 </Project>

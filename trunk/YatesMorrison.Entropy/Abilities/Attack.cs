@@ -14,6 +14,7 @@ namespace YatesMorrison.Entropy
 		public Attack(string name, string abbreviation, string description) : base(name, abbreviation, description) { }
 
 		public Weapon Weapon { get; set; }
+		public string Area { get; set; }
 
 		/// <summary>
 		/// The Initiator's score in the ability required to use the weapon
@@ -59,7 +60,7 @@ namespace YatesMorrison.Entropy
 		}
 		protected virtual Armor Armor
 		{
-			get { return Target.GetEquipmentBySlot("Torso") as Armor; }
+			get { return Target.GetEquipmentByArea(Area) as Armor; }
 		}
 
 		public override void Use()
@@ -72,9 +73,8 @@ namespace YatesMorrison.Entropy
 					Damage d = Weapon.Use() as Damage;
 					if (d != null)
 					{
-						d.Area = "Torso";
+						d.Area = Area;
 						Target.Take(d); // damage the target
-
 					}
 					// todo: add a critical hit calculation
 				}
