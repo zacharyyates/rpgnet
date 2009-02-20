@@ -8,9 +8,9 @@ namespace YatesMorrison.Entropy.Web.Controllers
 	using System.Linq;
 	using System.Web.Mvc;
 	using YatesMorrison.Entropy.Data;
-	using YatesMorrison.IO;
 	using YatesMorrison.Linq;
 	using YatesMorrison.RolePlay;
+	using YatesMorrison.IO;
 
 	[HandleError]
 	public class CharacterController : Controller
@@ -20,9 +20,9 @@ namespace YatesMorrison.Entropy.Web.Controllers
 			if (id.HasValue)
 			{
 				Character character = null;
-				using (EntropyDataContext dc = new EntropyDataContext())
+				using (var repository = MvcApplication.RepositoryFactory.Create<CharacterInstance>())
 				{
-					var charData = dc.CharacterDatas.Single(c => c.Id == id.Value);
+					var charData = repository.Single(c => c.Id == id.Value);
 					character = charData.Data.Decompress().ToInstance<Character>();
 				}
 				return View(character);
@@ -35,17 +35,16 @@ namespace YatesMorrison.Entropy.Web.Controllers
 			Character character = CharacterFactory.Create();
 			character.Name = "New Character";
 
-			CharacterData charData = new CharacterData();
-			charData.Id = Guid.NewGuid();
-			charData.Name = character.Name;
-			charData.Data = character.ToBinary().Compress();
-	
-			using (EntropyDataContext dc = new EntropyDataContext())
+			using (var repository = MvcApplication.RepositoryFactory.Create<CharacterInstance>())
 			{
-				dc.CharacterDatas.InsertOnSubmit(charData);
-				dc.SubmitChanges();
+				var charInstance = repository.Create();
+				charInstance.Id = Guid.NewGuid();
+				charInstance.Name = character.Name;
+				charInstance.Data = character.ToBinary().Compress();
+				
+				repository.SubmitChanges();
+				return RedirectToAction("Index", new { id = charInstance.Id });
 			}
-			return RedirectToAction("Index", new { id = charData.Id });
 		}
 
 		[AcceptVerbs("GET")]
@@ -54,10 +53,10 @@ namespace YatesMorrison.Entropy.Web.Controllers
 			if (id.HasValue)
 			{
 				Character character = null;
-				using (EntropyDataContext dc = new EntropyDataContext())
+				using (var repository = MvcApplication.RepositoryFactory.Create<CharacterInstance>())
 				{
-					var charData = dc.CharacterDatas.Single(c => c.Id == id.Value);
-					character = charData.Data.Decompress().ToInstance<Character>();
+					var charInstance = repository.Single(c => c.Id == id.Value);
+					character = charInstance.Data.Decompress().ToInstance<Character>();
 				}
 				return View(character);
 			}

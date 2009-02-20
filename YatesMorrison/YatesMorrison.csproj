@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -51,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\LinqToSqlRepository.cs" />
+    <Compile Include="Data\LinqToSqlRepositoryFactory.cs" />
+    <Compile Include="Data\RespositoryFactory.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Functional\Union.cs" />
     <Compile Include="IChildOf.cs" />
