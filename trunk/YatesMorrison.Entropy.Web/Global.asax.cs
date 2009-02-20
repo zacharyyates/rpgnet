@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using YatesMorrison.Data;
 
 namespace YatesMorrison.Entropy.Web
 {
@@ -28,5 +29,11 @@ namespace YatesMorrison.Entropy.Web
 		{
 			RegisterRoutes(RouteTable.Routes);
 		}
+
+		public static IRepositoryFactory RepositoryFactory
+		{
+			get { return s_RepositoryFactory; }
+		}
+		static IRepositoryFactory s_RepositoryFactory = new LinqToSqlRepositoryFactory();
 	}
 }
