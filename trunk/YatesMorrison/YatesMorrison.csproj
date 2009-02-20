@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Repository.cs" />
     <Compile Include="Functional\Union.cs" />
     <Compile Include="IChildOf.cs" />
     <Compile Include="IO\BinarySerializationExtensions.cs" />
