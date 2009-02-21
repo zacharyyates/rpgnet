@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4B24B029-E580-4A68-BE21-4C43C70E9EC8}</ProjectGuid>
+    <ProjectGuid>{E33FD5B0-3F34-4AB1-BEF1-796EB9EF398A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YatesMorrison</RootNamespace>
-    <AssemblyName>YatesMorrison</AssemblyName>
+    <RootNamespace>YatesMorrison.Web.Mvc</RootNamespace>
+    <AssemblyName>YatesMorrison.Web.Mvc</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,52 +32,57 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.Linq">
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Runtime.Serialization">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\LinqToSqlRepository.cs" />
-    <Compile Include="Data\LinqToSqlRepositoryFactory.cs" />
-    <Compile Include="Data\RespositoryFactory.cs" />
-    <Compile Include="Data\Repository.cs" />
-    <Compile Include="Functional\Union.cs" />
-    <Compile Include="IChildOf.cs" />
-    <Compile Include="IDictionaryExtensions.cs" />
-    <Compile Include="IO\BinarySerializationExtensions.cs" />
-    <Compile Include="Code\CompilerExtensions.cs" />
-    <Compile Include="IO\CompressionExtensions.cs" />
-    <Compile Include="Linq\BinaryExtensions.cs" />
-    <Compile Include="Math\MathExtensions.cs" />
+    <Compile Include="HtmlHelperExtensions.cs" />
+    <Compile Include="InputType.cs" />
+    <Compile Include="InvalidInputTypeExcetion.cs" />
+    <Compile Include="InvalidScriptTypeException.cs" />
+    <Compile Include="ModelStateDictionaryExtensions.cs" />
+    <Compile Include="MvcActionLink.cs" />
+    <Compile Include="MvcBeginForm.cs" />
+    <Compile Include="MvcCheckBox.cs" />
+    <Compile Include="MvcControl.cs" />
+    <Compile Include="MvcControlHelper.cs" />
+    <Compile Include="MvcEndForm.cs" />
+    <Compile Include="MvcEventAttributes.cs" />
+    <Compile Include="MvcExternalScript.cs" />
+    <Compile Include="MvcHidden.cs" />
+    <Compile Include="MvcInput.cs" />
+    <Compile Include="MvcLabel.cs" />
+    <Compile Include="MvcLink.cs" />
+    <Compile Include="MvcPassword.cs" />
+    <Compile Include="MvcRadioButton.cs" />
+    <Compile Include="MvcRouteLink.cs" />
+    <Compile Include="MvcScript.cs" />
+    <Compile Include="MvcSubmitButton.cs" />
+    <Compile Include="MvcTextArea.cs" />
+    <Compile Include="MvcTextBox.cs" />
+    <Compile Include="MvcValidationMessage.cs" />
+    <Compile Include="MvcValidationSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\ICheckBoxControl.cs" />
-    <Compile Include="UI\IControl.cs" />
-    <Compile Include="UI\IControlFactory.cs" />
-    <Compile Include="UI\IDateTimeControl.cs" />
-    <Compile Include="UI\IRenderingManager.cs" />
-    <Compile Include="UI\IListControl.cs" />
-    <Compile Include="UI\IScaffoldingManager.cs" />
-    <Compile Include="UI\ITextControl.cs" />
-    <Compile Include="StringExtensions.cs" />
-    <Compile Include="UI\IValueControl.cs" />
-    <Compile Include="UI\IButtonControl.cs" />
-    <Compile Include="UI\ReflectionScaffoldingManager.cs" />
-    <Compile Include="Xml\XmlExtensions.cs" />
+    <Compile Include="ScriptType.cs" />
+    <Compile Include="UrlHelperExtensions.cs" />
+    <Compile Include="ViewDataExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YatesMorrison\YatesMorrison.csproj">
+      <Project>{4B24B029-E580-4A68-BE21-4C43C70E9EC8}</Project>
+      <Name>YatesMorrison</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
