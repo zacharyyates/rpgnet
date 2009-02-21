@@ -67,6 +67,7 @@
     <Compile Include="MvcLink.cs" />
     <Compile Include="MvcPassword.cs" />
     <Compile Include="MvcRadioButton.cs" />
+    <Compile Include="MvcRenderingManager.cs" />
     <Compile Include="MvcRouteLink.cs" />
     <Compile Include="MvcScript.cs" />
     <Compile Include="MvcSubmitButton.cs" />

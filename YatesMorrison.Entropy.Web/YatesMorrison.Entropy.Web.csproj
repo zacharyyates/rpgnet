@@ -76,10 +76,13 @@
     <Compile Include="Controllers\CombatController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\WeaponController.cs" />
+    <Compile Include="Controllers\ObjectController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -148,6 +151,13 @@
     <Compile Include="Views\Home\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Object\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Object\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shared\Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -176,6 +186,7 @@
     <Content Include="Views\Character\Edit.aspx" />
     <Content Include="Views\Character\Index.aspx" />
     <Content Include="Views\Combat\Test.aspx" />
+    <Content Include="Views\Object\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.2.6.js" />
@@ -207,6 +218,10 @@
     <ProjectReference Include="..\YatesMorrison.RolePlay\YatesMorrison.RolePlay.csproj">
       <Project>{DDCF1C5C-FF81-4A68-A2E7-8475256E7C13}</Project>
       <Name>YatesMorrison.RolePlay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YatesMorrison.Web.Mvc\YatesMorrison.Web.Mvc.csproj">
+      <Project>{E33FD5B0-3F34-4AB1-BEF1-796EB9EF398A}</Project>
+      <Name>YatesMorrison.Web.Mvc</Name>
     </ProjectReference>
     <ProjectReference Include="..\YatesMorrison\YatesMorrison.csproj">
       <Project>{4B24B029-E580-4A68-BE21-4C43C70E9EC8}</Project>
