@@ -11,6 +11,7 @@ namespace YatesMorrison.Web.Mvc
 	{
 		public IControl Create(Type type, string name)
 		{
+			if (type == null) { throw new ArgumentNullException("type"); }
 			switch (type.Name)
 			{
 				case "IButtonControl":		return null;

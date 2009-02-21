@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using YatesMorrison.Data;
-
-namespace YatesMorrison.Entropy.Web
+﻿namespace YatesMorrison.Entropy.Web
 {
+	using System.Web.Mvc;
+	using System.Web.Routing;
+	using YatesMorrison.Data;
+	using YatesMorrison.UI;
+	using YatesMorrison.Web.Mvc;
+	using System;
+
 	// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
 	// visit http://go.microsoft.com/?LinkId=9394801
 
@@ -35,5 +34,26 @@ namespace YatesMorrison.Entropy.Web
 			get { return s_RepositoryFactory; }
 		}
 		static IRepositoryFactory s_RepositoryFactory = new LinqToSqlRepositoryFactory();
+
+		public static IScaffoldingManager GetScaffoldingManager<T>()
+		{
+			return new ReflectionScaffoldingManager(typeof(T), ControlFactory);
+		} // todo: create a factory for the ScaffoldingManager paradigm?
+		public static IScaffoldingManager GetScaffoldingManager(Type type)
+		{
+			if (type == null) { throw new ArgumentNullException("type"); }
+			return new ReflectionScaffoldingManager(type, ControlFactory);
+		}
+		public static IScaffoldingManager GetScaffoldingManager(string typeName)
+		{
+			if (string.IsNullOrEmpty(typeName)) { throw new ArgumentNullException("typeName"); }
+			return new ReflectionScaffoldingManager(Type.GetType(typeName), ControlFactory);
+		}
+
+		public static IControlFactory ControlFactory
+		{
+			get { return s_ControlFactory; }
+		}
+		static IControlFactory s_ControlFactory = new MvcControlFactory();
 	}
 }

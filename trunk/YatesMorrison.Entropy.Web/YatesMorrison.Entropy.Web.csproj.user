@@ -6,8 +6,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <StartPageUrl>
-          </StartPageUrl>
+          <StartPageUrl>Views/Object/Index.aspx</StartPageUrl>
           <StartAction>URL</StartAction>
           <AspNetDebugging>True</AspNetDebugging>
           <NativeDebugging>False</NativeDebugging>
@@ -18,7 +17,7 @@
           <PublishCopyAppData>False</PublishCopyAppData>
           <ExternalProgram>
           </ExternalProgram>
-          <StartExternalURL>http://localhost:1380/Combat/Test</StartExternalURL>
+          <StartExternalURL>http://localhost:1380/Object/Index</StartExternalURL>
           <StartCmdLineArguments>
           </StartCmdLineArguments>
           <StartWorkingDirectory>

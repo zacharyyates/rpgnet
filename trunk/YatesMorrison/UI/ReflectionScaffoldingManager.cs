@@ -25,12 +25,13 @@ namespace YatesMorrison.UI
 		{
 			List<IControl> controls = new List<IControl>();
 			// build a list of controls based on the public properties of m_Type
-			var properties = m_Type.GetProperties(BindingFlags.Public);
+			var properties = m_Type.GetProperties();
 			foreach (var property in properties)
 			{
-				var control = m_ControlFactory.Create(GetControlType(property.PropertyType), property.Name); // todo: use another identifier for IControlFactory.Create()?
-				if (control != null)
+				var controlType = GetControlType(property.PropertyType);
+				if (controlType != null)
 				{
+					var control = m_ControlFactory.Create(controlType, property.Name);
 					// todo: add more control initialization based on custom attributes on the entity?
 					controls.Add(control);
 				}
