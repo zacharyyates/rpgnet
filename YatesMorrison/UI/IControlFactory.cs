@@ -8,7 +8,7 @@ namespace YatesMorrison.UI
 
 	public interface IControlFactory
 	{
-		IControl Create(Type type);
-		T Create<T>() where T : IControl;
+		IControl Create(Type type, string name);
+		T Create<T>(string name) where T : class, IControl, new();
 	}
 }

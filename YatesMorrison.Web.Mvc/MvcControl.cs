@@ -13,8 +13,9 @@ namespace YatesMorrison.Web.Mvc
 	using System.Web;
 	using System.Web.Mvc;
 	using System.Web.Routing;
+	using YatesMorrison.UI;
 
-	public abstract class MvcControl
+	public abstract class MvcControl : IControl
 	{
 		// These attributes are merged in GetTagBuilder() after HtmlAttributes.
 		// This means that any custom settings are preserved.
@@ -134,7 +135,7 @@ namespace YatesMorrison.Web.Mvc
 
 			StringBuilder html = new StringBuilder();
 
-			Initialise(viewContext);
+			Initialize(viewContext);
 
 			TagBuilder tagBuilder = GetTagBuilder();
 
@@ -149,7 +150,7 @@ namespace YatesMorrison.Web.Mvc
 		}
 
 		// Override if the control needs access to the ViewContext.
-		protected virtual void Initialise(ViewContext viewContext) { }
+		protected virtual void Initialize(ViewContext viewContext) { }
 
 		// Override if the control needs to render some custom HTML (e.g. MvcCheckBox).
 		protected virtual void RenderHtml(StringWriter writer, ViewContext viewContext) { }

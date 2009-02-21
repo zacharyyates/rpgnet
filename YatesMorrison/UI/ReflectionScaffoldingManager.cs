@@ -28,10 +28,10 @@ namespace YatesMorrison.UI
 			var properties = m_Type.GetProperties(BindingFlags.Public);
 			foreach (var property in properties)
 			{
-				var control = m_ControlFactory.Create(GetControlType(property.PropertyType)); // todo: use another identifier for IControlFactory.Create()?
+				var control = m_ControlFactory.Create(GetControlType(property.PropertyType), property.Name); // todo: use another identifier for IControlFactory.Create()?
 				if (control != null)
 				{
-					control.Field = property.Name; // todo: add more control initialization based on custom attributes on the entity?
+					// todo: add more control initialization based on custom attributes on the entity?
 					controls.Add(control);
 				}
 			}

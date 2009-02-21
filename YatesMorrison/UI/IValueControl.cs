@@ -6,6 +6,7 @@ namespace YatesMorrison.UI
 {
 	public interface IValueControl : IControl
 	{
-		bool ValueChanged { get; set; }
+		//bool ValueChanged { get; set; }
+		// todo: enable this later? if there is a compelling reason to
 	}
 }

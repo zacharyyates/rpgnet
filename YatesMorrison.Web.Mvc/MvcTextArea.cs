@@ -26,7 +26,7 @@ namespace YatesMorrison.Web.Mvc
 
 		#region MvcControl Members
 
-		protected override void Initialise(ViewContext viewContext)
+		protected override void Initialize(ViewContext viewContext)
 		{
 			if (viewContext == null)
 			{

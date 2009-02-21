@@ -14,7 +14,7 @@ namespace YatesMorrison.Web.Mvc
 	{
 		#region MvcControlBuilder Members
 
-		protected override void Initialise(ViewContext viewContext)
+		protected override void Initialize(ViewContext viewContext)
 		{
 			UrlHelper urlHelper = new UrlHelper(new RequestContext(viewContext.HttpContext, viewContext.RouteData));
 			Attributes.Merge("href", urlHelper.GenerateUrl(null /* routeName */, ActionName, ControllerName, Protocol, HostName, Fragment, new RouteValueDictionary(Values)));
