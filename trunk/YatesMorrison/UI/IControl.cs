@@ -8,11 +8,11 @@ namespace YatesMorrison.UI
 
 	public interface IControl
 	{
-		string Name { get; set; }
-		string Field { get; set; }
-		bool IsEnabled { get; set; }
-		bool IsVisible { get; set; }
+		string ID { get; set; }
+		// todo: are these necessary?
+		//bool IsEnabled { get; set; }
+		//bool IsVisible { get; set; }
 
-		IList<IControl> Controls { get; }
+		//IList<IControl> Controls { get; }
 	}
 }

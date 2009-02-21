@@ -8,8 +8,9 @@ namespace YatesMorrison.Web.Mvc
 {
 	using System.IO;
 	using System.Web.Mvc;
+	using YatesMorrison.UI;
 
-	public class MvcCheckBox : MvcInput
+	public class MvcCheckBox : MvcInput, ICheckBoxControl
 	{
 		#region MvcControl Members
 
@@ -46,5 +47,15 @@ namespace YatesMorrison.Web.Mvc
 			// Use caution when overriding Value.
 			Value = "true";
 		}
+
+		#region ICheckBoxControl Members
+
+		bool ICheckBoxControl.Value
+		{
+			get { return true; }
+			set { Checked = value; }
+		}
+
+		#endregion
 	}
 }

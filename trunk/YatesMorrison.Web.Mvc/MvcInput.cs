@@ -13,7 +13,7 @@ namespace YatesMorrison.Web.Mvc
 	{
 		#region MvcControlBuilder Members
 
-		protected override void Initialise(ViewContext viewContext)
+		protected override void Initialize(ViewContext viewContext)
 		{
 			if (viewContext == null) { throw new ArgumentNullException("viewContext"); }
 			ViewDataDictionary viewData = viewContext.ViewData;
@@ -106,13 +106,9 @@ namespace YatesMorrison.Web.Mvc
 		public MvcInput(InputType type, string name)
 			: base("input", TagRenderMode.SelfClosing)
 		{
-			if (string.IsNullOrEmpty(name))
-			{
-				throw new ArgumentException("Value cannot be null or empty.", "name");
-			}
-
+			if (string.IsNullOrEmpty(name)) { throw new ArgumentException("Value cannot be null or empty.", "name"); }
 			Type = type;
-
+			
 			// Don't set the "id" attribute for certain controls because 2 or more could share the same name (e.g. radio buttons).
 			if (IsIDRequired)
 			{

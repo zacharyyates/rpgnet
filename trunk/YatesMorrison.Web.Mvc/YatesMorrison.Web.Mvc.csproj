@@ -56,6 +56,7 @@
     <Compile Include="MvcBeginForm.cs" />
     <Compile Include="MvcCheckBox.cs" />
     <Compile Include="MvcControl.cs" />
+    <Compile Include="MvcControlFactory.cs" />
     <Compile Include="MvcControlHelper.cs" />
     <Compile Include="MvcEndForm.cs" />
     <Compile Include="MvcEventAttributes.cs" />

@@ -9,8 +9,9 @@ namespace YatesMorrison.Web.Mvc
 	using System;
 	using System.IO;
 	using System.Web.Mvc;
+	using YatesMorrison.UI;
 
-	public class MvcTextBox : MvcInput
+	public class MvcTextBox : MvcInput, ITextControl
 	{
 		#region MvcControlBuilder Members
 
@@ -54,5 +55,15 @@ namespace YatesMorrison.Web.Mvc
 		{
 			WatermarkedCssClass = "input-watermarked";
 		}
+
+		#region ITextControl Members
+
+		public string Text
+		{
+			get { return string.Empty; } // todo: revisit this later, will we ever need to get values from MVC controls? probably not
+			set { Value = value; }
+		}
+
+		#endregion
 	}
 }
