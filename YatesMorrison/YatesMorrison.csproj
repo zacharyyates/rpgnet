@@ -69,6 +69,7 @@
     <Compile Include="UI\IControl.cs" />
     <Compile Include="UI\IControlFactory.cs" />
     <Compile Include="UI\IDateTimeControl.cs" />
+    <Compile Include="UI\ILayoutManager.cs" />
     <Compile Include="UI\IRenderingManager.cs" />
     <Compile Include="UI\IListControl.cs" />
     <Compile Include="UI\IScaffoldingManager.cs" />
