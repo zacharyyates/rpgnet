@@ -6,7 +6,9 @@
  */
 namespace YatesMorrison.Web.Mvc
 {
-	public class MvcSubmitButton : MvcInput
+	using YatesMorrison.UI;
+
+	public class MvcSubmitButton : MvcInput, IButtonControl
 	{
 		public object Value
 		{
@@ -15,5 +17,15 @@ namespace YatesMorrison.Web.Mvc
 
 		public MvcSubmitButton(string name)
 			: base(InputType.Submit, name) { }
+
+		#region IButtonControl Members
+
+		public string Text
+		{
+			get { return Attributes["value"]; }
+			set { Value = value; }
+		}
+
+		#endregion
 	}
 }
