@@ -11,6 +11,6 @@ namespace YatesMorrison.UI
 	/// </summary>
 	public interface ILayoutManager
 	{
-			
+		
 	}
 }
